@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+  <script data-require="bootstrap@*" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+  <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  
+  <link rel="stylesheet" href="style-tree.css" />
+  
+  <link rel="stylesheet" href="nestable.css" />
+  
+  <script src="script-tree-edit.js"></script>
+  
+  <script src="nestable.js"></script>
+  <script src="page-nestable.js"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    
+    <h1>View Document</h1>
+
+
+    <div class="panel panel-default tree">
+      <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">Doing Business With Fannie Mae</h3>
+      </div>
+      <div class="panel-body">
+        <div class="tree-body">
+        
+          <ul>
+            <li>
+              <span class="leaf-content">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> <strong>Doing Business With Fannie Mae</strong>
+                    <div class="btn-group pull-right">
+                      <button type="button" class="btn btn-default btn-xs">Add child</button>
+                      <button type="button" class="btn btn-default btn-xs">Edit</button>
+                      <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </span>
+        
+              <ul>
+                <li>
+                  <span class="leaf-content">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> A1: Approval Qualification
+                       
+                      </div>
+                    </div>
+                  </span>
+                  <ul>
+                    <li>
+                      <span class="leaf-content">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> A1.1: Application and Approval of Leader
+                           
+                          </div>
+                        </div>
+                      </span>
+                      <ul>
+                        <li>
+                          <span class="leaf-content">
+                            <div class="panel panel-default">
+                              <div class="panel-body">
+                                <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> A1.1.1: Application and Approval of Lender
+                              </div>
+                            </div>
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <span class="leaf-content">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> A1.2: Lender Contract
+                           
+                          </div>
+                        </div>
+                      </span>
+                      
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <span class="leaf-content">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> A2: Getting Started with Fannie Mae
+                        
+                      </div>
+                    </div>
+                  </span>
+                  <ul>
+                    <li>
+                      <span class="leaf-content">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <span class="dropdown-icon glyphicon glyphicon-minus-sign"></span> A2.1: Fannie Mae’s Technology Products
+                           
+                          </div>
+                        </div>
+                      </span>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  <div class="hierarchy">
+    
+    <div class="dd">
+      
+      <ol class="dd-list">
+        <li class="dd-item" data-id="1">
+          <div class="panel panel-default dd-handle">
+            <div class="panel-body">
+              <span class="list-text">Item 1</span>
+            </div>
+          </div>
+          <ol class="dd-list">
+            <li class="dd-item" data-id="2">
+              <div class="panel panel-default dd-handle">
+                <div class="panel-body">
+                  <span class="list-text">Item 1</span>
+                </div>
+              </div>
+              <ol class="dd-list">
+                <li class="dd-item" data-id="3">
+                  <div class="panel panel-default dd-handle">
+                    <div class="panel-body">
+                      <span class="list-text">Item 1</span>
+                    </div>
+                  </div>
+                  <ol class="dd-list">
+                    <li class="dd-item" data-id="4">
+                      <div class="panel panel-default dd-handle">
+                        <div class="panel-body">
+                          <span class="list-text">Item 1</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+                <li class="dd-item" data-id="5">
+                  <div class="panel panel-default dd-handle">
+                    <div class="panel-body">
+                      <span class="list-text">Item 1</span>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </li>
+            <li class="dd-item" data-id="6">
+              <div class="panel panel-default dd-handle">
+                <div class="panel-body">
+                  <span class="list-text">Item 1</span>
+                </div>
+              </div>
+              <ol class="dd-list">
+                <li class="dd-item" data-id="7">
+                  <div class="panel panel-default dd-handle">
+                    <div class="panel-body">
+                      <span class="list-text">Item 1</span>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      
+    </div>
+    
+  </div>
+    
+    
+  </div>
+  <!--container-->
+
+
+
+</body>
+
+</html>

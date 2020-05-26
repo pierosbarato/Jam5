@@ -1,0 +1,177 @@
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title>Nest</title>
+<!--
+<link rel="stylesheet" href="nest.css">
+<link rel="stylesheet" href="main.css">
+ -->
+<link rel="stylesheet" href="nest4.css">
+</head>
+<body>
+
+    <menu id="nestable-menu2">
+        <button type="button" data-action="expand-all">Expand All</button>
+        <button type="button" data-action="collapse-all">Collapse All</button>
+        <button type="button" data-action="add-new-row">Add Row</button>
+    </menu>
+
+    <div class="cf nestable-lists">
+
+        <div class="dd" id="nestable3">
+            <ol class="dd-list">
+                <li class="dd-item dd3-item" data-id="1">
+                    <div class="dd-handle dd3-handle">Drag</div>
+                    <div class="dd3-content">
+                        <input type="text" placeholder="Text" value="Item 1" class="inputField">
+                        <a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>
+                        <a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>
+                        <a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>
+                    </div>
+                </li>
+                <li class="dd-item dd3-item" data-id="2">
+                    <div class="dd-handle dd3-handle">Drag</div>
+                    <div class="dd3-content">
+                        <input type="text" placeholder="Text" value="Item 2" class="inputField">
+                        <a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>
+                        <a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>
+                        <a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>
+                    </div>
+                </li>
+                <li class="dd-item dd3-item" data-id="3">
+
+                    <div class="dd-handle dd3-handle">Drag</div>
+                    <div class="dd3-content">
+                        <input type="text" placeholder="Text" value="Item 3" class="inputField">
+                        <a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>
+                        <a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>
+                        <a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>
+                    </div>
+
+                    <ol class="dd-list">
+                        <li class="dd-item dd3-item" data-id="4">
+                            <div class="dd-handle dd3-handle">Drag</div>
+                            <div class="dd3-content">
+                                <input type="text" placeholder="Text" value="Item 4" class="inputField">
+                                <a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>
+                                <a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>
+                                <a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>
+                            </div>
+                        </li>
+                        <li class="dd-item dd3-item" data-id="5">
+                            <div class="dd-handle dd3-handle">Drag</div>
+                            <div class="dd3-content">
+                                <input type="text" placeholder="Text" value="Item 5" class="inputField">
+                                <a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>
+                                <a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>
+                                <a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>
+                            </div>
+                        </li>
+                        <li class="dd-item dd3-item" data-id="6">
+                            <div class="dd-handle dd3-handle">Drag</div>
+                            <div class="dd3-content">
+                                <input type="text" placeholder="Text" value="Item 6" class="inputField">
+                                <a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>
+                                <a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>
+                                <a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>
+                            </div>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+    <p><strong>Output</strong></p>
+
+    <textarea id="nestable3-output"></textarea>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="nest4.js"></script>
+<script>
+
+    $(document).ready(function()
+    {
+
+        var updateOutput = function(e)
+        {
+            var list   = e.length ? e : $(e.target),
+                output = list.data('output');
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+
+        var updateOutputCustom = function(e) {
+            var list   = e.length ? e : $(e.target),
+                output = list.data('output');
+            
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serializeText')));//, null, 2));
+
+                //Use code below instead of above to get id'z with text inputs
+
+                /*output.val(window.JSON.stringify(list.nestable('serializeWithText')));*/
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+
+        $('#nestable3').nestable().on('change', function() {
+            updateOutputCustom($('#nestable3').data('output', $('#nestable3-output')));
+
+            $('.inputField').off();
+
+            $('.inputField').on('focusout',function() {
+                $('#nestable3').trigger("change");
+            });
+        });
+
+        // output initial serialised data
+        updateOutputCustom($('#nestable3').data('output', $('#nestable3-output')));
+
+        var addNewRow =  function(nestableId) {
+
+            var list = $(nestableId).nestable();
+            
+            var idValue = parseInt($(nestableId+' ol > li').length) + 1;
+
+            var rowHtml = "";
+
+            rowHtml = '<li class="dd-item dd3-item" data-id="'+idValue+'">'+
+                        '<div class="dd-handle dd3-handle">&nbsp;</div>'+
+                        '<div class="dd3-content">'+
+                            '<input type="text" placeholder="Text" class="inputField">'+
+                            '<a title="Remove Row" class="removeButton pull-right" data-action="removeRow">X</a>'+
+                            '<a title="Add Row Above" class="arrow-up pull-right" data-action="addRowAbove"></a>'+
+                            '<a title="Add Row Below" class="arrow-down pull-right" data-action="addRowBelow"></a>'+
+                        '</div>'+
+                      '</li>';
+
+            rowHtml = $(rowHtml);
+
+            $(nestableId+" > ol").append(rowHtml);
+            $(nestableId).trigger("change");
+        };
+
+        $('#nestable-menu2').on('click', function(e) {
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('#nestable3').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('#nestable3').nestable('collapseAll');
+            }
+            if (action === 'add-new-row') {
+                addNewRow('#nestable3');
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

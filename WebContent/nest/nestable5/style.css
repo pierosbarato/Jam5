@@ -1,0 +1,58 @@
+/* Styles go here */
+
+body {
+  margin-top: 50px;
+}
+.delete-modal .modal-header {
+  color: #D9534F;
+}
+/*
+.delete-modal .modal-header {
+  background-color:#D9534F;
+  color:white;
+}
+*/
+
+.edit-btn {
+  margin: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.body-frame {
+  margin: 0px;
+}
+.title {
+  padding-right: 50px;
+}
+.view-checkbox {
+  display: inline;
+}
+.back {
+  margin: 20px;
+}
+.saved-message {
+  color: green;
+  font-size: 90%;
+  font-weight: bold;
+  margin-left: 10px;
+  display: none;
+}
+.remove-filter {
+  color: red;
+}
+.add-filter {
+  color: green;
+}
+#toggle {
+  margin: 0px;
+}
+#filters {
+  margin-left: 20px;
+  color: #999;
+}
+.expBtn,
+.colBtn {
+  padding: 0px;
+  margin: 0px;
+  background:transparent;
+}

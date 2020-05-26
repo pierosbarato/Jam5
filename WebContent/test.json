@@ -1,0 +1,2748 @@
+{
+	"env": {
+		"defaultTimeZone": "Europe/Rome"
+	},
+	"items": [
+		{
+			"statementId": 1,
+			"statementType": "query",
+			"statementPos": {
+				"startLine": 1,
+				"endLine": 1
+			},
+			"statementText": "select * from anam where ROWNUM <= 1",
+			"resultSet": {
+				"metadata": [
+					{
+						"columnName": "CATEG_MERC",
+						"jsonColumnName": "categ_merc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 4,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "C_COSTO",
+						"jsonColumnName": "c_costo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 10,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CLASSE_SCONTO",
+						"jsonColumnName": "classe_sconto",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_ARTICOLO",
+						"jsonColumnName": "cod_articolo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_CONTO",
+						"jsonColumnName": "cod_conto",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_CONTO_2",
+						"jsonColumnName": "cod_conto_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_FORNIT",
+						"jsonColumnName": "cod_fornit",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_RICARICO",
+						"jsonColumnName": "cod_ricarico",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_BARRE",
+						"jsonColumnName": "cod_barre",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_DITTA",
+						"jsonColumnName": "cod_ditta",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_IVA",
+						"jsonColumnName": "cod_iva",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_STAT",
+						"jsonColumnName": "cod_stat",
+						"columnTypeName": "VARCHAR2",
+						"precision": 4,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CODICE_2",
+						"jsonColumnName": "codice_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_ULTIMO",
+						"jsonColumnName": "costo_ultimo",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_INS_MOD",
+						"jsonColumnName": "data_ins_mod",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DESCRIZIONE",
+						"jsonColumnName": "descrizione",
+						"columnTypeName": "VARCHAR2",
+						"precision": 50,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FAT_CONV_2_1",
+						"jsonColumnName": "fat_conv_2_1",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LOTTO_RIO",
+						"jsonColumnName": "lotto_rio",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MINUT_MAN_OP",
+						"jsonColumnName": "minut_man_op",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MOB_ANNO",
+						"jsonColumnName": "mob_anno",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MOB2_ANNO",
+						"jsonColumnName": "mob2_anno",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DISP_ORD",
+						"jsonColumnName": "disp_ord",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MARCA_UTIF",
+						"jsonColumnName": "marca_utif",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "POSIZIONE",
+						"jsonColumnName": "posizione",
+						"columnTypeName": "VARCHAR2",
+						"precision": 12,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_01",
+						"jsonColumnName": "prezzo_01",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_02",
+						"jsonColumnName": "prezzo_02",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_03",
+						"jsonColumnName": "prezzo_03",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_04",
+						"jsonColumnName": "prezzo_04",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_05",
+						"jsonColumnName": "prezzo_05",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_PR_NETTO",
+						"jsonColumnName": "fl_pr_netto",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "QUALIT_MAN_OP",
+						"jsonColumnName": "qualit_man_op",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCONTO_1",
+						"jsonColumnName": "sconto_1",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCONTO_2",
+						"jsonColumnName": "sconto_2",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCONTO_3",
+						"jsonColumnName": "sconto_3",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCORTA_MAX",
+						"jsonColumnName": "scorta_max",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCORTA_MIN",
+						"jsonColumnName": "scorta_min",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SOSTIT_DAL",
+						"jsonColumnName": "sostit_dal",
+						"columnTypeName": "VARCHAR2",
+						"precision": 25,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SOSTIT_IL",
+						"jsonColumnName": "sostit_il",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SOSTIT2_IL",
+						"jsonColumnName": "sostit2_il",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_INTERC",
+						"jsonColumnName": "tipo_interc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_RICAMBIO",
+						"jsonColumnName": "tipo_ricambio",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_MAN_OP",
+						"jsonColumnName": "tipo_man_op",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_CODICE",
+						"jsonColumnName": "tipo_codice",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_STAMPA",
+						"jsonColumnName": "fl_stampa",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "N_LITRI",
+						"jsonColumnName": "n_litri",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PESO_NETTO",
+						"jsonColumnName": "peso_netto",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PESO_LORDO",
+						"jsonColumnName": "peso_lordo",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_PESO_FISSO",
+						"jsonColumnName": "fl_peso_fisso",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PERC_PRV",
+						"jsonColumnName": "perc_prv",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCAGL_PRV",
+						"jsonColumnName": "scagl_prv",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PRV_LIT",
+						"jsonColumnName": "prv_lit",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_STAND",
+						"jsonColumnName": "costo_stand",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MLINEA",
+						"jsonColumnName": "mlinea",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SPESSO",
+						"jsonColumnName": "spesso",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MTRASV",
+						"jsonColumnName": "mtrasv",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_CALC",
+						"jsonColumnName": "tipo_calc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "IMBALLO_UNIT",
+						"jsonColumnName": "imballo_unit",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SEZIONE_TOT",
+						"jsonColumnName": "sezione_tot",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_VALIDITA",
+						"jsonColumnName": "data_validita",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UNIMIS_2",
+						"jsonColumnName": "unimis_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UNIMIS",
+						"jsonColumnName": "unimis",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_0C",
+						"jsonColumnName": "prezzo_0c",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_09",
+						"jsonColumnName": "prezzo_09",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MOB_ANNO_PRIMA",
+						"jsonColumnName": "mob_anno_prima",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "NOTE_1",
+						"jsonColumnName": "note_1",
+						"columnTypeName": "VARCHAR2",
+						"precision": 100,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BLOC_LIST",
+						"jsonColumnName": "bloc_list",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "NUOVA_SK",
+						"jsonColumnName": "nuova_sk",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_MAGDIN",
+						"jsonColumnName": "cod_magdin",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_06",
+						"jsonColumnName": "prezzo_06",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_LISPIA",
+						"jsonColumnName": "cod_lispia",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BLOCCO_LIST2",
+						"jsonColumnName": "blocco_list2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCOCSS_1",
+						"jsonColumnName": "scocss_1",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCOCSS_2",
+						"jsonColumnName": "scocss_2",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCOCSS_3",
+						"jsonColumnName": "scocss_3",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_ULTIMO",
+						"jsonColumnName": "cod_ultimo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "QTA_IMPEGNAT",
+						"jsonColumnName": "qta_impegnat",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "QTA_ORDINATA",
+						"jsonColumnName": "qta_ordinata",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_FORN",
+						"jsonColumnName": "costo_forn",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PERC_CO_TRASP",
+						"jsonColumnName": "perc_co_trasp",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_MARG",
+						"jsonColumnName": "sco_marg",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCONTO_FORN2",
+						"jsonColumnName": "sconto_forn2",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ES_INI_ROL",
+						"jsonColumnName": "es_ini_rol",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ROL_COST",
+						"jsonColumnName": "rol_cost",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ROL_COST_INI",
+						"jsonColumnName": "rol_cost_ini",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_2",
+						"jsonColumnName": "costo_2",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PROVVIGIONE_COMODO",
+						"jsonColumnName": "provvigione_comodo",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_VARIANTE",
+						"jsonColumnName": "tipo_variante",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DESCRD",
+						"jsonColumnName": "descrd",
+						"columnTypeName": "VARCHAR2",
+						"precision": 255,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CAMBIO",
+						"jsonColumnName": "cambio",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LIST_FORN_VAL",
+						"jsonColumnName": "list_forn_val",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LISTINO_FORN_VAL",
+						"jsonColumnName": "listino_forn_val",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCONTO_FORN",
+						"jsonColumnName": "sconto_forn",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_FORN_VAL",
+						"jsonColumnName": "costo_forn_val",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FLAG_TRASP",
+						"jsonColumnName": "flag_trasp",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "INCREMENTO",
+						"jsonColumnName": "incremento",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MARGINALITA",
+						"jsonColumnName": "marginalita",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_VALUTA",
+						"jsonColumnName": "cod_valuta",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_SCARICO",
+						"jsonColumnName": "fl_scarico",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_INTERNET",
+						"jsonColumnName": "cod_internet",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DISEGNO_1",
+						"jsonColumnName": "disegno_1",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DISEGNO_2",
+						"jsonColumnName": "disegno_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 10,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DESCRD_2",
+						"jsonColumnName": "descrd_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 250,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "GIACENZA",
+						"jsonColumnName": "giacenza",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FAT_CONV_PREZZO",
+						"jsonColumnName": "fat_conv_prezzo",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "GG_DURATA",
+						"jsonColumnName": "gg_durata",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_SOSPENS",
+						"jsonColumnName": "fl_sospens",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ROYALITIES",
+						"jsonColumnName": "royalities",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TITOLO_FORMULE",
+						"jsonColumnName": "titolo_formule",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CL_STATIS_GR",
+						"jsonColumnName": "cl_statis_gr",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CL_STATIS_SGR",
+						"jsonColumnName": "cl_statis_sgr",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LIVELLO_COMPL",
+						"jsonColumnName": "livello_compl",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FATT_CONVERS_PROD",
+						"jsonColumnName": "fatt_convers_prod",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "D_M_PREZZO",
+						"jsonColumnName": "d_m_prezzo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "D_M_QTA",
+						"jsonColumnName": "d_m_qta",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FAT_CONV_QTA",
+						"jsonColumnName": "fat_conv_qta",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CODICE_01",
+						"jsonColumnName": "codice_01",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CODICE_02",
+						"jsonColumnName": "codice_02",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CODICE_03",
+						"jsonColumnName": "codice_03",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CODICE_04",
+						"jsonColumnName": "codice_04",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_01V",
+						"jsonColumnName": "sco_01v",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_02V",
+						"jsonColumnName": "sco_02v",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_03V",
+						"jsonColumnName": "sco_03v",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_04V",
+						"jsonColumnName": "sco_04v",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_05V",
+						"jsonColumnName": "sco_05v",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_06V",
+						"jsonColumnName": "sco_06v",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_01",
+						"jsonColumnName": "sco_01",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_02",
+						"jsonColumnName": "sco_02",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_03",
+						"jsonColumnName": "sco_03",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_04",
+						"jsonColumnName": "sco_04",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_05",
+						"jsonColumnName": "sco_05",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_06",
+						"jsonColumnName": "sco_06",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MOB_ANNO_A",
+						"jsonColumnName": "mob_anno_a",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCO_09",
+						"jsonColumnName": "sco_09",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCVP1",
+						"jsonColumnName": "scvp1",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCVP2",
+						"jsonColumnName": "scvp2",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCVP3",
+						"jsonColumnName": "scvp3",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCVP4",
+						"jsonColumnName": "scvp4",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCVP5",
+						"jsonColumnName": "scvp5",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCVP6",
+						"jsonColumnName": "scvp6",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPSC1",
+						"jsonColumnName": "tpsc1",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPSC2",
+						"jsonColumnName": "tpsc2",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPSC3",
+						"jsonColumnName": "tpsc3",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPSC4",
+						"jsonColumnName": "tpsc4",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPSC5",
+						"jsonColumnName": "tpsc5",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPSC6",
+						"jsonColumnName": "tpsc6",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UTENTE",
+						"jsonColumnName": "utente",
+						"columnTypeName": "VARCHAR2",
+						"precision": 10,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "STAGIONE",
+						"jsonColumnName": "stagione",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CATEG",
+						"jsonColumnName": "categ",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "GENERE",
+						"jsonColumnName": "genere",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TPO",
+						"jsonColumnName": "tpo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TESSUTO",
+						"jsonColumnName": "tessuto",
+						"columnTypeName": "VARCHAR2",
+						"precision": 4,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FONDO",
+						"jsonColumnName": "fondo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FORMA",
+						"jsonColumnName": "forma",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_PROVENIENZA",
+						"jsonColumnName": "fl_provenienza",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_TIPOGEST",
+						"jsonColumnName": "fl_tipogest",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_ASSIEME",
+						"jsonColumnName": "fl_assieme",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FATTORE_SICUR",
+						"jsonColumnName": "fattore_sicur",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PUNTO_RIORDINO",
+						"jsonColumnName": "punto_riordino",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "L8_RIORDINO_MIN",
+						"jsonColumnName": "l8_riordino_min",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "L8_RIORDINO_MAX",
+						"jsonColumnName": "l8_riordino_max",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "L8_RIORDINO_MULT",
+						"jsonColumnName": "l8_riordino_mult",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "GG_APPROVIGION",
+						"jsonColumnName": "gg_approvigion",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_CES",
+						"jsonColumnName": "data_ces",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CL_FISCALE_GR",
+						"jsonColumnName": "cl_fiscale_gr",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CL_FISCALE_SGR",
+						"jsonColumnName": "cl_fiscale_sgr",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "IMMATRICOLAZ",
+						"jsonColumnName": "immatricolaz",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "AUTOM_MOVIM",
+						"jsonColumnName": "autom_movim",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "STAGIONALITA",
+						"jsonColumnName": "stagionalita",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COLLI_X_UNITA",
+						"jsonColumnName": "colli_x_unita",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PEZZI_X_COLLI",
+						"jsonColumnName": "pezzi_x_colli",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LIVELLO_MIN",
+						"jsonColumnName": "livello_min",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DUREZZA",
+						"jsonColumnName": "durezza",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "VOLUME",
+						"jsonColumnName": "volume",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CL_PROVVIG",
+						"jsonColumnName": "cl_provvig",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_COSTO",
+						"jsonColumnName": "cod_costo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_STAMPA_ART_FISC",
+						"jsonColumnName": "fl_stampa_art_fisc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COEFF_KIT",
+						"jsonColumnName": "coeff_kit",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_KIT",
+						"jsonColumnName": "cod_kit",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PROFONDITA",
+						"jsonColumnName": "profondita",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PESO_MAT_PRIMA",
+						"jsonColumnName": "peso_mat_prima",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "USO_ECCIPIENTE",
+						"jsonColumnName": "uso_eccipiente",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PESO_SPECIFICO",
+						"jsonColumnName": "peso_specifico",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COEFF_PRODUT",
+						"jsonColumnName": "coeff_produt",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FASCIA",
+						"jsonColumnName": "fascia",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "IMPRONTA",
+						"jsonColumnName": "impronta",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PASSO",
+						"jsonColumnName": "passo",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BATTUTE",
+						"jsonColumnName": "battute",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ATTREZZAGGIO",
+						"jsonColumnName": "attrezzaggio",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_NOME_CL",
+						"jsonColumnName": "cod_nome_cl",
+						"columnTypeName": "VARCHAR2",
+						"precision": 8,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_MODELLO",
+						"jsonColumnName": "cod_modello",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_RICETTA",
+						"jsonColumnName": "cod_ricetta",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_CONFEZIONE",
+						"jsonColumnName": "cod_confezione",
+						"columnTypeName": "VARCHAR2",
+						"precision": 9,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_COLLAUDO",
+						"jsonColumnName": "fl_collaudo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UNIMIS_PROD",
+						"jsonColumnName": "unimis_prod",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DESCR_LATINA",
+						"jsonColumnName": "descr_latina",
+						"columnTypeName": "VARCHAR2",
+						"precision": 30,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FLAG_USO_RICETTE",
+						"jsonColumnName": "flag_uso_ricette",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_FISCALE",
+						"jsonColumnName": "costo_fiscale",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ALTRI_COSTI",
+						"jsonColumnName": "altri_costi",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_TRASP",
+						"jsonColumnName": "costo_trasp",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CLASSE_ABC",
+						"jsonColumnName": "classe_abc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LINEA_PRODUZIONE",
+						"jsonColumnName": "linea_produzione",
+						"columnTypeName": "VARCHAR2",
+						"precision": 5,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CICLO_LAVOR",
+						"jsonColumnName": "ciclo_lavor",
+						"columnTypeName": "VARCHAR2",
+						"precision": 13,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_PARTITE",
+						"jsonColumnName": "fl_partite",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_TIPOPARTE",
+						"jsonColumnName": "fl_tipoparte",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "N_PEZZI",
+						"jsonColumnName": "n_pezzi",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CONF_ACQ",
+						"jsonColumnName": "conf_acq",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CONF_VEN",
+						"jsonColumnName": "conf_ven",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SCONF_VEN",
+						"jsonColumnName": "sconf_ven",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_CL_MOVIM",
+						"jsonColumnName": "cod_cl_movim",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_CL_MOVIM",
+						"jsonColumnName": "tipo_cl_movim",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_QTA",
+						"jsonColumnName": "um_qta",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_PREZZO",
+						"jsonColumnName": "um_prezzo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_MARCHIO",
+						"jsonColumnName": "cod_marchio",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_FAMIGLIA",
+						"jsonColumnName": "cod_famiglia",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_SOTTOFAMIGLIA",
+						"jsonColumnName": "cod_sottofamiglia",
+						"columnTypeName": "VARCHAR2",
+						"precision": 4,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TEMPO_APPROV",
+						"jsonColumnName": "tempo_approv",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MARGINE_SIC",
+						"jsonColumnName": "margine_sic",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MARCHIO",
+						"jsonColumnName": "marchio",
+						"columnTypeName": "VARCHAR2",
+						"precision": 35,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FAMIGLIA",
+						"jsonColumnName": "famiglia",
+						"columnTypeName": "VARCHAR2",
+						"precision": 35,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SOTTOFAMIGLIA",
+						"jsonColumnName": "sottofamiglia",
+						"columnTypeName": "VARCHAR2",
+						"precision": 35,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FASE_1",
+						"jsonColumnName": "fase_1",
+						"columnTypeName": "VARCHAR2",
+						"precision": 5,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FASE_2",
+						"jsonColumnName": "fase_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 5,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FASE_3",
+						"jsonColumnName": "fase_3",
+						"columnTypeName": "VARCHAR2",
+						"precision": 5,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FASE_4",
+						"jsonColumnName": "fase_4",
+						"columnTypeName": "VARCHAR2",
+						"precision": 5,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FASE_5",
+						"jsonColumnName": "fase_5",
+						"columnTypeName": "VARCHAR2",
+						"precision": 5,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_1",
+						"jsonColumnName": "um_1",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_2",
+						"jsonColumnName": "um_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_3",
+						"jsonColumnName": "um_3",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_4",
+						"jsonColumnName": "um_4",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "UM_5",
+						"jsonColumnName": "um_5",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_MEDIO",
+						"jsonColumnName": "costo_medio",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 2,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATAM",
+						"jsonColumnName": "datam",
+						"columnTypeName": "VARCHAR2",
+						"precision": 8,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ROTAZIONE",
+						"jsonColumnName": "rotazione",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "GR_FISC",
+						"jsonColumnName": "gr_fisc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 2,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_BUYER",
+						"jsonColumnName": "cod_buyer",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "REPARTO",
+						"jsonColumnName": "reparto",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "STAGIONE_NASC",
+						"jsonColumnName": "stagione_nasc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ANNO_RIF",
+						"jsonColumnName": "anno_rif",
+						"columnTypeName": "VARCHAR2",
+						"precision": 4,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ASSORTIMENTO",
+						"jsonColumnName": "assortimento",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_01",
+						"jsonColumnName": "bonus_01",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_02",
+						"jsonColumnName": "bonus_02",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_03",
+						"jsonColumnName": "bonus_03",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_04",
+						"jsonColumnName": "bonus_04",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_05",
+						"jsonColumnName": "bonus_05",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_06",
+						"jsonColumnName": "bonus_06",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_07",
+						"jsonColumnName": "bonus_07",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_08",
+						"jsonColumnName": "bonus_08",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_09",
+						"jsonColumnName": "bonus_09",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "BONUS_10",
+						"jsonColumnName": "bonus_10",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_01",
+						"jsonColumnName": "data_bonus_01",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_02",
+						"jsonColumnName": "data_bonus_02",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_03",
+						"jsonColumnName": "data_bonus_03",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_04",
+						"jsonColumnName": "data_bonus_04",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_05",
+						"jsonColumnName": "data_bonus_05",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "ALTRI_COSTI_EU",
+						"jsonColumnName": "altri_costi_eu",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 8,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CALO",
+						"jsonColumnName": "calo",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CAMBIO_EU",
+						"jsonColumnName": "cambio_eu",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 9,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_GLOBERICO",
+						"jsonColumnName": "cod_globerico",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "CODRICO",
+						"jsonColumnName": "codrico",
+						"columnTypeName": "VARCHAR2",
+						"precision": 3,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_FISCALE_EU",
+						"jsonColumnName": "costo_fiscale_eu",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 8,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_06",
+						"jsonColumnName": "data_bonus_06",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_07",
+						"jsonColumnName": "data_bonus_07",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_08",
+						"jsonColumnName": "data_bonus_08",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_09",
+						"jsonColumnName": "data_bonus_09",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_10",
+						"jsonColumnName": "data_bonus_10",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_BONUS_11",
+						"jsonColumnName": "data_bonus_11",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_INSERIMENTO",
+						"jsonColumnName": "data_inserimento",
+						"columnTypeName": "DATE",
+						"precision": 0,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LARGHEZZA",
+						"jsonColumnName": "larghezza",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "LUNGHEZZA",
+						"jsonColumnName": "lunghezza",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "MANUFATTURA",
+						"jsonColumnName": "manufattura",
+						"columnTypeName": "VARCHAR2",
+						"precision": 10,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PESO_INVOLUCRO",
+						"jsonColumnName": "peso_involucro",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "RAGGR_SPED",
+						"jsonColumnName": "raggr_sped",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "RIC_DISCR",
+						"jsonColumnName": "ric_discr",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "RICETTA_1",
+						"jsonColumnName": "ricetta_1",
+						"columnTypeName": "VARCHAR2",
+						"precision": 250,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "RICETTA_2",
+						"jsonColumnName": "ricetta_2",
+						"columnTypeName": "VARCHAR2",
+						"precision": 250,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "RIC_PERC",
+						"jsonColumnName": "ric_perc",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 5,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPO_GLOBEMBIO",
+						"jsonColumnName": "tipo_globembio",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "TIPOMBIO",
+						"jsonColumnName": "tipombio",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "VOCE_DOGANALE",
+						"jsonColumnName": "voce_doganale",
+						"columnTypeName": "VARCHAR2",
+						"precision": 8,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_FORN_EU",
+						"jsonColumnName": "costo_forn_eu",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 8,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_MEDIO_EU",
+						"jsonColumnName": "costo_medio_eu",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 8,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTO_STAND_EU",
+						"jsonColumnName": "costo_stand_eu",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 8,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COSTRUTTORE",
+						"jsonColumnName": "costruttore",
+						"columnTypeName": "VARCHAR2",
+						"precision": 20,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FLAG_MATRICOLA",
+						"jsonColumnName": "flag_matricola",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FLAG_MATRIC_INT",
+						"jsonColumnName": "flag_matric_int",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "FL_RINTR",
+						"jsonColumnName": "fl_rintr",
+						"columnTypeName": "VARCHAR2",
+						"precision": 1,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "NUM_ETICH",
+						"jsonColumnName": "num_etich",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SPESE_ACC",
+						"jsonColumnName": "spese_acc",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 3,
+						"isNullable": 1
+					},
+					{
+						"columnName": "COD_DISEGNO",
+						"jsonColumnName": "cod_disegno",
+						"columnTypeName": "VARCHAR2",
+						"precision": 30,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DATA_REG_DOC",
+						"jsonColumnName": "data_reg_doc",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "DOC_ID",
+						"jsonColumnName": "doc_id",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PHOTO",
+						"jsonColumnName": "photo",
+						"columnTypeName": "VARCHAR2",
+						"precision": 100,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_01O",
+						"jsonColumnName": "prezzo_01o",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_02O",
+						"jsonColumnName": "prezzo_02o",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_03O",
+						"jsonColumnName": "prezzo_03o",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_04O",
+						"jsonColumnName": "prezzo_04o",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PREZZO_05O",
+						"jsonColumnName": "prezzo_05o",
+						"columnTypeName": "NUMBER",
+						"precision": 22,
+						"scale": 4,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PRO_A_DATA",
+						"jsonColumnName": "pro_a_data",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PRO_DA_DATA",
+						"jsonColumnName": "pro_da_data",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PR_A_DATA",
+						"jsonColumnName": "pr_a_data",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "PR_DA_DATA",
+						"jsonColumnName": "pr_da_data",
+						"columnTypeName": "VARCHAR2",
+						"precision": 6,
+						"scale": 0,
+						"isNullable": 1
+					},
+					{
+						"columnName": "SAGOMA",
+						"jsonColumnName": "sagoma",
+						"columnTypeName": "VARCHAR2",
+						"precision": 8,
+						"scale": 0,
+						"isNullable": 1
+					}
+				],
+				"items": [
+					{
+						"categ_merc": "*",
+						"c_costo": null,
+						"classe_sconto": null,
+						"cod_articolo": "VOCE01",
+						"cod_conto": null,
+						"cod_conto_2": null,
+						"cod_fornit": "*",
+						"cod_ricarico": null,
+						"cod_barre": " ",
+						"cod_ditta": "01",
+						"cod_iva": "22",
+						"cod_stat": "SU",
+						"codice_2": null,
+						"costo_ultimo": 0,
+						"data_ins_mod": " ",
+						"descrizione": "VOCE PRESTAZIONE 01",
+						"fat_conv_2_1": null,
+						"lotto_rio": 0,
+						"minut_man_op": null,
+						"mob_anno": 0,
+						"mob2_anno": null,
+						"disp_ord": 0,
+						"marca_utif": null,
+						"posizione": " ",
+						"prezzo_01": 0,
+						"prezzo_02": null,
+						"prezzo_03": null,
+						"prezzo_04": null,
+						"prezzo_05": null,
+						"fl_pr_netto": null,
+						"qualit_man_op": null,
+						"sconto_1": null,
+						"sconto_2": null,
+						"sconto_3": null,
+						"scorta_max": 0,
+						"scorta_min": 0,
+						"sostit_dal": null,
+						"sostit_il": null,
+						"sostit2_il": null,
+						"tipo_interc": null,
+						"tipo_ricambio": null,
+						"tipo_man_op": null,
+						"tipo_codice": "*",
+						"fl_stampa": null,
+						"n_litri": null,
+						"peso_netto": 0,
+						"peso_lordo": 0,
+						"fl_peso_fisso": null,
+						"perc_prv": null,
+						"scagl_prv": null,
+						"prv_lit": null,
+						"costo_stand": null,
+						"mlinea": null,
+						"spesso": null,
+						"mtrasv": null,
+						"tipo_calc": null,
+						"imballo_unit": 0,
+						"sezione_tot": null,
+						"data_validita": null,
+						"unimis_2": null,
+						"unimis": " ",
+						"prezzo_0c": null,
+						"prezzo_09": null,
+						"mob_anno_prima": null,
+						"note_1": null,
+						"bloc_list": null,
+						"nuova_sk": null,
+						"cod_magdin": null,
+						"prezzo_06": null,
+						"cod_lispia": null,
+						"blocco_list2": null,
+						"scocss_1": null,
+						"scocss_2": null,
+						"scocss_3": null,
+						"cod_ultimo": null,
+						"qta_impegnat": null,
+						"qta_ordinata": null,
+						"costo_forn": null,
+						"perc_co_trasp": null,
+						"sco_marg": null,
+						"sconto_forn2": null,
+						"es_ini_rol": null,
+						"rol_cost": null,
+						"rol_cost_ini": null,
+						"costo_2": null,
+						"provvigione_comodo": null,
+						"tipo_variante": null,
+						"descrd": null,
+						"cambio": null,
+						"list_forn_val": null,
+						"listino_forn_val": null,
+						"sconto_forn": null,
+						"costo_forn_val": null,
+						"flag_trasp": null,
+						"incremento": null,
+						"marginalita": null,
+						"cod_valuta": null,
+						"fl_scarico": null,
+						"cod_internet": null,
+						"disegno_1": " ",
+						"disegno_2": " ",
+						"descrd_2": null,
+						"giacenza": 0,
+						"fat_conv_prezzo": null,
+						"gg_durata": 0,
+						"fl_sospens": null,
+						"royalities": null,
+						"titolo_formule": 0,
+						"cl_statis_gr": null,
+						"cl_statis_sgr": null,
+						"livello_compl": 0,
+						"fatt_convers_prod": 0,
+						"d_m_prezzo": null,
+						"d_m_qta": null,
+						"fat_conv_qta": 1,
+						"codice_01": " ",
+						"codice_02": null,
+						"codice_03": null,
+						"codice_04": null,
+						"sco_01v": null,
+						"sco_02v": null,
+						"sco_03v": null,
+						"sco_04v": null,
+						"sco_05v": null,
+						"sco_06v": null,
+						"sco_01": null,
+						"sco_02": null,
+						"sco_03": null,
+						"sco_04": null,
+						"sco_05": null,
+						"sco_06": null,
+						"mob_anno_a": null,
+						"sco_09": null,
+						"scvp1": null,
+						"scvp2": null,
+						"scvp3": null,
+						"scvp4": null,
+						"scvp5": null,
+						"scvp6": null,
+						"tpsc1": null,
+						"tpsc2": null,
+						"tpsc3": null,
+						"tpsc4": null,
+						"tpsc5": null,
+						"tpsc6": null,
+						"utente": null,
+						"stagione": null,
+						"categ": null,
+						"genere": null,
+						"tpo": null,
+						"tessuto": null,
+						"fondo": null,
+						"forma": null,
+						"fl_provenienza": null,
+						"fl_tipogest": "0",
+						"fl_assieme": "V",
+						"fattore_sicur": 0,
+						"punto_riordino": null,
+						"l8_riordino_min": null,
+						"l8_riordino_max": null,
+						"l8_riordino_mult": null,
+						"gg_approvigion": null,
+						"data_ces": null,
+						"cl_fiscale_gr": null,
+						"cl_fiscale_sgr": null,
+						"immatricolaz": null,
+						"autom_movim": null,
+						"stagionalita": null,
+						"colli_x_unita": 0,
+						"pezzi_x_colli": 0,
+						"livello_min": null,
+						"durezza": null,
+						"volume": 0,
+						"cl_provvig": null,
+						"cod_costo": null,
+						"fl_stampa_art_fisc": null,
+						"coeff_kit": null,
+						"cod_kit": " ",
+						"profondita": null,
+						"peso_mat_prima": null,
+						"uso_eccipiente": null,
+						"peso_specifico": null,
+						"coeff_produt": null,
+						"fascia": null,
+						"impronta": null,
+						"passo": null,
+						"battute": null,
+						"attrezzaggio": null,
+						"cod_nome_cl": null,
+						"cod_modello": "VOCE01",
+						"cod_ricetta": null,
+						"cod_confezione": null,
+						"fl_collaudo": null,
+						"unimis_prod": null,
+						"descr_latina": null,
+						"flag_uso_ricette": null,
+						"costo_fiscale": null,
+						"altri_costi": null,
+						"costo_trasp": null,
+						"classe_abc": null,
+						"linea_produzione": null,
+						"ciclo_lavor": null,
+						"fl_partite": null,
+						"fl_tipoparte": null,
+						"n_pezzi": 0,
+						"conf_acq": null,
+						"conf_ven": null,
+						"sconf_ven": null,
+						"cod_cl_movim": null,
+						"tipo_cl_movim": null,
+						"um_qta": null,
+						"um_prezzo": null,
+						"cod_marchio": null,
+						"cod_famiglia": null,
+						"cod_sottofamiglia": null,
+						"tempo_approv": null,
+						"margine_sic": null,
+						"marchio": null,
+						"famiglia": null,
+						"sottofamiglia": null,
+						"fase_1": null,
+						"fase_2": null,
+						"fase_3": null,
+						"fase_4": null,
+						"fase_5": null,
+						"um_1": null,
+						"um_2": null,
+						"um_3": null,
+						"um_4": null,
+						"um_5": null,
+						"costo_medio": null,
+						"datam": null,
+						"rotazione": null,
+						"gr_fisc": null,
+						"cod_buyer": null,
+						"reparto": null,
+						"stagione_nasc": null,
+						"anno_rif": null,
+						"assortimento": null,
+						"bonus_01": null,
+						"bonus_02": null,
+						"bonus_03": null,
+						"bonus_04": null,
+						"bonus_05": null,
+						"bonus_06": null,
+						"bonus_07": null,
+						"bonus_08": null,
+						"bonus_09": null,
+						"bonus_10": null,
+						"data_bonus_01": null,
+						"data_bonus_02": null,
+						"data_bonus_03": null,
+						"data_bonus_04": null,
+						"data_bonus_05": null,
+						"altri_costi_eu": null,
+						"calo": null,
+						"cambio_eu": null,
+						"cod_globerico": null,
+						"codrico": null,
+						"costo_fiscale_eu": null,
+						"data_bonus_06": null,
+						"data_bonus_07": null,
+						"data_bonus_08": null,
+						"data_bonus_09": null,
+						"data_bonus_10": null,
+						"data_bonus_11": null,
+						"data_inserimento": null,
+						"larghezza": null,
+						"lunghezza": null,
+						"manufattura": null,
+						"peso_involucro": null,
+						"raggr_sped": 0,
+						"ric_discr": null,
+						"ricetta_1": null,
+						"ricetta_2": " ",
+						"ric_perc": null,
+						"tipo_globembio": null,
+						"tipombio": null,
+						"voce_doganale": null,
+						"costo_forn_eu": null,
+						"costo_medio_eu": null,
+						"costo_stand_eu": null,
+						"costruttore": null,
+						"flag_matricola": null,
+						"flag_matric_int": null,
+						"fl_rintr": null,
+						"num_etich": null,
+						"spese_acc": null,
+						"cod_disegno": null,
+						"data_reg_doc": null,
+						"doc_id": null,
+						"photo": null,
+						"prezzo_01o": null,
+						"prezzo_02o": null,
+						"prezzo_03o": null,
+						"prezzo_04o": null,
+						"prezzo_05o": null,
+						"pro_a_data": null,
+						"pro_da_data": null,
+						"pr_a_data": null,
+						"pr_da_data": null,
+						"sagoma": null
+					}
+				],
+				"hasMore": false,
+				"limit": 10000,
+				"offset": 0,
+				"count": 1
+			},
+			"response": [],
+			"result": 0
+		}
+	]
+}

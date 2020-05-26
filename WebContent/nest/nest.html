@@ -1,0 +1,523 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+<title>Jam Edit</title>
+<style type="text/css">
+	:root {--nest-size: 25px;}
+	:root {--nest-size2: 18px;}
+</style>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+
+<link rel="stylesheet"
+	href="bootstrap-iconpicker/css/bootstrap-iconpicker.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="nest.css">
+<link rel="stylesheet" href="main.css">
+
+<style type="text/css">
+body {
+	padding: 1em;
+	background-color:rgba(29,112,221,0.9);
+	background-color:white;
+}
+label, input, button, select, textarea {
+	font-weight:450;
+/*	font-size:20px; */
+	color:#12488c;
+}
+.container {
+	padding: 0px;
+	max-width:1000px;
+}
+.jamEdit {
+	height: 19px;
+	border: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	box-sizing: border-box;
+}
+
+.jamButton {
+	margin: -2px;
+}
+
+.select2-container
+.select2-selection--single {
+	height: 24px;
+}
+
+.select2-container--default
+.select2-selection--single
+.select2-selection__rendered {
+	line-height: 24px;
+	padding-top: -1px;
+}
+.select2-results__option {
+	padding: 0px;
+}
+</style>
+</head>
+<body>
+	<menu id="nestable-menu">
+		<a class="btn btn-success" href="../" target="_self"> <i
+			class="fas fa-home"></i>&nbsp;
+		</a>
+		<button type="button" class="btn btn-success" data-action="expand-all">
+			<i class="fas fa-plus"></i> <i class="fas fa-plus"></i>&nbsp;
+		</button>
+		<button type="button" class="btn btn-success"
+			data-action="collapse-all">
+			<i class="fas fa-minus"></i> <i class="fas fa-minus"></i>&nbsp;
+		</button>
+<!--	<button type="button" class="btn btn-success"
+			data-action="add-item">Add</button>
+		<button type="button" class="btn btn-success"
+			data-action="replace-item">Replace</button>  -->
+		<button type="button" class="btn btn-primary" data-toggle="modal"
+			data-target="#menuEditModal">
+			<i class="fas fa-edit"></i>&nbsp;
+		</button>
+		<button type="button" id="load" class="btn btn-success">
+			<i class="fas fa-download"></i>&nbsp;
+		</button>
+		<button type="button" id="save" class="btn btn-success">
+			<i class="fas fa-save"></i>&nbsp;
+		</button>
+		<a class="btn btn-success"
+			href="//pdfcrowd.com/url_to_pdf/?footer_text=$u&pdf_name=page.pdf">
+			<i class="fas fa-file-pdf"></i>&nbsp;
+		</a>
+		<a class="btn btn-success" href="/Jam5/server/excel"> <i
+			class="fas fa-file-excel"></i>&nbsp;
+		</a>
+		<a class="btn btn-success" onclick="window.print();return false;">
+			<i class="fas fa-print"></i>&nbsp;
+		</a>
+		<button type="button" id="formula" class="btn btn-success">
+			<i class="fas fa-calculator"></i>&nbsp;
+		</button>
+		<button type="button" id="find" class="btn btn-success">
+			<i class="fas fa-search"></i>&nbsp;
+		</button>
+	</menu>
+
+	<div class="container">
+				
+		<div class="row">
+			<div class="col-md-6">
+				<div>Pane:
+				<select class="form-control col-md-6" id="item-select"
+					onChange="carica('load');"
+					style=""></select>
+				</div>
+	 			<div class="dd" id="nestable-load"></div>
+			</div>
+			<div class="col-md-6">
+				<div>Browse</div>
+				<div class="dd" id="nestable-find">Premere Ricerca</div>
+			</div>
+			<div class="col-md-6">
+				<!-- Modal -->
+				<div class="modal fade" id="menuEditModal" tabindex="-1"
+					role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Edit Item</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+										<form id="frmEdit" class="form-horizontal">
+											<div class="form-group">
+												<label for="text">Text</label>
+												<div class="input-group">
+													<input type="text" class="form-control item-menu"
+														name="text" id="text" placeholder="Text">
+													<div class="input-group-append">
+														<button type="button" id="myEditor_icon"
+															class="btn btn-outline-secondary"></button>
+													</div>
+												</div>
+												<input type="hidden" name="icon" class="item-menu">
+											</div>
+											<div class="form-group">
+												<label for="href">URL</label> <input type="text"
+													class="form-control item-menu" id="href" name="href"
+													placeholder="URL">
+											</div>
+											<div class="form-group">
+												<label for="target">Target</label> <select name="target"
+													id="target" class="form-control item-menu">
+													<option value="_self">Self</option>
+													<option value="_blank">Blank</option>
+													<option value="_top">Top</option>
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="title">Tooltip</label> <input type="text"
+													name="title" class="form-control item-menu" id="title"
+													placeholder="Tooltip">
+											</div>
+										</form>
+								<div class="modal-footer">
+									<button type="button" id="btnUpdate" data-dismiss="modal"
+										class="btn btn-primary" disabled>
+										<i class="fas fa-sync-alt"></i> Update
+									</button>
+									<button type="button" id="btnAdd" data-dismiss="modal"
+										class="btn btn-success">
+										<i class="fas fa-plus"></i> Add
+									</button>
+
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<textarea id="nestable-output-load"></textarea>
+	<textarea id="nestable-output-find"></textarea>
+
+	<div class="cf nestable-lists">
+		<div class="dd" id="nestable3">
+			<ol class="dd-list">
+				<li class="dd-item dd3-item" data-id="13">
+					<div class="dd-handle dd3-handle">Drag</div>
+					<div class="dd3-content">
+						Pane id: <input class="jamEdit" style="width: 50px"></input> tit:
+						<input class="jamEdit"></input>
+						<div class="btn-group float-right jamButton">
+							<a class="btn btn-secondary btn-sm btnDown btnMove clickable">
+								<i class="fas fa-angle-down clickable"></i>
+							</a> <a class="btn btn-primary btn-sm btnEdit clickable"
+								data-toggle="modal" data-target="#menuEditModal"> <i
+								class="fas fa-edit clickable"></i>
+							</a> <a class="btn btn-danger btn-sm btnRemove clickable"> <i
+								class="fas fa-trash-alt clickable"></i>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="dd-item dd3-item" data-id="14">
+					<div class="dd-handle dd3-handle">Drag</div>
+					<div class="dd3-content">Item 14</div>
+				</li>
+				<li class="dd-item dd3-item dd-collapsed" data-id="15">
+					<div class="dd-handle dd3-handle">Drag</div>
+					<div class="dd3-content">Item 15</div>
+					<ol class="dd-list">
+						<li class="dd-item dd3-item" data-id="16">
+							<div class="dd-handle dd3-handle">Drag</div>
+							<div class="dd3-content">Item 16</div>
+						</li>
+						<li class="dd-item dd3-item" data-id="17">
+							<div class="dd-handle dd3-handle">Drag</div>
+							<div class="dd3-content">Item 17</div>
+						</li>
+						<li class="dd-item dd3-item" data-id="18">
+							<div class="dd-handle dd3-handle">Drag</div>
+							<div class="dd3-content">Item 18</div>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+
+	</div>
+
+	<script type="text/javascript"
+		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+	<script type="text/javascript"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+	<script type="text/javascript"
+		src="bootstrap-iconpicker/js/iconset/fontawesome5-3-1.min.js"></script>
+	<script type="text/javascript"
+		src="bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
+
+	<script src="nest.js"></script>
+
+	<script>
+		$("#find").click(function() {
+			carica('find');
+		});
+
+		$("#load").click(function() {
+			carica('load');
+		});
+
+		$("#formula").click(function() {
+			carica('load:formula');
+		});
+
+		var caricaLoad = 0;
+		var caricaSearch = 0;
+		var carica = function(modo) {
+			console.profile();
+			if (modo.substring(0, 4) == "load") {
+				if (caricaLoad > 0) {
+					$('#nestable-load').nestable('destroy');
+				}
+				caricaLoad++;
+			}
+			if (modo == "find") {
+				if (caricaSearch > 0) {
+					$('#nestable-find').nestable('destroy');
+				}
+				caricaSearch++;
+			}
+
+			$.get("/Jam5/server/" + modo,
+			{
+				id : "test",
+				key : "prova"
+			},
+			function(data, status) {
+				var updateOutput = function(e) {
+					var list = e.length ? e : $(e.target), output = list
+							.data('output');
+					if (window.JSON) {
+						output.val(window.JSON.stringify(list
+								.nestable('serialize')));//, null, 2));
+					} else {
+						output.val('JSON browser support required.');
+					}
+				};
+				$('#nestable-output-' + modo.substring(0, 4)).val(JSON.stringify(data));
+//				alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+				var json2 = eval(data);
+//				alert("Data: " + JSON.stringify(json));
+				var buttonEdit
+				= '<div class="btn-group float-right jamButton">'
+				+ '<a title="Add Row Below" class="btn btn-secondary btn-sm clickable" data-action="addRowBelow">'
+				+ '<i class="fas fa-plus clickable"></i></a>'
+
+				+ '<a class="btn btn-primary btn-sm clickable" data-toggle="modal" data-target="#menuEditModal">'
+				+ '<i class="fas fa-edit clickable"></i></a>'
+
+				+ '<a class="btn btn-danger btn-sm clickable" data-action="removeRow">'
+				+ '<i class="fas fa-trash-alt clickable"></i></a></div>';
+
+				$('#nestable-' + modo.substring(0, 4)).nestable({
+					group : 1,
+					json : json2,
+					buttonEdit : buttonEdit,
+					inputField : 'New Item',
+					contentCallback : function(item) {
+						var content = ''; //item.content || '' ? item.content : item.id;
+						if (item.tt == 'pane') {
+							content += item.id
+									+ ' pane tit: '
+									+ '<input class="jamEdit inputField" style="width:150px" value="' + item.id +'"></input>';
+						} else if (item.tt == 'item') {
+							content += '' // item.id
+									+ ' item id: '
+									+ '<input class="jamEdit inputField" style="width:150px" value="'
+								+ item.ix +'"></input>';
+						} else
+							content += ' '
+									+ '<input class="jamEdit inputField" style="width:200px" value="'
+									+ item.ix +'"></input>';
+
+							content += buttonEdit;
+						return content;
+					}
+				}).on('change',function() {
+					updateOutput($('#nestable-' + modo.substring(0, 4))
+						.data('output',$('#nestable-output-'+ modo.substring(0, 4))));
+
+					$('.inputField').off();
+
+					$('.inputField').on('focusout',function() {
+						$('#nestable-' + modo.substring(0, 4)).trigger("change");
+					});
+				});
+			});
+//			$('.dd').nestable('collapseAll'); // non va
+		};
+
+		$("#save").click(function() {
+			var message = $("#nestable-output-load").val();
+//			alert(message);
+//			$.get("/Jam5/server/save", {id : "test", key : "prova"
+//			}, function(data, status) {});
+
+			var xhr = new XMLHttpRequest();
+			var url = "/Jam5/server/save"; //?data=" + encodeURIComponent(message);
+			xhr.open("POST", url, true);
+//			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send("data=" + encodeURIComponent(message));
+/*			xhr.onreadystatechange = function () {
+			 if (xhr.readyState === 4 && xhr.status === 200) {
+			 var json = JSON.parse(xhr.responseText);
+			 alert(json.email + ", " + json.password);
+			 }
+			 };*/
+//&			xhr.send();
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+
+			$('#nestable-menu').on('click', function(e) {
+				var target = $(e.target), action = target.data('action');
+				if (action === 'expand-all') {
+					$('.dd').nestable('expandAll');
+				}
+				if (action === 'collapse-all') {
+					$('.dd').nestable('collapseAll');
+				}
+				if (action === 'add-item') {
+					var newItem = {
+						"id" : ++lastId,
+						"content" : "Item " + lastId,
+						"children" : [ {
+							"id" : ++lastId,
+							"content" : "Item " + lastId,
+							"children" : [ {
+								"id" : ++lastId,
+								"content" : "Item " + lastId
+							} ]
+						} ]
+					};
+					$('#nestable').nestable('add', newItem);
+				}
+				if (action === 'replace-item') {
+					var replacedItem = {
+						"id" : 10,
+						"content" : "New item 10",
+						"children" : [ {
+							"id" : ++lastId,
+							"content" : "Item " + lastId,
+							"children" : [ {
+								"id" : ++lastId,
+								"content" : "Item " + lastId
+							} ]
+						} ]
+					};
+					$('#nestable').nestable('replace', replacedItem);
+				}
+			});
+
+			$('#nestable3').nestable({
+				group : 1
+			});
+
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$('#item-select').select2({
+//				theme: 'bootstrap4',
+				allowClear : true,
+				placeholder : "Choose Pane ...",
+				ajax : {
+//					url: "http://sh-example-simple.herokuapp.com",
+					url : "/Jam5/server/get?pane=TD01_FAT",
+					dataType : "json",
+					width : 'style',
+					delay : 250,
+					data : function(params) {
+						return {
+							q : params.term,
+							page : params.page,
+							per_page : 10
+						};
+					},
+					processResults : function(data, page) {
+						return {
+							// Select2 requires an id, so we need to map the results and add an ID
+							// You could instead include an id in the tsv you add to soulheart ;)
+							results : data.matches.map(function(item) {
+								return {
+									id : item.id,
+									text : item.text
+								};
+							}),
+							pagination : {
+								// If there are 10 matches, there's at least another page
+								more : data.matches.length === 10
+							}
+						};
+					},
+					cache : true
+				},
+//				minimumInputLength: 1,
+				templateResult : formatRepo,
+				templateSelection : formatRepoSelection
+			});
+
+			function formatRepo2(repo) {
+//				if(repo.loading) {
+					return repo.id + '\t' + repo.text;
+//				}
+			}
+
+			var firstEmptySelect = true; // Indicate header was create
+
+			function formatRepo(item) {
+
+				if (!item.id) {
+					// trigger when remote query
+					firstEmptySelect = true; // reset
+					return item.text;
+				}
+
+				var $container; // This is custom templete container.
+
+				// Create header
+				if (firstEmptySelect) {
+
+					firstEmptySelect = false;
+
+					$container = $('<div class="row" style=\"margin:0\">'
+							+ '<div><a class="btn btn-success">Clienti</a></div>'
+							+ '<div><a class="btn btn-success">Fornitori</a></div>'
+							+ '</div>' + '<div class="row" style=\"margin:0\">'
+							+ '<div class="col-md-1"><b>ID</b></div>'
+							+ '<div class="col-md-5"><b>Name</b></div>' +
+//	            				'</div>' +
+//	                    		'<div class="row" style=\"margin:0\">' +
+//	                    		'<div class="col-md-1">' + item.id + '</div>' +
+//	                    		'<div class="col-md-5">' + item.text + '</div>' +
+							'</div>');
+
+				} else {
+					$container = $('<div class="row" style=\"margin:0\">'
+							+ '<div class="col-md-1">' + item.id + '</div>'
+							+ '<div class="col-md-5">' + item.text + '</div>'
+							+ '</div>');
+				}
+
+				return $container
+			}
+
+			function formatRepoSelection(repo) {
+				return repo.id + " - " + repo.text;
+			}
+		});
+	</script>
+</body>
+</html>

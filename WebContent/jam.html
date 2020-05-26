@@ -1,0 +1,291 @@
+<html><head>
+
+<meta charset="utf-8">
+<meta name="description" content="jquery sortable lists plugin also for tree structures">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+<title>Jam Editor</title>
+
+<link href="css/bootstrap-green.css" rel="stylesheet" id="mainCSS">
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<script src="http://code.jquery.com/jquery-git1.min.js"></script>
+
+<script src="jquery-sortable-lists-mobile.js"></script>
+</head>
+<body style="position: relative;">
+
+<div id="piero" class="container hero-unit">
+		<section>
+			<div>name:<input type=text></input></div>
+		</section>
+
+		<section id="main_content">
+	        <ul class="sTree2 listsClass" id="sTree2">
+				<li class="sortableListsOpen" id="item_a" data-module="a">
+					<div>
+					Pane: <input type=text size=10></input>
+					tit: <input type=text size=10></input>
+					des: <input type=text size=10></input>
+					</div>
+					<ul class="">
+				<li id="item_b" data-module="b">
+					<div>
+					Item x001 id:<input type=text></input>
+					</div>
+					<ul class="">
+						<li id="item_b1" data-module="b">
+							<div>
+							tit:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b2" data-module="b">
+							<div>
+							type:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b3" data-module="b">
+							<div>
+							len:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b4" data-module="b">
+							<div>
+							link:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b5" data-module="b">
+							<div>
+							for:<input type=text></input>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li id="item_b" data-module="b">
+					<div>
+					Item x002 id:<input type=text></input>
+					</div>
+					<ul class="">
+						<li id="item_b1" data-module="b">
+							<div>
+							tit:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b2" data-module="b">
+							<div>
+							type:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b3" data-module="b">
+							<div>
+							len:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b4" data-module="b">
+							<div>
+							link:<input type=text></input>
+							</div>
+						</li>
+						<li id="item_b5" data-module="b">
+							<div>
+							for:<input type=text></input>
+							</div>
+						</li>
+					</ul>
+				</li>
+				</ul>
+
+				<li class="" id="item_c" data-module="c">
+					<div>Item c - c block disallows inserting items from other blocks</div>
+					<ul class="">
+						<li id="item_c1" data-module="c">
+							<div><span class="clickable">Item x003 - clickable Id:<input type=text></input></span></div>
+						</li>
+						<li id="item_c2" data-module="c">
+							<div>Item c2</div>
+						</li>
+						<li id="item_c3" data-module="c">
+							<div>Item c3</div>
+						</li>
+						<li id="item_c4" data-module="c">
+							<div>Item c4</div>
+						</li>
+						<li id="item_c5" data-module="c">
+							<div>Item c5</div>
+						</li>
+					</ul>
+				</li>
+				<li class="" id="item_d" data-module="d">
+					<div>Item d</div>
+					<ul class="">
+						<li id="item_d1" data-module="d">
+							<div>Item d1</div>
+						</li>
+						<li id="item_d2" data-module="d">
+							<div>Item d2</div>
+						</li>
+						<li id="item_d3" data-module="d">
+							<div>Item d3</div>
+						</li>
+						<li id="item_d4" data-module="d">
+							<div>Item d4</div>
+						</li>
+						<li id="item_d5" data-module="d">
+							<div>Item d5</div>
+						</li>
+					</ul>
+				</li>
+				<li class="" id="item_e" data-module="e">
+					<div>Item e</div>
+				</li>
+				<li class="" id="item_f" data-module="f">
+					<div>Item f</div>
+				</li>
+			</ul>
+			</section>
+	
+			<section>
+				<span id="toArrBtn" class="btn">To array</span>
+				<span id="toHierBtn" class="btn">To hierarchy</span>
+				<span id="toStrBtn" class="btn">To string</span>
+			</section>
+			<button id="string" type=button>Table</button>
+			<div id="piero2"></div>
+</div>
+</body>
+<script type="text/javascript">
+$(function()
+{
+	var options = {
+		placeholderCss: {'background-color': '#ff8'},
+		hintCss: {'background-color':'#bbf'},
+        onChange: function( cEl ) {console.log( 'onChange' );},
+        complete: function( cEl ) {console.log( 'complete' );},
+		isAllowed: function( cEl, hint, target )
+		{
+			// Be carefull if you test some ul/ol elements here.
+			// Sometimes ul/ols are dynamically generated and so they have not some attributes as natural ul/ols.
+			// Be careful also if the hint is not visible. It has only display none so it is at the previouse place where it was before(excluding first moves before showing).
+			if( target.data('module') === 'c' && cEl.data('module') !== 'c' )
+			{
+				hint.css('background-color', '#ff9999');
+				return false;
+			}
+			else
+			{
+				hint.css('background-color', '#99ff99');
+				return true;
+			}
+		},
+		opener: {
+            active: true,
+            as: 'html',  // if as is not set plugin uses background image
+            close: '<i class="fa fa-minus c3"></i>',  // or 'fa-minus c3',  // or './imgs/Remove2.png',
+            open: '<i class="fa fa-plus"></i>',  // or 'fa-plus',  // or'./imgs/Add2.png',
+            openerCss: {
+                'display': 'inline-block',
+                //'width': '18px', 'height': '18px',
+                'float': 'left',
+                'margin-left': '-35px',
+                'margin-right': '5px',
+                //'background-position': 'center center', 'background-repeat': 'no-repeat',
+                'font-size': '1.1em'
+            }
+		},
+		ignoreClass: 'clickable'
+	};
+	var optionsPlus = {
+        insertZonePlus: true,
+		placeholderCss: {'background-color': '#ff8'},
+		hintCss: {'background-color':'#bbf'},
+		opener: {
+            active: true,
+            as: 'html',  // if as is not set plugin uses background image
+            close: '<i class="fa fa-minus c3"></i>',
+            open: '<i class="fa fa-plus"></i>',
+            openerCss: {
+                'display': 'inline-block',
+                'float': 'left',
+                'margin-left': '-35px',
+                'margin-right': '5px',
+                'font-size': '1.1em'
+            }
+		}
+	};
+
+	$('#sTree2').sortableLists( options );
+	$('#sTreePlus').sortableLists( optionsPlus );
+
+	$('#toArrBtn').on( 'click', function(){ console.log( $('#sTree2').sortableListsToArray() );
+		alert( $('#sTree2').sortableListsToArray() );
+	} );
+	$('#toHierBtn').on( 'click', function() { console.log( $('#sTree2').sortableListsToHierarchy() );
+		alert( $('#sTree2').sortableListsToHierarchy() );
+	} );
+	$('#toStrBtn').on( 'click', function() { console.log( $('#sTree2').sortableListsToString() );
+		alert( $('#sTree2').sortableListsToString() );
+	} );
+	$('.descPicture').on( 'click', function(e) { $(this).toggleClass('descPictureClose'); } );
+
+	$('.clickable').on('click', function(e)	{ e.preventDefault();alert('Click works fine! IgnoreClass stopped onDragStart event.');});
+
+	/* Scrolling anchors */
+	$('#toPictureAnch').on( 'mousedown', function( e ) { scrollToAnch( 'pictureAnch' ); return false; } );
+	$('#toBaseElementAnch').on( 'mousedown', function( e ) { scrollToAnch( 'baseElementAnch' ); return false; } );
+	$('#toBaseElementAnch2').on( 'mousedown', function( e ) { scrollToAnch( 'baseElementAnch' ); return false; } );
+	$('#toCssPatternAnch').on( 'mousedown', function( e ) { scrollToAnch( 'cssPatternAnch' ); return false; } );
+
+	function scrollToAnch( id )
+	{
+		return true;
+		$('html, body').animate({
+			scrollTop: '-=-' + $("#" + id).offset().top + 'px'
+		}, 750);
+		return false;
+	}
+});
+</script>
+
+<script>
+	let jsonstr=`[
+		{"id":"2", "first_name":"Sam","last_name":"Smith", "phone":"111-222-3333","email":"ssmith@yahoo.com","address":"33 Birch Rd","city":"Miami","state":"FL"},
+		{"id":"3", "first_name":"Brad","last_name":"Traversy", "phone":"211-322-4333","email":"brad@test.com","address":"222 South St","city":"Portland","state":"FL"}
+	]`
+	let jsonobj=JSON.parse(jsonstr)
+//	let form=document.querySelector("form")
+	
+//	form.string.addEventListener("click", ()=>{
+//	let out=form.out
+//	if(!jsonobj.length) return
+	let tblstr="<table>"
+
+function uscita( id ) {
+	tblstr+="<caption>Table</caption>"
+	tblstr+="<tr>"
+
+	for(let prop in jsonobj[0]) {
+		tblstr+=`<th>${prop}</th>`
+	}
+	tblstr+="</tr>\n"
+
+	tblstr+=jsonobj.reduce((s, x) => {
+		s+="<tr>"
+		for(let prop in x) {
+			s+=`<td>${x[prop]}</td>`
+ 		}
+		s+="</tr>\n"
+		return s
+    }, "");
+	
+	tblstr+="</table>";
+//  out.insertAdjacentHTML("beforeend", "<p>" + tblstr)
+//	alert(tblstr);
+	console.log(tblstr);
+    $("div#piero").html(tblstr);
+};
+$('#string').on( 'mousedown', function( e ) { uscita(tblstr); });
+</script>
+
+</html>
