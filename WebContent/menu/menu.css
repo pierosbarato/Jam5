@@ -22,18 +22,6 @@ transition: color 0.5s, background 0.7s, border-radius 0.7s, text-indent 0.2s;
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-body {
--webkit-font-smoothing: antialiased;
-background: #7a8499;
-font-family: "PT Sans", sans-serif;
-font-size: 16px;
-color: #fff;
-margin: 15% auto 5%;
-width: 70%;
-max-width: 620px;
-position: relative;
-}
-
 a, a:visited {
 color: #5aedef;
 text-decoration: none;
