@@ -349,8 +349,16 @@ label, input, button, select, textarea {
 						} else if (item.tt == 'att:type') {
 							content += '' // item.id
 //									+ '<i class="fas fa-equals"></i>'
-									+ ' type: <input class="jamEdit inputField" style="width:120px" value="'
-									+ item.type +'"></input>'
+//									+ ' type: <input class="jamEdit inputField" style="width:120px" value="'
+//									+ item.type +'"></input>'
+
+									+ ' type: <select id="type" name="type" class="span3">'
+									+ '<option value="text" selected="text">Text</option>'
+									+ '<option value="intero">Intero</option>'
+									+ '<option value="decimal">Decimal</option>'
+									+ '<option value="data">Data</option>'
+									+ '</select>'
+
 									+ ' val: <input class="jamEdit inputField2" style="width:100px" '
 									+ '	value="' + item.val +'"></input>';
 								+ item.ix +'"></input>';
