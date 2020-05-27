@@ -36,6 +36,7 @@ label, input, button, select, textarea {
 	max-width:1000px;
 }
 .jamEdit {
+	width: 100px;
 	height: 19px;
 	border: 0px;
 	margin: 0px 0px 0px 0px;
@@ -326,13 +327,27 @@ label, input, button, select, textarea {
 					contentCallback : function(item) {
 						var content = ''; //item.content || '' ? item.content : item.id;
 						if (item.tt == 'pane') {
-							content += item.id
-									+ ' pane tit: '
-									+ '<input class="jamEdit inputField" style="width:150px" value="' + item.id +'"></input>';
+							content += ''
+									+ '<i class="fas fa-address-card"></i>'
+									+ ' id: <input class="jamEdit inputField" style="width:100px" '
+									+ ' value="' + item.id +'"></input>'
+									+ ' tit: <input class="jamEdit inputField2" style="width:100px" '
+									+ '	value="' + item.tit +'"></input>';
 						} else if (item.tt == 'item') {
 							content += '' // item.id
-									+ ' item id: '
-									+ '<input class="jamEdit inputField" style="width:150px" value="'
+									+ '<i class="fas fa-equals"></i>'
+									+ ' id: <input class="jamEdit inputField" style="width:120px" value="'
+									+ item.ix +'"></input>'
+									+ ' tit: <input class="jamEdit inputField2" style="width:100px" '
+									+ '	value="' + item.tit +'"></input>';
+								+ item.ix +'"></input>';
+						} else if (item.tt == 'att:type') {
+							content += '' // item.id
+//									+ '<i class="fas fa-equals"></i>'
+									+ ' type: <input class="jamEdit inputField" style="width:120px" value="'
+									+ item.type +'"></input>'
+									+ ' val: <input class="jamEdit inputField2" style="width:100px" '
+									+ '	value="' + item.val +'"></input>';
 								+ item.ix +'"></input>';
 						} else
 							content += ' '

@@ -261,7 +261,7 @@ public class JPane5 {
 
 //		putPane("test", "TD01_FAT", "null", data);
 		
-		data += "{\"id\":\"" + paneId + "\""
+		data += "{\"id\":\"" + paneId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\",";
 
 		if(req.contains("/find"))
@@ -281,6 +281,8 @@ public class JPane5 {
 			String is = jl.get("is"			,"Item_" + iCmp + " " + id);
 //			String ix = jl.get("ix"			,"Item_" + iCmp + " " + id;
 			String ix = jl.get("ix"			,is);
+			String tit = jl.get("tit"		,ix);
+			String type= jl.get("type"		,"text");
 			String val= jl.get("val"		,"");
 			String xml= jl.get("xmlPath"	,"");
 			String view = JPane.vDec(jl.get("view"	,""));
@@ -303,20 +305,20 @@ public class JPane5 {
 			data += "\"id\":\"" + id + "\",";
 //			data += "\"id\":" + iCmp + "";
 			data += "\"ix\":\"" + ix + "\",";
+			data += "\"tit\":\"" + tit + "\",";
 
 			data += "\"tt\":\"item\","
 				+ "\"classes\": [\"dd-collapsed\"],"	
 				+ "\"children\":[";
 			
-			data += "{\"tt\":\"att\",\"ix\":\"" + "id:" + ix +"\"}";
+//			data += "{\"tt\":\"att\",\"ix\":\"" + "id:" + ix +"\"}";
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
+			data += "{\"tt\":\"att:type\",\"type\":\"" + type + "\",\"val\":\"" + val +"\"}";
 			if(is.length()>0)
-			data += ",{\"tt\":\"att\",\"ix\":\"" + "sql:" + is +"\"}";
-			if(val.length()>0 && !val.equalsIgnoreCase("null"))
-			data += ",{\"tt\":\"att\",\"ix\":\"" + "val:" + val +"\"}";
-			if(xml.length()>0 && !val.equalsIgnoreCase("null"))
-			data += ",{\"tt\":\"att\",\"ix\":\"" + "xml:" + xml +"\"}";
+				data += ",{\"tt\":\"att\",\"ix\":\"" + "sql:" + is +"\"}";
+			if(xml.length()>0 && !xml.equalsIgnoreCase("null"))
+				data += ",{\"tt\":\"att\",\"ix\":\"" + "xml:" + xml +"\"}";
 
 			data += "]}";
 		}
