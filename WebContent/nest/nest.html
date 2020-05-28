@@ -531,12 +531,14 @@ label, input, button, select, textarea {
 
 					firstEmptySelect = false;
 
-					$container = $('<div class="row" style=\"margin:0\">'
+					$container = $('<div class="row" '
+							+ 'style=\"margin:0;flex-wrap:nowrap;\">'
 							+ '<div><a class="btn btn-success">Clienti</a></div>'
 							+ '<div><a class="btn btn-success">Fornitori</a></div>'
-							+ '</div>' + '<div class="row" style=\"margin:0\">'
-							+ '<div class="col-md-1"><b>ID</b></div>'
-							+ '<div class="col-md-5"><b>Name</b></div>' +
+							+ '</div>'
+							+ '<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
+							+ '<div class="col-md-1 col-xs-1"><b>ID</b></div>'
+							+ '<div class="col-md-5 col-xs-3"><b>Name</b></div>' +
 //	            				'</div>' +
 //	                    		'<div class="row" style=\"margin:0\">' +
 //	                    		'<div class="col-md-1">' + item.id + '</div>' +
@@ -544,9 +546,9 @@ label, input, button, select, textarea {
 							'</div>');
 
 				} else {
-					$container = $('<div class="row" style=\"margin:0\">'
-							+ '<div class="col-md-1">' + item.id + '</div>'
-							+ '<div class="col-md-5">' + item.text + '</div>'
+					$container = $('<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
+							+ '<div class="col-md-1 col-xs-1">' + item.id + '</div>'
+							+ '<div class="col-md-3 col-xs-3">' + item.text + '</div>'
 							+ '</div>');
 				}
 
