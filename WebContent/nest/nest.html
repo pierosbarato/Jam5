@@ -40,6 +40,9 @@ label, input, button, select, textarea {
 	padding: 0px;
 	max-width:1200px;
 }}
+.dd-list .dd-list {
+/*	border-style: dashed; */
+}
 .jamEdit {
 	width: 100px;
 	height: 19px;
@@ -285,7 +288,7 @@ label, input, button, select, textarea {
 		});
 
 		var caricaLoad = 0;
-		var caricaSearch = 0;
+		var caricaFind = 0;
 		var carica = function(modo) {
 			console.profile();
 			if (modo.substring(0, 4) == "load") {
@@ -295,10 +298,10 @@ label, input, button, select, textarea {
 				caricaLoad++;
 			}
 			if (modo == "find") {
-				if (caricaSearch > 0) {
+				if (caricaFind > 0) {
 					$('#nestable-find').nestable('destroy');
 				}
-				caricaSearch++;
+				caricaFind++;
 			}
 
 			$.get("/Jam5/server/" + modo,

@@ -81,8 +81,7 @@
 
             var html = '<' + options.itemNodeName + item_attrs_string + '>';
             html += '<' + options.handleNodeName + ' class="fas ' + item.iconClass 
-            			+ ' ' + options.handleClass
-            			+ '"></div>';
+            			+ ' ' + options.handleClass + '"></div>';
             html += '<' + options.contentNodeName + ' class="' + options.contentClass + '">';
             html += content;
             html += '</' + options.contentNodeName + '>';
