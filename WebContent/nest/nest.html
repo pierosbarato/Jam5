@@ -53,6 +53,11 @@ label, input, button, select, textarea {
 	margin: -2px;
 }
 
+.fa-1x {
+	font-size: 1em;
+	font-size: 1.2em;
+}
+
 .select2-container
 .select2-selection--single {
 	height: 24px;
@@ -206,7 +211,8 @@ label, input, button, select, textarea {
 		<div class="dd" id="nestable3">
 			<ol class="dd-list">
 				<li class="dd-item dd3-item" data-id="13">
-					<div class="dd-handle dd3-handle">Drag</div>
+					<div class="dd-handle dd3-handle fas fa-address-card">
+					</div>
 					<div class="dd3-content">
 						Pane id: <input class="jamEdit" style="width: 50px"></input> tit:
 						<input class="jamEdit"></input>
@@ -216,30 +222,32 @@ label, input, button, select, textarea {
 							</a> <a class="btn btn-primary btn-sm btnEdit clickable"
 								data-toggle="modal" data-target="#menuEditModal"> <i
 								class="fas fa-edit clickable"></i>
-							</a> <a class="btn btn-danger btn-sm btnRemove clickable"> <i
-								class="fas fa-trash-alt clickable"></i>
+							</a> <a class="btn btn-danger btn-sm btnRemove clickable">
+							<i class="fas fa-trash-alt clickable"></i>
 							</a>
 						</div>
 					</div>
 				</li>
 				<li class="dd-item dd3-item" data-id="14">
-					<div class="dd-handle dd3-handle">Drag</div>
+					<div class="dd-handle dd3-handle">
+						<i class="fas fa-address-card"></i>
+						</div>
 					<div class="dd3-content">Item 14</div>
 				</li>
 				<li class="dd-item dd3-item dd-collapsed" data-id="15">
-					<div class="dd-handle dd3-handle">Drag</div>
+					<div class="dd-handle dd3-handle"><i class="fas fa-address-card"></i></div>
 					<div class="dd3-content">Item 15</div>
 					<ol class="dd-list">
 						<li class="dd-item dd3-item" data-id="16">
-							<div class="dd-handle dd3-handle">Drag</div>
+							<div class="dd-handle dd3-handle"><i class="fas fa-address-card"></i></div>
 							<div class="dd3-content">Item 16</div>
 						</li>
 						<li class="dd-item dd3-item" data-id="17">
-							<div class="dd-handle dd3-handle">Drag</div>
+							<div class="dd-handle dd3-handle"><i class="fas fa-address-card"></i></div>
 							<div class="dd3-content">Item 17</div>
 						</li>
 						<li class="dd-item dd3-item" data-id="18">
-							<div class="dd-handle dd3-handle">Drag</div>
+							<div class="dd-handle dd3-handle"><i class="fas fa-address-card"></i></div>
 							<div class="dd3-content">Item 18</div>
 						</li>
 					</ol>
@@ -333,14 +341,14 @@ label, input, button, select, textarea {
 						var content = ''; //item.content || '' ? item.content : item.id;
 						if (item.tt == 'pane') {
 							content += ''
-									+ '<i class="fas fa-address-card"></i>'
+//									+ '<i class="fas fa-address-card"></i>'
 									+ ' id: <input class="jamEdit inputField" style="width:100px" '
 									+ ' value="' + item.id +'"></input>'
 									+ ' tit: <input class="jamEdit inputField2" style="width:100px" '
 									+ '	value="' + item.tit +'"></input>';
 						} else if (item.tt == 'item') {
 							content += '' // item.id
-									+ '<i class="fas fa-equals"></i>'
+//									+ '<i class="fas fa-equals"></i>'
 									+ ' id: <input class="jamEdit inputField" style="width:120px" value="'
 									+ item.ix +'"></input>'
 									+ ' tit: <input class="jamEdit inputField2" style="width:100px" '
@@ -352,7 +360,7 @@ label, input, button, select, textarea {
 //									+ ' type: <input class="jamEdit inputField" style="width:120px" value="'
 //									+ item.type +'"></input>'
 
-									+ ' type: <select id="type" name="type" class="span3">'
+									+ ' type: <select id="type" name="type" class="inputField" >'
 									+ '<option value="text" selected="text">Text</option>'
 									+ '<option value="intero">Intero</option>'
 									+ '<option value="decimal">Decimal</option>'

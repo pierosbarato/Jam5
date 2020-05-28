@@ -80,7 +80,9 @@
             }).join(' ');
 
             var html = '<' + options.itemNodeName + item_attrs_string + '>';
-            html += '<' + options.handleNodeName + ' class="' + options.handleClass + '">Drag</div>';
+            html += '<' + options.handleNodeName + ' class="fas ' + item.iconClass 
+            			+ ' ' + options.handleClass
+            			+ '"></div>';
             html += '<' + options.contentNodeName + ' class="' + options.contentClass + '">';
             html += content;
             html += '</' + options.contentNodeName + '>';

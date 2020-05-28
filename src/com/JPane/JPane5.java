@@ -262,11 +262,12 @@ public class JPane5 {
 //		putPane("test", "TD01_FAT", "null", data);
 		
 		data += "{\"id\":\"" + paneId + "\"," + "\"tit\":\"" + paneId + "\""
-				+ "," + "\"tt\":\"pane\",";
+				+ "," + "\"tt\":\"pane\","
+				+ "";
 
 		if(req.contains("/find"))
 		data += "\"classes\": [\"dd-collapsed\"],";
-
+		data += "\"iconClass\":\"fa-address-card\",";
 		data +=  "\"children\":[";
 
 		String sortMode	= "sort-name";
@@ -308,7 +309,8 @@ public class JPane5 {
 			data += "\"tit\":\"" + tit + "\",";
 
 			data += "\"tt\":\"item\","
-				+ "\"classes\": [\"dd-collapsed\"],"	
+				+ "\"classes\": [\"dd-collapsed\"],"
+				+ "\"iconClass\":\"fa-equals\","
 				+ "\"children\":[";
 			
 //			data += "{\"tt\":\"att\",\"ix\":\"" + "id:" + ix +"\"}";
