@@ -1,0 +1,275 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+<title>Menu Edit</title>
+<style type="text/css">
+:root { -
+	-nest-size: 25px;
+}
+
+:root { -
+	-nest-size2: 18px;
+}
+</style>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+
+<link rel="stylesheet"
+	href="bootstrap-iconpicker/css/bootstrap-iconpicker.min.css">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+	rel="stylesheet" />
+
+<style type="text/css">
+body {
+	background-color: #fafafa;
+}
+
+ol.example li.placeholder:before {
+	position: absolute;
+}
+
+.list-group-item>div {
+	margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Menu Editor</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Edit item</div>
+				<div class="panel-body">
+					<form id="frmEdit" class="form-horizontal">
+						<input type="hidden" name="mnu_icon" id="mnu_icon">
+						<div class="form-group">
+							<label for="mnu_text" class="col-sm-2 control-label">Text</label>
+							<div class="col-sm-10">
+								<div class="input-group">
+									<input type="text" class="form-control" id="mnu_text"
+										name="mnu_text" placeholder="Text">
+									<div class="input-group-btn">
+										<button id="mnu_iconpicker" class="btn btn-default"
+											data-iconset="fontawesome" data-icon="" type="button"></button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="mnu_href" class="col-sm-2 control-label">URL</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="mnu_href"
+									name="mnu_href" placeholder="URL">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="mnu_target" class="col-sm-2 control-label">Target</label>
+							<div class="col-sm-10">
+								<select id="mnu_target" name="mnu_target" class="form-control">
+									<option value="_self">Self</option>
+									<option value="_blank">Blank</option>
+									<option value="_top">Top</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="mnu_title" class="col-sm-2 control-label">Tooltip</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="mnu_title"
+									name="mnu_title" placeholder="Text">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<button type="button" id="btnUpdate" class="btn btn-primary"
+						disabled>
+						<i class="fa fa-refresh"></i> Update
+					</button>
+					<button type="button" id="btnAdd" class="btn btn-success">
+						<i class="fa fa-plus"></i> Add
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<h5 class="pull-left">Menu</h5>
+					<div class="pull-right">
+						<button id="btnOut" type="button" class="btn btn-success">
+							<i class="glyphicon glyphicon-ok"></i> Save
+						</button>
+					</div>
+				</div>
+				<div class="panel-body" id="cont">
+					<ul id="myList" class="sortableLists list-group">
+						<li class="list-group-item" data-text="Home" data-icon="fa-home"
+							data-href="http://home.com">
+							<div>
+								<i class="fa fa-home"></i> <span class="txt">Home</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item" data-text="Option 2"
+							data-icon="fa-bar-chart-o">
+							<div>
+								<i class="fa fa-bar-chart-o"></i> <span class="txt">Option
+									2</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item" data-text="Option 3"
+							data-icon="fa-cloud-upload">
+							<div>
+								<i class="fa fa-cloud-upload"></i> <span class="txt">Option
+									3</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item" data-text="Option 4"
+							data-icon="fa-crop">
+							<div>
+								<i class="fa fa-crop"></i> <span class="txt">Option 4</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item" data-text="Option 5"
+							data-icon="fa-flask">
+							<div>
+								<i class="fa fa-flask"></i> <span class="txt">Option 5</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item" data-text="Option 6"
+							data-icon="fa-map-marker">
+							<div>
+								<i class="fa fa-map-marker"></i> <span class="txt">Option
+									6</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item" data-text="Option 7"
+							data-icon="fa-search">
+							<div>
+								<i class="fa fa-search"></i> <span class="txt">Option 7</span>
+								<div class="btn-group pull-right">
+									<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+										href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+								</div>
+							</div>
+							<ul>
+								<li class="list-group-item" data-text="Option 7-1"
+									data-icon="fa-plug">
+									<div>
+										<i class="fa fa-plug"></i> <span class="txt">Option 7-1</span>
+										<div class="btn-group pull-right">
+											<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+												href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+										</div>
+									</div>
+								</li>
+								<li class="list-group-item" data-text="Option 7-2"
+									data-icon="fa-filter">
+									<div>
+										<i class="fa fa-filter"></i> <span class="txt">Option
+											7-2</span>
+										<div class="btn-group pull-right">
+											<a href="#" class="btn btn-default btn-xs btnEdit">Edit</a> <a
+												href="#" class="btn btn-danger btn-xs btnRemove">X</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<label for="out">Output:</label>
+			<textarea id="out" class="form-control" cols="50" rows="10"></textarea>
+		</div>
+	</div>
+	<div>
+		<div class="col-md-6"></div>
+	</div>
+</div>
+
+<script type="text/javascript"
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script type="text/javascript"
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+<script type="text/javascript"
+	src="bootstrap-iconpicker/js/iconset/fontawesome5-3-1.min.js"></script>
+<script type="text/javascript"
+	src="bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
+
+<script src='jquery-menu-editor.js'></script>
+
+<script>
+	jQuery(document).ready(function() {
+		var iconPickerOpt = {
+			cols : 5,
+			footer : false
+		};
+		var options = {
+			hintCss : {
+				'border' : '1px dashed #13981D'
+			},
+			placeholderCss : {
+				'background-color' : 'gray'
+			},
+			ignoreClass : 'btn',
+			opener : {
+				active : true,
+				as : 'html',
+				close : '<i class="fa fa-minus"></i>',
+				open : '<i class="fa fa-plus"></i>',
+				openerCss : {
+					'margin-right' : '10px'
+				},
+				openerClass : 'btn btn-success btn-xs'
+			}
+		};
+		menuEditor('myList', {
+			listOptions : options,
+			iconPicker : iconPickerOpt,
+			labelEdit : 'Edit',
+			labelRemove : 'X'
+		});
+	});
+</script>
+</body>
+</html>
