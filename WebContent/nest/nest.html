@@ -56,9 +56,8 @@ label, input, button, select, textarea {
 	margin: -2px;
 }
 
-.fa-1x {
-	font-size: 1em;
-	font-size: 1.2em;
+.select2-container--open .select2-dropdown--below {
+	border-top: 1px;
 }
 
 .select2-container
@@ -83,11 +82,11 @@ label, input, button, select, textarea {
 			class="fas fa-home"></i>&nbsp;
 		</a>
 		<button type="button" class="btn btn-success" data-action="expand-all">
-			<i class="fas fa-plus"></i> <i class="fas fa-plus"></i>&nbsp;
+			<i class="fas fa-plus"></i><i class="fas fa-plus"></i>&nbsp;
 		</button>
 		<button type="button" class="btn btn-success"
 			data-action="collapse-all">
-			<i class="fas fa-minus"></i> <i class="fas fa-minus"></i>&nbsp;
+			<i class="fas fa-minus"></i><i class="fas fa-minus"></i>&nbsp;
 		</button>
 <!--	<button type="button" class="btn btn-success"
 			data-action="add-item">Add</button>
@@ -537,8 +536,8 @@ label, input, button, select, textarea {
 							+ '<div><a class="btn btn-success">Fornitori</a></div>'
 							+ '</div>'
 							+ '<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
-							+ '<div class="col-md-1 col-xs-1"><b>ID</b></div>'
-							+ '<div class="col-md-5 col-xs-3"><b>Name</b></div>' +
+							+ '<div class="col-md-1"><b>ID</b></div>'
+							+ '<div class="col-md-5"><b>Name</b></div>' +
 //	            				'</div>' +
 //	                    		'<div class="row" style=\"margin:0\">' +
 //	                    		'<div class="col-md-1">' + item.id + '</div>' +
@@ -547,8 +546,8 @@ label, input, button, select, textarea {
 
 				} else {
 					$container = $('<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
-							+ '<div class="col-md-1 col-xs-1">' + item.id + '</div>'
-							+ '<div class="col-md-3 col-xs-3">' + item.text + '</div>'
+							+ '<div class="col-md-1">' + item.id + '</div>'
+							+ '<div class="col-md-5">' + item.text + '</div>'
 							+ '</div>');
 				}
 
