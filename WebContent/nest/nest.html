@@ -290,9 +290,10 @@ label, input, button, select, textarea {
 		var caricaFind = 0;
 		var carica = function(modo) {
 			console.profile();
+			var cc = null;
 			if (modo.substring(0, 4) == "load") {
 				if (caricaLoad > 0) {
-					$('#nestable-load').nestable('destroy');
+					cc = $('#nestable-load').nestable('destroy');
 				}
 				caricaLoad++;
 			}
@@ -392,6 +393,7 @@ label, input, button, select, textarea {
 				});
 			});
 //			$('.dd').nestable('collapseAll'); // non va
+			return cc;
 		};
 
 		$("#save").click(function() {
@@ -418,7 +420,6 @@ label, input, button, select, textarea {
 
 	<script>
 		$(document).ready(function() {
-
 			$('#nestable-menu').on('click', function(e) {
 				var target = $(e.target), action = target.data('action');
 				if (action === 'expand-all') {
@@ -627,5 +628,98 @@ label, input, button, select, textarea {
 
 	</div>
 	 -->
+
+	<script>
+		$(document).ready(function() {
+			var editor = carica('load');
+			// icon picker options
+			var iconPickerOptions = {
+				searchText : "Icona ...",
+				labelHeader : "{0}/{1}"
+			};
+/*
+			var editor = new MenuEditor('myEditor', {
+				listOptions : sortableListOptions,
+				iconPicker : iconPickerOptions
+			});
+*/
+			alert('begin');
+
+			editor.setForm($('#frmEdit'));
+			editor.setUpdateButton($('#btnUpdate'));
+
+			$('#btnReload').on('click', function() {
+				editor.setData(arrayjson);
+			});
+
+			$("#btnUpdate").click(function() {
+				editor.update();
+			});
+
+			$('#btnAdd').click(function() {
+				editor.add();
+			});
+
+			/* PRIVATE METHODS */
+		    function editItem($item) {
+		        var data = $item.data();
+		        $.each(data, function (p, v) {
+		            $form.find("[name=" + p + "]").val(v);
+		        });
+		        $form.find(".item-menu").first().focus();
+		        if (data.hasOwnProperty('icon')) {
+		            iconPicker.iconpicker('setIcon', data.icon);
+		        } else{
+		            iconPicker.iconpicker('setIcon', 'empty');
+		        }
+		        $updateButton.removeAttr('disabled');
+		    }
+
+		    function resetForm() {
+		        $form[0].reset();
+		        iconPicker = iconPicker.iconpicker(iconPickerOpt);
+		        iconPicker.iconpicker('setIcon', 'empty');
+		        $updateButton.attr('disabled', true);
+		        itemEditing = null;
+		    }
+		    /* PUBLIC METHODS */
+		    this.setForm = function(form){
+		        $form = form;
+		    };
+
+		    this.getForm = function(){
+		        return $form;
+		    };
+
+		    this.setUpdateButton = function($btn){
+		        $updateButton = $btn;
+		        $updateButton.attr('disabled', true);
+		        itemEditing = null;
+		    };
+
+		    this.getUpdateButton = function(){
+		        return $updateButton;
+		    };
+
+		    this.getCurrentItem = function(){
+		        return itemEditing;
+		    };
+
+		    this.update = function(){
+		        var $cEl = this.getCurrentItem();
+		        if ($cEl===null){
+		            return;
+		        }
+		        var oldIcon = $cEl.data('icon');
+		        $form.find('.item-menu').each(function(){
+		            $cEl.data($(this).attr('name'), $(this).val());
+		        });
+		        $cEl.children().children('i').removeClass(oldIcon).addClass($cEl.data('icon'));
+		        $cEl.find('span.txt').first().text($cEl.data('text'));
+		        resetForm();
+		    };
+
+		});
+	</script>
 </body>
 </html>
