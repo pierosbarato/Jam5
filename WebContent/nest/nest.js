@@ -1141,8 +1141,9 @@
     };
 
     function makeModal(item) {
-        var value = $(item).attr('data-val');
-        var type = $(item).attr('data-type');
+    	id = $(item).attr('data-id');
+    	value = $(item).attr('data-val');
+        type = $(item).attr('data-type');
 
     	return `<div id="myModal" class="modal fade" role="dialog" 
     	  				style="display: none">
@@ -1160,18 +1161,15 @@
 				</div>
 
     	      <div class="modal-body">
-    	        <p>${type}</p>
-    	        <p>${value}</p>
+    	        <p>Id: ${id}</p>
+    	        <p>Type: ${type}</p>
+    	        <textarea style="min-width: 100%">${value}</textarea>
     	      </div>
 
 				<div class="modal-footer">
 					<button type="button" id="btnUpdate" data-dismiss="modal"
-						class="btn btn-primary" disabled>
+						class="btn btn-primary">
 						<i class="fas fa-sync-alt"></i> Update
-					</button>
-					<button type="button" id="btnAdd" data-dismiss="modal"
-						class="btn btn-success">
-						<i class="fas fa-plus"></i> Add
 					</button>
 
 					<button type="button" class="btn btn-secondary"
