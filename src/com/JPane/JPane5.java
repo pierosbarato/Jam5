@@ -253,15 +253,17 @@ public class JPane5 {
 			+ "]";
 	
 	// =========================================================================
-	static String JPaneLoadPane(String paneId, String req, JPane frame, JPaneMaster master, JPaneDoc requ) {
+	static String JPaneLoadPane(String paneId, String req, JPane frame
+			,JPaneMaster master, String sysId, JPaneDoc requ) {
 		String data = "";
 		String cmd = "$$" + paneId + ";";
 		master = frame.execBase(requ, cmd, 0, requ, master);
 		JPaneDoc jpTmp = master.get(paneId, "");
-
+		paneId = paneId.toLowerCase();
+		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
 		
-		data += "{\"id\":\"" + paneId + "\"," + "\"tit\":\"" + paneId + "\""
+		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
 				+ "";
 
@@ -297,13 +299,13 @@ public class JPane5 {
 
 			if(view.length()> 0) {
 				data += "";
-				data += JPaneLoadPane(view.substring(2), "", frame, master, requ);				
+				data += JPaneLoadPane(view.substring(2), "", frame, master, sysId, requ);
 				data += "";
 				continue;
 			}
 			
 			data += "{";
-			data += "\"id\":\"" + id + "\",";
+			data += "\"id\":\"" + sysId + "." + ix + "\",";
 //			data += "\"id\":" + iCmp + "";
 			data += "\"ix\":\"" + ix + "\",";
 			data += "\"tit\":\"" + tit + "\",";
@@ -317,7 +319,7 @@ public class JPane5 {
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
 			data += "{\"tt\":\"att:type\","
-					+ "\"id\":\"" + ix + "\","
+					+ "\"id\":\"" + sysId + "." + ix + "\","
 					+ "\"type\":\"" + type + "\",\"val\":\"" + val +"\"}";
 			if(is.length()>0)
 				data += ",{\"tt\":\"att\",\"ix\":\"" + "sql:" + is +"\"}";
@@ -353,6 +355,7 @@ public class JPane5 {
 			return data;
 		}
 
+		String sysId = "main";
 		JPane frame = new JPane();
 		System.out.println("--- Server: " + JPane.VERSION);
 		JPaneDoc requ = frame.new JPaneDoc("req", "");
@@ -362,14 +365,14 @@ public class JPane5 {
 
 //		String paneId = "TD01_PDT";
 		data += "[";
-		data += JPaneLoadPane(paneId, req, frame, master, requ);
+		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ);
 
 		if(req.contains("/find")) {
 			paneId = "TD01_LINEE";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, requ);			
+			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);
 
 			paneId = "TD01_IVA";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, requ);			
+			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);			
 		}
 
 		data += "]";
