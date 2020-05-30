@@ -1,7 +1,3 @@
-/*!
- * Nestable jQuery Plugin - Copyright (c) 2014 Ramon Smit - https://github.com/RamonSmit/Nestable
- */
-
 (function($, window, document, undefined) {
     var hasTouch = 'ontouchstart' in document;
 
@@ -172,6 +168,9 @@
                 }
                 if (action === 'addRowBelow') {
                     list.addRowBelow(list,item);
+                }
+                if (action === 'editRow') {
+                    list.editRow(list,item);
                 }
                 if (action === 'removeRow') {
 //                	alert('Remove' + JSON.stringify(item));
@@ -1068,9 +1067,21 @@
             }
         },
 
+        editRow: function(list,item) {
+            var nestableList = list.el.attr("id");
+            var idValue = parseInt($("#"+nestableList+" ol > li").length) + 1;
+
+//            alert('edit row:' + item);
+  
+            var m1 = $(makeModal(item));
+            m1.modal('show');
+        },
+
         addRowBelow: function(list,item) {
             var nestableList = list.el.attr("id");
             var idValue = parseInt($("#"+nestableList+" ol > li").length) + 1;
+
+//        	alert('add row:' + item);
 
             var rowHtml = '<li class="dd-item dd3-item" data-id="'+idValue+'">'+
                             '<div class="dd-handle dd3-handle">&nbsp;</div>'+
@@ -1127,6 +1138,49 @@
         });
 
         return retval || lists;
+    };
+
+    function makeModal(item) {
+        var value = $(item).attr('data-val');
+        var type = $(item).attr('data-type');
+
+    	return `<div id="myModal" class="modal fade" role="dialog" 
+    	  				style="display: none">
+    	  <div class="modal-dialog">
+    	    <!-- Modal content-->
+
+    	    <div class="modal-content">
+	
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Edit Item</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+    	      <div class="modal-body">
+    	        <p>${type}</p>
+    	        <p>${value}</p>
+    	      </div>
+
+				<div class="modal-footer">
+					<button type="button" id="btnUpdate" data-dismiss="modal"
+						class="btn btn-primary" disabled>
+						<i class="fas fa-sync-alt"></i> Update
+					</button>
+					<button type="button" id="btnAdd" data-dismiss="modal"
+						class="btn btn-success">
+						<i class="fas fa-plus"></i> Add
+					</button>
+
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+    	    </div>
+
+    	  </div>
+    	</div>`;
     };
 
 })(window.jQuery || window.Zepto, window, document);

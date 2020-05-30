@@ -326,10 +326,13 @@ label, input, button, select, textarea {
 //				alert("Data: " + JSON.stringify(json));
 				var buttonEdit
 				= '<div class="btn-group float-right jamButton">'
-				+ '<a title="Add Row Below" class="btn btn-secondary btn-sm clickable" data-action="addRowBelow">'
+				+ '<a title="Add Row Below" class="btn btn-secondary btn-sm clickable" '
+				+ 'data-action="addRowBelow">'
 				+ '<i class="fas fa-plus clickable"></i></a>'
 
-				+ '<a class="btn btn-primary btn-sm clickable" data-toggle="modal" data-target="#menuEditModal">'
+//				+ '<a class="btn btn-primary btn-sm clickable" data-toggle="modal" data-target="#menuEditModal">'
+				+ '<a title="Edit Row" class="btn btn-secondary btn-sm clickable" '
+				+ 'data-action="editRow">'
 				+ '<i class="fas fa-edit clickable"></i></a>'
 
 				+ '<a class="btn btn-danger btn-sm clickable" data-action="removeRow">'
@@ -643,11 +646,6 @@ label, input, button, select, textarea {
 				iconPicker : iconPickerOptions
 			});
 */
-			alert('begin');
-
-			editor.setForm($('#frmEdit'));
-			editor.setUpdateButton($('#btnUpdate'));
-
 			$('#btnReload').on('click', function() {
 				editor.setData(arrayjson);
 			});
@@ -683,29 +681,29 @@ label, input, button, select, textarea {
 		        itemEditing = null;
 		    }
 		    /* PUBLIC METHODS */
-		    this.setForm = function(form){
+		    setForm = function(form){
 		        $form = form;
 		    };
 
-		    this.getForm = function(){
+		    getForm = function(){
 		        return $form;
 		    };
 
-		    this.setUpdateButton = function($btn){
+		    setUpdateButton = function($btn){
 		        $updateButton = $btn;
 		        $updateButton.attr('disabled', true);
 		        itemEditing = null;
 		    };
 
-		    this.getUpdateButton = function(){
+		    getUpdateButton = function(){
 		        return $updateButton;
 		    };
 
-		    this.getCurrentItem = function(){
+		    getCurrentItem = function(){
 		        return itemEditing;
 		    };
 
-		    this.update = function(){
+		    update = function(){
 		        var $cEl = this.getCurrentItem();
 		        if ($cEl===null){
 		            return;
@@ -718,6 +716,9 @@ label, input, button, select, textarea {
 		        $cEl.find('span.txt').first().text($cEl.data('text'));
 		        resetForm();
 		    };
+
+			setForm($('#frmEdit'));
+			setUpdateButton($('#btnUpdate'));
 
 		});
 	</script>
