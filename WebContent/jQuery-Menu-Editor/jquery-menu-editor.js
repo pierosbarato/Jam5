@@ -1233,7 +1233,7 @@ function MenuEditor(idSelector, options) {
             var $div = $('<div>').css('overflow', 'auto');
             var $i = $('<i>').addClass(v.icon);
             var $span = $('<span>').addClass('txt').append(v.text).css('margin-right', '5px');
-            $span.append("<span>:<input value='piero' class='clickable'>");
+            $span.append("<span>:<input value='data' class='clickable'>");
 
             var $divbtn =  TButtonGroup();
             $div.append($i).append("&nbsp;").append($span).append($divbtn);

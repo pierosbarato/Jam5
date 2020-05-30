@@ -316,7 +316,9 @@ public class JPane5 {
 //			data += "{\"tt\":\"att\",\"ix\":\"" + "id:" + ix +"\"}";
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
-			data += "{\"tt\":\"att:type\",\"type\":\"" + type + "\",\"val\":\"" + val +"\"}";
+			data += "{\"tt\":\"att:type\","
+					+ "\"id\":\"" + ix + "\","
+					+ "\"type\":\"" + type + "\",\"val\":\"" + val +"\"}";
 			if(is.length()>0)
 				data += ",{\"tt\":\"att\",\"ix\":\"" + "sql:" + is +"\"}";
 			if(xml.length()>0 && !xml.equalsIgnoreCase("null"))
