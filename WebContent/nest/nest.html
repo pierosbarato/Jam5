@@ -21,7 +21,7 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
 <style>
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 100px) {
 	.select2-container--open
 	.select2-dropdown--below {
 		position: fixed !important;
@@ -520,8 +520,8 @@ label, input, button, select, textarea {
 						+ '<div><a class="btn btn-success">Fornitori</a></div>'
 						+ '</div>'
 						+ '<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
-						+ '<div class="col-md-1"><b>ID</b></div>'
-						+ '<div class="col-md-5"><b>Name</b></div>'
+						+ '<div class="col-md-1 col-1"><b>ID</b></div>'
+						+ '<div class="col-md-5 col-5"><b>Name</b></div>'
 						+
 //	            			'</div>' +
 //	                    	'<div class="row" style=\"margin:0\">' +
@@ -531,10 +531,10 @@ label, input, button, select, textarea {
 
 				} else {
 					$container = $('<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
-						+ '<div class="col-md-1">'
+						+ '<div class="col-md-1 col-1">'
 						+ item.id
 						+ '</div>'
-						+ '<div class="col-md-5">'
+						+ '<div class="col-md-5 col-5">'
 						+ item.text + '</div>' + '</div>');
 				}
 

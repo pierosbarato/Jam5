@@ -1071,10 +1071,10 @@
             var nestableList = list.el.attr("id");
             var idValue = parseInt($("#"+nestableList+" ol > li").length) + 1;
 
-//            alert('edit row:' + item);
-  
             var m1 = $(makeModal(item));
             m1.modal('show');
+
+//            alert('edit row:' + item);
         },
 
         addRowBelow: function(list,item) {
@@ -1161,9 +1161,23 @@
 				</div>
 
     	      <div class="modal-body">
-    	        <p>Id: ${id}</p>
-    	        <p>Type: ${type}</p>
-    	        <textarea style="min-width: 100%">${value}</textarea>
+				<div class="form-group">
+					<label for="text">Id / Icon:</label>
+					<div class="input-group">
+						<input type="text" class="form-control item-menu"
+								name="id" value="${id}"
+							id="id" placeholder="Id">
+						<div class="input-group-append">
+							<button type="button" id="myEditor_icon"
+								class="btn btn-outline-secondary"></button>
+						</div>
+					</div>
+					<input type="hidden" name="icon" class="item-menu">
+
+					<label for="text">Type: ${type}</label>
+    	        	<textarea style="min-width: 100%"
+    	        		class="form-control item-menu">${value}</textarea>
+				</div>
     	      </div>
 
 				<div class="modal-footer">
