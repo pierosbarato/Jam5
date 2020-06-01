@@ -358,16 +358,16 @@ label, input, button, select, textarea {
 						if (item.tt == 'pane') {
 							content += ''
 //									+ '<i class="fas fa-address-card"></i>'
-									+ ' id: <input class="jamEdit inputField" style="width:100px" '
+									+ ' .id: <input class="jamEdit inputField" style="width:100px" '
 									+ ' value="' + item.id +'"></input>'
-									+ ' tit: <input class="jamEdit inputField2" style="width:100px" '
+									+ ' .tit: <input class="jamEdit inputField2" style="width:100px" '
 									+ '	value="' + item.tit +'"></input>';
 						} else if (item.tt == 'item') {
 							content += '' // item.id
 //									+ '<i class="fas fa-equals"></i>'
-									+ ' id: <input class="jamEdit inputField" style="width:120px" value="'
+									+ ' .id: <input class="jamEdit inputField" style="width:120px" value="'
 									+ item.ix +'"></input>'
-									+ ' tit: <input class="jamEdit inputField2" style="width:100px" '
+									+ ' .tit: <input class="jamEdit inputField2" style="width:100px" '
 									+ '	value="' + item.tit +'"></input>';
 								+ item.ix +'"></input>';
 						} else if (item.tt == 'att:type') {
@@ -376,19 +376,19 @@ label, input, button, select, textarea {
 //									+ ' type: <input class="jamEdit inputField" style="width:120px" value="'
 //									+ item.type +'"></input>'
 
-									+ ' type: <select id="type" name="type" class="inputField" >'
+									+ ' .att.type: <select id="type" name="type" class="inputField" >'
 									+ '<option value="text" selected="text">Text</option>'
 									+ '<option value="intero">Intero</option>'
 									+ '<option value="decimal">Decimal</option>'
 									+ '<option value="data">Data</option>'
 									+ '</select>'
 
-									+ ' val: <input class="jamEdit inputField2" style="width:100px" '
+									+ ' .val: <input class="jamEdit inputField2" style="width:100px" '
 									+ '	value="' + item.val +'"></input>';
 								+ item.ix +'"></input>';
 						} else
 							content += ' '
-									+ '<input class="jamEdit inputField" style="width:200px" value="'
+									+ ' .att.<input class="jamEdit inputField" style="width:200px" value="'
 									+ item.ix +'"></input>';
 
 							content += buttonEdit;
