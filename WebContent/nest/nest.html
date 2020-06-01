@@ -367,8 +367,8 @@ label, input, button, select, textarea {
 //									+ '<i class="fas fa-equals"></i>'
 									+ ' .id: <input class="jamEdit inputField" style="width:120px" value="'
 									+ item.ix +'"></input>'
-									+ ' .tit: <input class="jamEdit inputField2" style="width:100px" '
-									+ '	value="' + item.tit +'"></input>';
+									+ ' : <input class="jamEdit inputField2" style="width:100px" '
+									+ '	value="' + item.val +'"></input>';
 								+ item.ix +'"></input>';
 						} else if (item.tt == 'att:type') {
 							content += '' // item.id
@@ -383,8 +383,8 @@ label, input, button, select, textarea {
 									+ '<option value="data">Data</option>'
 									+ '</select>'
 
-									+ ' .val: <input class="jamEdit inputField2" style="width:100px" '
-									+ '	value="' + item.val +'"></input>';
+									+ ' .tit: <input class="jamEdit inputField2" style="width:100px" '
+									+ '	value="' + item.tit +'"></input>';
 								+ item.ix +'"></input>';
 						} else
 							content += ' '

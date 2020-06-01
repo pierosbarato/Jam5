@@ -308,7 +308,7 @@ public class JPane5 {
 			data += "\"id\":\"" + sysId + "." + ix + "\",";
 //			data += "\"id\":" + iCmp + "";
 			data += "\"ix\":\"" + ix + "\",";
-			data += "\"tit\":\"" + tit + "\",";
+			data += "\"val\":\"" + val + "\",";
 
 			data += "\"tt\":\"item\","
 				+ "\"classes\": [\"dd-collapsed\"],"
@@ -321,7 +321,7 @@ public class JPane5 {
 			data += "{\"tt\":\"att:type\","
 					+ "\"iconClass\":\"fa-list\","
 					+ "\"id\":\"" + sysId + "." + ix + "\","
-					+ "\"type\":\"" + type + "\",\"val\":\"" + val +"\"}";
+					+ "\"type\":\"" + type + "\",\"tit\":\"" + tit +"\"}";
 			if(is.length()>0)
 				data += ",{\"tt\":\"att\","
 						+ "\"iconClass\":\"fa-list\","
