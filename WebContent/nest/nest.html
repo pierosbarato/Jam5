@@ -20,6 +20,9 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
+<!-- include summernote -->
+<link rel="stylesheet" href="../summernote/summernote-bs4.css">
+
 <style>
 @media only screen and (max-width: 100px) {
 	.select2-container--open
@@ -142,6 +145,11 @@ label, input, button, select, textarea {
 		<button type="button" id="find" class="btn btn-success">
 			<i class="fas fa-search"></i>&nbsp;
 		</button>
+		<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#exampleModal2">
+			<i class="fas fa-edit"></i>&nbsp;
+		</button>
+
 	</menu>
 
 	<div class="container">
@@ -166,6 +174,36 @@ label, input, button, select, textarea {
 
 	<textarea id="nestable-output-load"></textarea>
 	<textarea id="nestable-output-find"></textarea>
+
+
+<!-- Button Trigger Modal -->
+<!-- End Button Trigger Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Item Value</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="u-summernote-editor">
+          <div class="summernote" data-height="300"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
 <!-- 
 	<div class="cf nestable-lists">
 		<div class="dd" id="nestable3">
@@ -238,6 +276,10 @@ label, input, button, select, textarea {
 	src="bootstrap-iconpicker/js/iconset/fontawesome5-3-1.min.js"></script>
 <script type="text/javascript"
 	src="bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
+
+<!-- include summernote -->
+<script type="text/javascript"
+	src="../summernote/summernote-bs4.js"></script>
 
 	<script src="nest.js"></script>
 
@@ -706,5 +748,38 @@ label, input, button, select, textarea {
 
 		});
 	</script>
+  <script type="text/javascript">
+	$(document).ready(function() {
+    $(function() {
+      $('.summernote').summernote({
+        height: 200,
+        hint: {
+            mentions: ['codice', 'descrizione', 'prezzo', 'qta'],
+            match: /\B@(\w*)$/,
+            search: function (keyword, callback) {
+              callback($.grep(this.mentions, function (item) {
+                return item.indexOf(keyword) == 0;
+              }));
+            },
+            content: function (item) {
+//            return $('<img />').attr('src', item).css('width', 200)[0];
+			return $('<a href="' 
+					+ item + '" class="">'
+					+ '@{' + item + '}</a>')[0];
+            },
+            template: function(item) {
+                return '<strong>' + item + '</strong> ' + item;
+            }
+          }
+      });
+
+      $('form').on('submit', function (e) {
+        e.preventDefault();
+        alert($('.summernote').summernote('code'));
+      });
+    });
+	});    
+</script>
+
 </body>
 </html>
