@@ -259,6 +259,8 @@ public class JPane5 {
 		String cmd = "$$" + paneId + ";";
 		master = frame.execBase(requ, cmd, 0, requ, master);
 		JPaneDoc jpTmp = master.get(paneId, "");
+		if(paneId.contains("_"))
+			paneId = paneId.substring(paneId.indexOf('_')+1);
 		paneId = paneId.toLowerCase();
 		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
