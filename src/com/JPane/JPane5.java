@@ -319,12 +319,17 @@ public class JPane5 {
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
 			data += "{\"tt\":\"att:type\","
+					+ "\"iconClass\":\"fa-list\","
 					+ "\"id\":\"" + sysId + "." + ix + "\","
 					+ "\"type\":\"" + type + "\",\"val\":\"" + val +"\"}";
 			if(is.length()>0)
-				data += ",{\"tt\":\"att\",\"ix\":\"" + "sql:" + is +"\"}";
+				data += ",{\"tt\":\"att\","
+						+ "\"iconClass\":\"fa-list\","
+						+ "\"ix\":\"" + "sql:" + is +"\"}";
 			if(xml.length()>0 && !xml.equalsIgnoreCase("null"))
-				data += ",{\"tt\":\"att\",\"ix\":\"" + "xml:" + xml +"\"}";
+				data += ",{\"tt\":\"att\","
+						+ "\"iconClass\":\"fa-list\","
+						+ "\"ix\":\"" + "xml:" + xml +"\"}";
 
 			data += "]}";
 		}
