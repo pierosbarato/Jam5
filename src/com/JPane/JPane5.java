@@ -265,12 +265,18 @@ public class JPane5 {
 		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
 		
+		String tmp1 = jpTmp.jO.toString();
+		String tmp2 = jpTmp.getItem("id", "header", "title", "", 1);
+		String paneXmlPath	= jpTmp.getItem("id", "state", "html", "", 1);
+		System.out.println("--- ??????????? " + tmp1);
+		System.out.println("--- ??????????? " + paneXmlPath);
+
 		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
 				+ "";
 
 		if(req.contains("/find"))
-		data += "\"classes\": [\"dd-collapsed\"],";
+			data += "\"classes\": [\"dd-collapsed\"],";
 		data += "\"iconClass\":\"fa-address-card\",";
 		data +=  "\"children\":[";
 
@@ -370,13 +376,13 @@ public class JPane5 {
 		JPane.FatturePara(term, "$$" + para, frame, requ, master);
 
 		String cmd = "";
-		cmd = "$def:boot_Css::state-mode:master" // ::tit:Bootstrap"
+		cmd = "$def:boot_Css::state-mode:master::-tit:Css_File::-html:DatHtml" // ::tit:Bootstrap"
 				+ "::x002:null::-ix:CssName"
 				+ "::x008:null::-ix:CssPath"
 				;
 		master = frame.execBase(requ, cmd, 0, requ, master);
 
-		cmd = "$def:boot_Js::state-mode:master" // ::tit:CssFile"
+		cmd = "$def:boot_Js::state-mode:master::-tit:Js_File::-html:Dat2Html"
 				+ "::x002:null::-ix:JsName"
 				+ "::x008:null::-ix:JsPath"
 				;
