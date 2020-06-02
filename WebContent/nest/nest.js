@@ -1172,8 +1172,13 @@
 							id="id" placeholder="Id">
 						<div class="input-group-append">
 
-							<button class="btn btn-outline-secondary"
+							<button class="iconpicker btn btn-outline-secondary"
 								role="iconpicker" data-icon="fas fa-edit"></button>
+								<script>
+								$(document).ready(function() {
+								$('.iconpicker').iconpicker();
+								});
+								</script>
 <!--
 							<button type="button" id="myEditor_icon"
 								class="btn btn-outline-secondary"></button>
