@@ -165,7 +165,9 @@ label, input, button, select, textarea {
 			</div>
 			<div class="col-md-6">
 				<div>Browse</div>
-				<div class="dd" id="nestable-find">Premere Ricerca</div>
+				<div class="dd" id="nestable-find">
+  					<i class="fac fa-splat"></i>
+  					Premere Ricerca</div>
 			</div>
 
 		</div>
@@ -175,16 +177,16 @@ label, input, button, select, textarea {
 	<textarea id="nestable-output-load"></textarea>
 	<textarea id="nestable-output-find"></textarea>
 
-
-<!-- Button Trigger Modal -->
-<!-- End Button Trigger Modal -->
-
-<!-- Modal -->
+<!-- Modal summernote -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <span style="fload:right">
+        	<button class="btn btn-info" role="iconpicker" data-icon="fas fa-edit">
+        	</button>
+        </span>
         <h5 class="modal-title" id="exampleModalLabel">Edit Item Value</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
@@ -271,11 +273,22 @@ label, input, button, select, textarea {
 
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-
+<!-- 
+<script type="text/javascript"
+	src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
+ -->
 <script type="text/javascript"
 	src="bootstrap-iconpicker/js/iconset/fontawesome5-3-1.min.js"></script>
+
 <script type="text/javascript"
 	src="bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
+
+<!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
 
 <!-- include summernote -->
 <script type="text/javascript"
@@ -756,6 +769,12 @@ label, input, button, select, textarea {
     $(function() {
       $('.summernote').summernote({
         height: 200,
+//        airMode: true,
+       	emptyPara: '',
+       	codemirror: {theme: 'monokai', lineNumbers: true
+       		, mode: 'text/html', htmlMode: true
+		},
+//        codemirror: {theme: 'ambiance'},
         hint: {
             mentions: ['codice', 'descrizione', 'prezzo', 'qta'],
             match: /\B@(\w*)$/,
@@ -783,6 +802,19 @@ label, input, button, select, textarea {
     });
 	});    
 </script>
-
+<script>
+/* broblemi con all.js (rimpicciolisce icone)
+var faSplat = {
+		  prefix: 'fac', iconName: 'splat',
+		  icon: [
+		    448, 448,
+		    [],
+		    null,
+		    'M163.006,417.598 L166.015,306.629 L63.506,343.841 L129.87,255.871 L25.5,224.5 L129.87,193.129 L63.506,105.159 L166.015,142.371 L163.006,31.402 L224.5,122.983 L285.995,31.402 L282.985,142.371 L385.495,105.159 L319.13,193.13 L423.5,224.5 L319.13,255.871 L385.494,343.841 L282.984,306.629 L285.994,417.598 L224.5,326.017 z'
+		  ]
+		}
+		FontAwesome.library.add(faSplat)
+*/
+</script>
 </body>
 </html>

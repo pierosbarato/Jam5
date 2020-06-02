@@ -1072,8 +1072,11 @@
             var idValue = parseInt($("#"+nestableList+" ol > li").length) + 1;
 
             var m1 = $(makeModal(item));
+            m1.on('loaded.bs.modal', function () {
+                alert('edit row:' + item);
+            	var iconPicker = $('#'+'myEditor'+'_icon').iconpicker(iconPickerOpt);
+            });
             m1.modal('show');
-
 //            alert('edit row:' + item);
         },
 
@@ -1168,8 +1171,13 @@
 								name="id" value="${id}"
 							id="id" placeholder="Id">
 						<div class="input-group-append">
+
+							<button class="btn btn-outline-secondary"
+								role="iconpicker" data-icon="fas fa-edit"></button>
+<!--
 							<button type="button" id="myEditor_icon"
 								class="btn btn-outline-secondary"></button>
+-->
 						</div>
 					</div>
 					<input type="hidden" name="icon" class="item-menu">
