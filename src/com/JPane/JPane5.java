@@ -283,7 +283,7 @@ public class JPane5 {
 		while((iCmp = jl.loop()) > 0) {
 			
 			String id = jl.get("id"			,"x999");
-			String is = jl.get("is"			,"Item_" + iCmp + " " + id);
+			String is = jl.get("is"			,"");
 //			String ix = jl.get("ix"			,"Item_" + iCmp + " " + id;
 			String ix = jl.get("ix"			,is);
 			String tit = jl.get("tit"		,ix);
@@ -368,6 +368,27 @@ public class JPane5 {
 		JPaneDoc requ = frame.new JPaneDoc("req", "");
 		JPaneMaster master = frame.new JPaneMaster(term);
 		JPane.FatturePara(term, "$$" + para, frame, requ, master);
+
+		String cmd = "";
+		cmd = "$def:boot_Css::state-mode:master" // ::tit:Bootstrap"
+				+ "::x002:null::-ix:CssName"
+				+ "::x008:null::-ix:CssPath"
+				;
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
+		cmd = "$def:boot_Js::state-mode:master" // ::tit:CssFile"
+				+ "::x002:null::-ix:JsName"
+				+ "::x008:null::-ix:JsPath"
+				;
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
+		cmd = "$def:boot::state-mode:master" // ::tit:JsFile"
+				+ "::x002:null::-view:" + JPane.vEnc("$$boot_Css")
+				+ "::x005:null::-ix:Body"
+				+ "::x008:null::-view:" + JPane.vEnc("$$boot_Js")
+				;
+		master = frame.execBase(requ, cmd, 0, requ, master);
+		
 //		master.listSort(0);
 
 //		String paneId = "TD01_PDT";
@@ -379,6 +400,9 @@ public class JPane5 {
 			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);
 
 			paneId = "TD01_IVA";
+			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);			
+			
+			paneId = "boot";
 			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);			
 		}
 
