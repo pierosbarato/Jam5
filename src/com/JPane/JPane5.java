@@ -265,11 +265,14 @@ public class JPane5 {
 		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
 		
-		String tmp1 = jpTmp.jO.toString();
-		String tmp2 = jpTmp.getItem("id", "header", "title", "", 1);
-		String paneXmlPath	= jpTmp.getItem("id", "state", "html", "", 1);
-		System.out.println("--- ??????????? " + tmp1);
-		System.out.println("--- ??????????? " + paneXmlPath);
+		String paneXmlPath = jpTmp.getItem("id", "state", "xmlPath", "", 1);
+		String paneHtml	= jpTmp.getItem("id", "state", "html", "", 1);
+
+//		String tmp1 = jpTmp.jO.toString();
+//		String tmp2 = jpTmp.getItem("id", "header", "title", "", 1);
+//		System.out.println("--- ??????????? " + tmp1);
+//		System.out.println("--- ??????????? " + paneXmlPath);
+//		System.out.println("--- ??????????? " + paneHtml);
 
 		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
@@ -277,8 +280,19 @@ public class JPane5 {
 
 		if(req.contains("/find"))
 			data += "\"classes\": [\"dd-collapsed\"],";
+
 		data += "\"iconClass\":\"fa-address-card\",";
 		data +=  "\"children\":[";
+
+		if(paneXmlPath.length() > 0)
+			data += "{\"tt\":\"att:xml\","
+					+ "\"iconClass\":\"fa-list-alt\","
+					+ "\"xml\":\"" + paneXmlPath +"\"},";	
+
+		if(paneHtml.length() > 0)
+			data += "{\"tt\":\"att:html\","
+					+ "\"iconClass\":\"fa-list-alt\","
+					+ "\"html\":\"" + paneHtml +"\"},";	
 
 		String sortMode	= "sort-name";
 		JPaneLoop jl = frame.new JPaneLoop(jpTmp, null, sortMode);
@@ -296,6 +310,7 @@ public class JPane5 {
 			String type= jl.get("type"		,"text");
 			String val= jl.get("val"		,"");
 			String xml= jl.get("xmlPath"	,"");
+			String html=jl.get("html"		,"");
 			String view = JPane.vDec(jl.get("view"	,""));
 
 			System.out.println("--- id:" +id + " ix:" + ix + " view:" + view);
@@ -327,17 +342,21 @@ public class JPane5 {
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
 			data += "{\"tt\":\"att:type\","
-					+ "\"iconClass\":\"fa-list\","
+					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"id\":\"" + sysId + "." + ix + "\","
 					+ "\"type\":\"" + type + "\",\"tit\":\"" + tit +"\"}";
 			if(is.length()>0)
-				data += ",{\"tt\":\"att\","
-						+ "\"iconClass\":\"fa-list\","
-						+ "\"ix\":\"" + "sql:" + is +"\"}";
+				data += ",{\"tt\":\"att:sql\","
+						+ "\"iconClass\":\"fa-list-alt\","
+						+ "\"sql\":\"" + is +"\"}";
 			if(xml.length()>0 && !xml.equalsIgnoreCase("null"))
-				data += ",{\"tt\":\"att\","
-						+ "\"iconClass\":\"fa-list\","
-						+ "\"ix\":\"" + "xml:" + xml +"\"}";
+				data += ",{\"tt\":\"att:xml\","
+						+ "\"iconClass\":\"fa-list-alt\","
+						+ "\"xml\":\"" + xml +"\"}";
+			if(html.length()>0 && !html.equalsIgnoreCase("null"))
+				data += ",{\"tt\":\"att:html\","
+						+ "\"iconClass\":\"fa-list-alt\","
+						+ "\"ix\":\"" + "html:" + html +"\"}";
 
 			data += "]}";
 		}
@@ -409,7 +428,7 @@ public class JPane5 {
 			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);			
 			
 			paneId = "boot";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);			
+			data += ", " + JPaneLoadPane(paneId, "", frame, master, sysId, requ);			
 		}
 
 		data += "]";

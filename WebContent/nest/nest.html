@@ -84,7 +84,7 @@ label, input, button, select, textarea {
 }
 
 .jamButton {
-	margin: -4px;
+	margin: -6px;
 }
 
 .select2-container--open .select2-dropdown--below {
@@ -353,13 +353,14 @@ label, input, button, select, textarea {
 				+ 'data-action="addRowBelow">'
 				+ '<i class="fas fa-plus clickable"></i></a>'
 
+				+ '<a class="btn btn-danger btn-sm clickable" data-action="removeRow">'
+				+ '<i class="fas fa-trash-alt clickable"></i></a>'
+
 //				+ '<a class="btn btn-primary btn-sm clickable" data-toggle="modal" data-target="#menuEditModal">'
 				+ '<a title="Edit Row" class="btn btn-secondary btn-sm clickable" '
 				+ 'data-action="editRow">'
 				+ '<i class="fas fa-edit clickable"></i></a>'
-
-				+ '<a class="btn btn-danger btn-sm clickable" data-action="removeRow">'
-				+ '<i class="fas fa-trash-alt clickable"></i></a></div>';
+				+ '</div>';
 
 				$('#nestable-' + modo.substring(0, 4)).nestable({
 					group : 1,
@@ -380,12 +381,23 @@ label, input, button, select, textarea {
 									;
 						} else if (item.tt == 'item') {
 							content += '' // item.id
-//									+ '<i class="fas fa-equals"></i>'
 									+ ' .<input class="jamEdit inputField" style="width:150px" value="'
 									+ item.ix +'"></input>'
 									+ ' : <input class="jamEdit inputField2" style="width:100px" '
 									+ '	value="' + item.val +'"></input>';
-								+ item.ix +'"></input>';
+//								+ item.ix +'"></input>';
+						} else if (item.tt == 'att:xml') {
+							content += '' // item.id
+									+ ' .xml: <input class="jamEdit inputField" style="width:230px" value="'
+									+ item.xml +'"></input>'
+						} else if (item.tt == 'att:sql') {
+							content += '' // item.id
+									+ ' .sql: <input class="jamEdit inputField" style="width:230px" value="'
+									+ item.sql +'"></input>'
+						} else if (item.tt == 'att:html') {
+							content += '' // item.id
+									+ ' .html: <input class="jamEdit inputField" style="width:230px" value="'
+									+ item.html + '"></input>'
 						} else if (item.tt == 'att:type') {
 							content += '' // item.id
 //									+ '<i class="fas fa-equals"></i>'
