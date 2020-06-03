@@ -356,7 +356,7 @@ public class JPane5 {
 			if(html.length()>0 && !html.equalsIgnoreCase("null"))
 				data += ",{\"tt\":\"att:html\","
 						+ "\"iconClass\":\"fa-list-alt\","
-						+ "\"ix\":\"" + "html:" + html +"\"}";
+						+ "\"html\":\"" + html +"\"}";
 
 			data += "]}";
 		}
