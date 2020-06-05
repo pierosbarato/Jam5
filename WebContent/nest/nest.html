@@ -52,6 +52,18 @@ body {
 	background-color:white;
 }
 
+*, ::after, ::before {
+	box-sizing: unset;
+}
+
+.colJam {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.btn {
+	padding:10px;
+}
+
 .btn.btn-sm {
 	padding: .2rem .3rem;
 	font-size: .64rem;
@@ -62,15 +74,17 @@ label, input, button, select, textarea {
 /*	font-size:20px; */
 	color:#12488c;
 }
-.container {
+
+.container-fluid {
 	padding: 0px;
 	max-width:1000px;
 }
 @media (min-width: 1200px) {
-.container {
+.container-fluid {
 	padding: 0px;
 	max-width:1200px;
 }}
+
 .dd-list .dd-list {
 /*	border-style: dashed; */
 }
@@ -108,6 +122,15 @@ label, input, button, select, textarea {
 </style>
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="#">Jam</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
 	<menu id="nestable-menu">
 		<a class="btn btn-success" href="../" target="_self"> <i
 			class="fas fa-home"></i>&nbsp;
@@ -119,10 +142,6 @@ label, input, button, select, textarea {
 			data-action="collapse-all">
 			<i class="fas fa-minus"></i><i class="fas fa-minus"></i>&nbsp;
 		</button>
-<!--	<button type="button" class="btn btn-success"
-			data-action="add-item">Add</button>
-		<button type="button" class="btn btn-success"
-			data-action="replace-item">Replace</button>  -->
 		<button type="button" id="load" class="btn btn-success">
 			<i class="fas fa-download"></i>&nbsp;
 		</button>
@@ -150,12 +169,22 @@ label, input, button, select, textarea {
 			<i class="fas fa-edit"></i>&nbsp;
 		</button>
 
-	</menu>
+		</menu>
 
-	<div class="container">
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Query</button>
+        </form>
+      </div>
+    </nav>
 				
+<div class="container-fluid">
+	<br/><br/><br/><br/><br/>
+<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6 colJam">
 				<div>Pane:
 				<select class="form-control col-md-6" id="item-select"
 					onChange="carica('load');"
@@ -163,7 +192,7 @@ label, input, button, select, textarea {
 				</div>
 	 			<div class="dd" id="nestable-load"></div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 colJam">
 				<div>Browse</div>
 				<div class="dd" id="nestable-find">
   					<i class="fac fa-splat"></i>
@@ -176,35 +205,6 @@ label, input, button, select, textarea {
 
 	<textarea id="nestable-output-load"></textarea>
 	<textarea id="nestable-output-find"></textarea>
-
-<!-- Modal summernote -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span style="fload:right">
-        	<button class="btn btn-info" role="iconpicker" data-icon="fas fa-edit">
-        	</button>
-        </span>
-        <h5 class="modal-title" id="exampleModalLabel">Edit Item Value</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="u-summernote-editor">
-          <div class="summernote" data-height="300"></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Modal -->
 
 <!-- 
 	<div class="cf nestable-lists">
@@ -828,5 +828,37 @@ var faSplat = {
 		FontAwesome.library.add(faSplat)
 */
 </script>
+</div>
+
+<!-- Modal summernote -->
+<div class="modal fade" id="exampleModal2" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span style="fload:right">
+        	<button class="btn btn-info" role="iconpicker" data-icon="fas fa-edit">
+        	</button>
+        </span>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Item Value</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="u-summernote-editor">
+          <div class="summernote" data-height="300"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
 </body>
 </html>
