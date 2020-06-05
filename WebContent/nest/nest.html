@@ -136,6 +136,7 @@ label, input, button, select, textarea {
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+
 	<menu id="nestable-menu">
 		<a class="btn btn-success" href="../" target="_self"> <i
 			class="fas fa-home"></i>&nbsp;
@@ -166,22 +167,29 @@ label, input, button, select, textarea {
 		<button type="button" id="formula" class="btn btn-success">
 			<i class="fas fa-calculator"></i>&nbsp;
 		</button>
+<!--
 		<button type="button" id="find" class="btn btn-success">
 			<i class="fas fa-search"></i>&nbsp;
 		</button>
+ -->
 		<button type="button" class="btn btn-primary"
 			data-toggle="modal" data-target="#exampleModal2">
 			<i class="fas fa-edit"></i>&nbsp;
 		</button>
-
-		</menu>
-
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+<!-- 
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Query</button>
+ -->
+		<button type="button" id="find" class="btn btn-outline-success my-2 my-sm-0">
+			<i class="fas fa-search"></i>&nbsp;
         </form>
+        
+       </menu>
+
+        
       </div>
     </nav>
 				
@@ -201,7 +209,7 @@ label, input, button, select, textarea {
 				<div>Browse</div>
 				<div class="dd" id="nestable-find">
   					<i class="fac fa-splat"></i>
-  					Premere Ricerca</div>
+  					Premere Search</div>
 			</div>
 
 		</div>
