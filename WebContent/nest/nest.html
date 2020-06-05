@@ -51,11 +51,11 @@ body {
 	background-color:rgba(29,112,221,0.9);
 	background-color:white;
 }
-
+/*
 *, ::after, ::before {
 	box-sizing: unset;
 }
-
+*/
 .colJam {
 	padding-right: 0px;
 	padding-left: 0px;
@@ -67,6 +67,11 @@ body {
 .btn.btn-sm {
 	padding: .2rem .3rem;
 	font-size: .64rem;
+}
+
+.btn.btn-lg {
+	padding: 10px 10px;
+	font-size: .94rem;
 }
 
 label, input, button, select, textarea {
@@ -277,12 +282,7 @@ label, input, button, select, textarea {
 <script type="text/javascript"
 	src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
  -->
-<script type="text/javascript"
-	src="bootstrap-iconpicker/js/iconset/fontawesome5-3-1.min.js"></script>
-
-<script type="text/javascript"
-	src="bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
-
+ 
 <!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
@@ -859,6 +859,59 @@ var faSplat = {
   </div>
 </div>
 <!-- End Modal -->
+<script type="text/javascript"
+	src="bootstrap-iconpicker/js/iconset/fontawesome5-3-1.min.js"></script>
 
+<script type="text/javascript"
+	src="bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
+
+<!-- 
+<style>
+body { padding-top:20px; }
+.panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
+</style>
+
+<div class="container-flow">
+    <div class="row">
+        <div class="col-md-6">
+			<div class="card text-white bg-primary mb-3">
+                <div class="card-heading">
+                    <h3 class="card-title">
+                        <span class="glyphicon glyphicon-bookmark"></span> Quick Shortcuts</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                          <a href="#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>
+                          <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                          <a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users</a>
+                          <a href="#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Notes</a>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
+                        </div>
+                    </div>
+                    <a href="http://www.jquery2dotnet.com/" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span> Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+
+	<div class="dropdown">
+		<a title="Add Row Below" class="btn btn-secondary btn-sm clickable"
+			data-toggle="dropdown"><i class="fas fa-plus clickable"></i></a>
+		<div class="dropdown-menu dropdown-primary">
+			<a class="dropdown-item" href="#"><i class="fas fa-file-excel"></i> New Xml Attribute</a>
+			<a class="dropdown-item" href="#"><i class="fas fa-file-excel"></i> New Sql Attribute</a>
+			<a class="dropdown-item" href="#"><i class="fas fa-arrow-left"></i> Left</a>
+			<a class="dropdown-item" href="#"><i class="fas fa-arrow-right"></i> Right</a>
+		</div>
+	</div>
+   
 </body>
 </html>
