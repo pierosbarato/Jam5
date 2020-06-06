@@ -169,6 +169,9 @@
                 if (action === 'addRowBelow') {
                     list.addRowBelow(list,item);
                 }
+//                if (action === 'openRowNew') {
+//                    list.openRowNew(list,item);
+//                }
                 if (action === 'editRow') {
                     list.editRow(list,item);
                 }
