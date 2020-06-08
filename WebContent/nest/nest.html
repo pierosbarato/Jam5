@@ -606,8 +606,8 @@ label, input, button, select, textarea {
 
 					$container = $('<div class="row" '
 						+ 'style=\"margin:0;flex-wrap:nowrap;\">'
-						+ '<div><a class="btn btn-success">Clienti</a></div>'
-						+ '<div><a class="btn btn-success">Fornitori</a></div>'
+						+ '<div><a class="btn btn-success">Fattura</a></div>'
+						+ '<div><a class="btn btn-success">Tool</a></div>'
 						+ '</div>'
 						+ '<div class="row" style=\"margin:0;flex-wrap:nowrap;\">'
 						+ '<div class="col-md-1 col-1"><b>ID</b></div>'
@@ -817,12 +817,12 @@ label, input, button, select, textarea {
             },
             content: function (item) {
 //            return $('<img />').attr('src', item).css('width', 200)[0];
-			return $('<a href="' 
-					+ item + '" class="">'
+			return $('<a href=/Jam5/server/token/' 
+					+ item + '>'
 					+ '@{' + item + '}</a>')[0];
             },
             template: function(item) {
-                return '<strong>' + item + '</strong> ' + item;
+                return '<strong>' + item + '</strong>';
             }
           }
       });
