@@ -60,6 +60,8 @@
 				<i class="fas fa-sync-alt"></i> Next</a>
 			<a class="btn btn-success my-2 my-sm-0" href="server">
 				<i class="fas fa-sync-alt"></i> Server</a>
+			<a class="btn btn-success my-2 my-sm-0" href="QueryBuilder.html">
+				<i class="fas fa-sync-alt"></i> Query</a>
 		</div>
 
 		<br/>
