@@ -360,21 +360,17 @@ label, input, button, select, textarea {
 									+ ' .html: <input class="jamEdit inputField" style="width:230px" value="'
 									+ item.html + '"></input>'
 						} else if (item.tt == 'att:type') {
-							content += '' // item.id
-//									+ '<i class="fas fa-equals"></i>'
-//									+ ' type: <input class="jamEdit inputField" style="width:120px" value="'
-//									+ item.type +'"></input>'
-
-									+ ' .type: <select id="type" name="type" class="inputField" >'
-									+ '<option value="text" selected="text">Text</option>'
-									+ '<option value="intero">Intero</option>'
-									+ '<option value="decimal">Decimal</option>'
-									+ '<option value="data">Data</option>'
-									+ '</select>'
-
-									+ ' .tit: <input class="jamEdit inputField2" style="width:130px" '
-									+ '	value="' + item.tit +'"></input>';
-								+ item.ix +'"></input>';
+							content += `
+							.type: 
+								<select id="type" name="type" class="inputField" >
+									<option value="${item.type}" selected="${item.type}">${item.type}</option>
+									<option value="text">Text</option>
+									<option value="intero">Intero</option>
+									<option value="decimal">Decimal</option>
+									<option value="data">Data</option>
+								</select>
+								 .tit: <input class="jamEdit inputField2" style="width:130px"
+									value="${item.tit}"></input>`;
 						} else
 							content += ' '
 									+ ' .<input class="jamEdit inputField" style="width:200px" value="'
