@@ -167,7 +167,7 @@
                     list.addRowAbove(list,item);
                 }
                 if (action === 'addRowBelow') {
-                    list.addRowBelow(list,item);
+                    list.addRowBelow(list, item, e);
                 }
 //                if (action === 'openRowNew') {
 //                    list.openRowNew(list,item);
@@ -1075,29 +1075,24 @@
             var idValue = parseInt($("#"+nestableList+" ol > li").length) + 1;
 
             var m1 = $(makeModal(item));
-            m1.on('loaded.bs.modal', function () {
-                alert('edit row:' + item);
-            	var iconPicker = $('#'+'myEditor'+'_icon').iconpicker(iconPickerOpt);
-            });
+            $('#myModal').remove(); //remove modal here
+            $('body').append(m1);
+
             m1.modal('show');
-//            alert('edit row:' + item);
         },
 
-        addRowBelow: function(list,item) {
+        addRowBelow: function(list,item,e) {
+            var target = $(e.currentTarget),
+            	mode = target.data('mode'),
+            	item = target.parents(list.options.itemNodeName).eq(0);
+
             var nestableList = list.el.attr("id");
             var idValue2 = parseInt($("#"+nestableList+" ol > li").length);
             var idValue = idValue2 + 1;
-//        	alert('add row:' + item);
-/*
-            var rowHtml = '<li class="dd-item dd3-item" data-id="'+idValue+'">'+
-                            '<div class="dd-handle dd3-handle">&nbsp;</div>'+
-                            '<div class="dd3-content">'+
-                                this.options.inputField+
-                                this.options.buttonEdit+
-                            '</div>'+
-                          '</li>';
-*/          
-            var rowHtml = `<li
+
+//        	alert('add mode:' + mode + ' item:' + idValue);
+
+        	var rowHtml = `<li
             	data-id="main.new"
             	data-tit="new"
             	data-tt="pane"
@@ -1122,9 +1117,9 @@
             rowHtml = $(rowHtml);
 
             $(rowHtml).insertAfter(item);
-//            list.el.trigger('change');
+            list.el.trigger('change');
         },
-        
+
         // Append the .dd-empty div to the list so it can be populated and styled
         appendEmptyElement: function(element) {
             element.append('<div class="' + this.options.emptyClass + '"/>');
@@ -1197,7 +1192,7 @@
 							id="id" placeholder="Id">
 						<div class="input-group-append">
 
-							<button class="iconpicker btn btn-outline-secondary"
+							<button class="iconpicker btn btn-outline-secondary dropdown-toggle"
 								role="iconpicker" data-icon="fas fa-edit"></button>
 								<script>
 								$(document).ready(function() {

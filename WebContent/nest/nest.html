@@ -308,8 +308,12 @@ label, input, button, select, textarea {
 					<div class="dropdown">
 						<a title="Add Row Below" class="btn btn-secondary btn-sm clickable" data-toggle="dropdown" data-offset="-130,0" data-action2="openRowNew2"><i class="fas fa-plus clickable"></i></a>
 						<div class="dropdown-menu dropdown-primary">
-							<a class="dropdown-item" data-action="addRowBelow"><i class="fas fa-file-excel"></i> New Pane</a>
-							<a class="dropdown-item" data-action="addRowBelow"><i class="fas fa-file-excel"></i> Add Pane</a>
+							<a class="dropdown-item" data-action="addRowBelow" data-mode="pane:new">
+								<i class="fas fa-file-excel"></i> Pane New</a>
+							<a class="dropdown-item" data-action="addRowBelow" data-mode="pane:add">
+								<i class="fas fa-file-excel"></i> Pane Add</a>
+							<a class="dropdown-item" data-action="addRowBelow" data-mode="att:xml">
+								<i class="fas fa-file-excel"></i> Xml Attribute</a>
 						</div>
 					</div>
 					<a class="btn btn-danger btn-sm clickable" data-action="removeRow">
