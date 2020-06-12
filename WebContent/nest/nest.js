@@ -1085,10 +1085,10 @@
 
         addRowBelow: function(list,item) {
             var nestableList = list.el.attr("id");
-            var idValue = parseInt($("#"+nestableList+" ol > li").length) + 1;
-
+            var idValue2 = parseInt($("#"+nestableList+" ol > li").length);
+            var idValue = idValue2 + 1;
 //        	alert('add row:' + item);
-
+/*
             var rowHtml = '<li class="dd-item dd3-item" data-id="'+idValue+'">'+
                             '<div class="dd-handle dd3-handle">&nbsp;</div>'+
                             '<div class="dd3-content">'+
@@ -1096,11 +1096,33 @@
                                 this.options.buttonEdit+
                             '</div>'+
                           '</li>';
+*/          
+            var rowHtml = `<li
+            	data-id="main.new"
+            	data-tit="new"
+            	data-tt="pane"
+            	data-iconclass="fa-address-card"
+            	class="dd-item dd3-item">
+<!--
+            		<button class="dd-collapse" data-action="collapse" type="button">Collapse</button>
+            		<button class="dd-expand" data-action="expand" type="button">Expand</button>
+-->
+            		<div class="fas fa-address-card dd-handle dd3-handle"></div>
+
+            		<span class="dd-content dd3-content">
+            		 .<input class="jamEdit inputField" style="width:50px" value="new">
+            		 .path: <input class="jamEdit inputField2" style="width:100px" value="main.new">
+            		  .tit: <input class="jamEdit inputField2" style="width:80px" value="new">
+                    ${this.options.buttonEdit}
+            		</div>
+            	</li>
+            `;
+
 //            alert(rowHtml);
             rowHtml = $(rowHtml);
 
             $(rowHtml).insertAfter(item);
-            list.el.trigger('change');
+//            list.el.trigger('change');
         },
         
         // Append the .dd-empty div to the list so it can be populated and styled
