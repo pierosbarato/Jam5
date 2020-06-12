@@ -1170,7 +1170,7 @@
 
     	return `<div id="myModal" class="modal fade" role="dialog" 
     	  				style="display: none">
-    	  <div class="modal-dialog">
+    	  <div class="modal-dialog modal-xl">
     	    <!-- Modal content-->
 
     	    <div class="modal-content">
@@ -1208,8 +1208,16 @@
 					<input type="hidden" name="icon" class="item-menu">
 
 					<label for="text">Type: ${type}</label>
+<!--
     	        	<textarea style="min-width: 100%"
     	        		class="form-control item-menu">${value}</textarea>
+-->
+    				<textarea id="summernote" name="editordata">${value}</textarea>
+					<script>
+					$(document).ready(function() {
+    				$('#summernote').summernote();
+    				});
+					</script>
 				</div>
     	      </div>
 
