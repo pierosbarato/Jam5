@@ -367,10 +367,18 @@ label, input, button, select, textarea {
 							content += '' // item.id
 									+ ' .sql: <input class="jamEdit inputField" style="width:230px" value="'
 									+ item.sql +'"></input>'
-						} else if (item.tt == 'att:html') {
+						} else if (item.tt == 'att:edit') {
 							content += '' // item.id
-									+ ' .html: <input class="jamEdit inputField" style="width:230px" value="'
-									+ item.html + '"></input>'
+									+ ' .edit: <input class="jamEdit inputField" style="width:230px" value="'
+									+ item.edit + '"></input>'
+						} else if (item.tt == 'att:boot') {
+							content += '' // item.id
+									+ ' .boot: <input class="jamEdit inputField" style="width:230px" value="'
+									+ item.boot + '"></input>'
+						} else if (item.tt == 'att:bootLine') {
+							content += '' // item.id
+									+ ' .bootLine: <input class="jamEdit inputField" style="width:230px" value="'
+									+ item.bootLine + '"></input>'
 						} else if (item.tt == 'att:type') {
 							content += `
 							.type: 

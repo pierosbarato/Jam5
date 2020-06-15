@@ -17,6 +17,8 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import org.json.JSONObject;
+
 import com.JPane.JPane.JPaneDoc;
 import com.JPane.JPane.JPaneLoop;
 import com.JPane.JPane.JPaneMaster;
@@ -265,8 +267,10 @@ public class JPane5 {
 		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
 		
-		String paneXmlPath = jpTmp.getItem("id", "state", "xmlPath", "", 1);
-		String paneHtml	= jpTmp.getItem("id", "state", "html", "", 1);
+		String paneXmlPath	= jpTmp.getItem("id", "state", "xmlPath", "", 1);
+		String paneEdit		= jpTmp.getItem("id", "state", "edit", "", 1);
+		String paneBoot		= jpTmp.getItem("id", "state", "boot", "", 1);
+		String paneBootLine	= jpTmp.getItem("id", "state", "bootLine", "", 1);
 
 //		String tmp1 = jpTmp.jO.toString();
 //		String tmp2 = jpTmp.getItem("id", "header", "title", "", 1);
@@ -289,10 +293,20 @@ public class JPane5 {
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"xml\":\"" + paneXmlPath +"\"},";	
 
-		if(paneHtml.length() > 0)
-			data += "{\"tt\":\"att:html\","
+		if(paneEdit.length() > 0)
+			data += "{\"tt\":\"att:edit\","
 					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"html\":\"" + paneHtml +"\"},";	
+					+ "\"edit\":\"" + paneEdit +"\"},";	
+
+		if(paneBoot.length() > 0)
+			data += "{\"tt\":\"att:boot\","
+					+ "\"iconClass\":\"fa-list-alt\","
+					+ "\"boot\":\"" + paneBoot +"\"},";	
+
+		if(paneBootLine.length() > 0)
+			data += "{\"tt\":\"att:bootLine\","
+					+ "\"iconClass\":\"fa-list-alt\","
+					+ "\"bootLine\":\"" + paneBootLine +"\"},";	
 
 		String sortMode	= "sort-name";
 		JPaneLoop jl = frame.new JPaneLoop(jpTmp, null, sortMode);
@@ -302,16 +316,16 @@ public class JPane5 {
 		int nCmp = 0;
 		while((iCmp = jl.loop()) > 0) {
 			
-			String id = jl.get("id"			,"x999");
-			String is = jl.get("is"			,"");
-//			String ix = jl.get("ix"			,"Item_" + iCmp + " " + id;
-			String ix = jl.get("ix"			,is);
-			String tit = jl.get("tit"		,ix);
-			String type= jl.get("type"		,"text");
-			String val= jl.get("val"		,"");
-			String xml= jl.get("xmlPath"	,"");
-			String html=jl.get("html"		,"");
-			String view = JPane.vDec(jl.get("view"	,""));
+			String id	= jl.get("id"		,"x999");
+			String is	= jl.get("is"		,"");
+//			String ix	= jl.get("ix"		,"Item_" + iCmp + " " + id;
+			String ix	= jl.get("ix"		,is);
+			String tit	= jl.get("tit"		,ix);
+			String type	= jl.get("type"		,"text");
+			String val	= JPane.vDec(jl.get("val"		,""));
+			String xml	= jl.get("xmlPath"	,"");
+			String edit	= jl.get("edit"		,"");
+			String view	= JPane.vDec(jl.get("view"	,""));
 
 			System.out.println("--- id:" +id + " ix:" + ix + " view:" + view);
 
@@ -353,10 +367,10 @@ public class JPane5 {
 				data += ",{\"tt\":\"att:xml\","
 						+ "\"iconClass\":\"fa-list-alt\","
 						+ "\"xml\":\"" + xml +"\"}";
-			if(html.length()>0 && !html.equalsIgnoreCase("null"))
-				data += ",{\"tt\":\"att:html\","
+			if(edit.length()>0 && !edit.equalsIgnoreCase("null"))
+				data += ",{\"tt\":\"att:edit\","
 						+ "\"iconClass\":\"fa-list-alt\","
-						+ "\"html\":\"" + html +"\"}";
+						+ "\"edit\":\"" + edit +"\"}";
 
 			data += "]}";
 		}
@@ -393,17 +407,38 @@ public class JPane5 {
 		JPaneDoc requ = frame.new JPaneDoc("req", "");
 		JPaneMaster master = frame.new JPaneMaster(term);
 		JPane.FatturePara(term, "$$" + para, frame, requ, master);
+//		String jsonEncodedString = JSONObject.quote(data);
 
 		String cmd = "";
-		cmd = "$def:boot_Css::state-mode:master::-tit:Css_File::-html:DatHtml" // ::tit:Bootstrap"
+		cmd = "$def:boot_Css::state-mode:master::-tit:Css_File::-edit:DatHtml"
+				+ "::-boot:boot"
+				+ "::-bootLine:bootLine"
 				+ "::x002:null::-ix:CssName"
-				+ "::x008:null::-ix:CssPath"
+				+ "::x008:null::-ix:CssPath::-val:"+JSONObject.quote(""
+					+  "https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+					+ "|https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+					+ "|https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css"
+					+ "|bootstrap-iconpicker/css/bootstrap-iconpicker.min.css"
+					+ "|http://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+					+ "|../summernote/summernote-bs4.css"
+					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css"
+					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css")
 				;
 		master = frame.execBase(requ, cmd, 0, requ, master);
 
-		cmd = "$def:boot_Js::state-mode:master::-tit:Js_File::-html:Dat2Html"
+		cmd = "$def:boot_Js::state-mode:master::-tit:Js_File::-edit:Dat2Html"
+				+ "::-boot:boot"
+				+ "::-bootLine:bootLine"
 				+ "::x002:null::-ix:JsName"
-				+ "::x008:null::-ix:JsPath"
+				+ "::x008:null::-ix:JsPath::-val:"+JSONObject.quote(""
+					+  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+					+ "|https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+					+ "|https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+					+ "|https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"
+					+ "|https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"
+					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"
+					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"
+					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js")
 				;
 		master = frame.execBase(requ, cmd, 0, requ, master);
 
