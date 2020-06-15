@@ -410,7 +410,8 @@ public class JPane5 {
 //		String jsonEncodedString = JSONObject.quote(data);
 
 		String cmd = "";
-		cmd = "$def:boot_Css::state-mode:master::-tit:Css_File::-edit:DatHtml"
+		cmd = "$def:boot_Css::state-mode:master::-tit:Css_File"
+//				+ "::-edit:DatHtml"
 				+ "::-boot:boot"
 				+ "::-bootLine:bootLine"
 				+ "::x002:null::-ix:CssName"
@@ -426,7 +427,8 @@ public class JPane5 {
 				;
 		master = frame.execBase(requ, cmd, 0, requ, master);
 
-		cmd = "$def:boot_Js::state-mode:master::-tit:Js_File::-edit:Dat2Html"
+		cmd = "$def:boot_Js::state-mode:master::-tit:Js_File"
+//				+ "::-edit:Dat2Html"
 				+ "::-boot:boot"
 				+ "::-bootLine:bootLine"
 				+ "::x002:null::-ix:JsName"
