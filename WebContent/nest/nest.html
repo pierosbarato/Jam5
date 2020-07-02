@@ -27,13 +27,36 @@
 <link rel="stylesheet"
 	href="bootstrap-iconpicker/css/bootstrap-iconpicker.min.css">
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"/>
 
 <!-- include summernote -->
 <link rel="stylesheet" href="../summernote/summernote-bs4.css">
 
+<link href="../select2_flat.css" rel="stylesheet" />
 <style>
+.select2-container--open .select2-dropdown--below {
+	border-top: 1px;
+}
+
+.select2-container
+.select2-selection--single {
+	height: 24px;
+}
+
+.select2-container--default
+.select2-selection--single
+.select2-selection__rendered {
+	line-height: 24px;
+	padding-top: -1px;
+}
+.select2-results__option {
+	padding: 0px;
+}
 @media only screen and (max-width: 100px) {
+	.select2-container--flat
+	.select2-selection--single
+	.select2-selection__rendered
 	.select2-container--open
 	.select2-dropdown--below {
 		position: fixed !important;
@@ -142,25 +165,6 @@ label, input, button, select, textarea {
     bottom: -7px; */
 /*    transform: rotate(45deg); */
 }
-
-.select2-container--open .select2-dropdown--below {
-	border-top: 1px;
-}
-
-.select2-container
-.select2-selection--single {
-	height: 24px;
-}
-
-.select2-container--default
-.select2-selection--single
-.select2-selection__rendered {
-	line-height: 24px;
-	padding-top: -1px;
-}
-.select2-results__option {
-	padding: 0px;
-}
 </style>
 </head>
 <body>
@@ -264,7 +268,6 @@ label, input, button, select, textarea {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
-
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <!-- 
@@ -517,6 +520,7 @@ label, input, button, select, textarea {
 	
 			$('#item-select').select2({
 //				theme: 'bootstrap4',
+				theme: "flat",
 				allowClear : true,
 				placeholder : "Choose Pane ...",
 				ajax : {

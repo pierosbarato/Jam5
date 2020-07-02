@@ -18,14 +18,25 @@
 <!-- x-editable (bootstrap version) -->
 <link href="css/bootstrap-editable.css" rel="stylesheet" />
 <script src="js/bootstrap-editable.js"></script>
-
+<!-- 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+ -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+
 <!-- 
 <link href="select2/css/select2-bootstrap4.css" rel="stylesheet" />
  -->
+<!-- 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+ -->
 <!-- main.js -->
+
+<link href="select2_flat.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
 <script src="main.js"></script>
+
 </head>
 
 <body>
@@ -65,6 +76,23 @@
 		</div>
 
 		<br/>
+
+
+		<div class="col-md-4">
+ <select class="js-example-basic-single">
+    <option value="AL">Alabama</option>
+    <option value="AL">Abkhama</option>
+    <option value="AL">Alyhama</option>
+    <option value="WY">Wyoming</option>
+  </select>
+		</div>
+  
+  <script>
+  $('.js-example-basic-single').select2({
+	  theme: "flat"
+	});
+</script>
+
 
 		<div class="col-md-4">
 		<select class="form-control" id="item-select" style="width: 100%;"></select>
