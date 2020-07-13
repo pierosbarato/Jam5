@@ -67,12 +67,14 @@
 				<i class="fas fa-sync-alt"></i> Edit Menu</a>
 			<a class="btn btn-success my-2 my-sm-0" href="jam.html">
 				<i class="fas fa-sync-alt"></i> Edit Pane</a>
-			<a class="btn btn-success my-2 my-sm-0" href="nest/nest.html">
-				<i class="fas fa-sync-alt"></i> Next</a>
 			<a class="btn btn-success my-2 my-sm-0" href="server">
 				<i class="fas fa-sync-alt"></i> Server</a>
 			<a class="btn btn-success my-2 my-sm-0" href="QueryBuilder.html">
 				<i class="fas fa-sync-alt"></i> Query</a>
+			<a class="btn btn-success my-2 my-sm-0" href="QueryBuilder.html">
+				<i class="fas fa-sync-alt"></i> Formula</a>
+			<a class="btn btn-success my-2 my-sm-0" href="formula.html">
+				<i class="fas fa-sync-alt"></i> Next</a>
 		</div>
 
 		<br/>
