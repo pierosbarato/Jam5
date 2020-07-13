@@ -73,6 +73,8 @@
 				<i class="fas fa-sync-alt"></i> Query</a>
 			<a class="btn btn-success my-2 my-sm-0" href="formula.html">
 				<i class="fas fa-sync-alt"></i> Formula</a>
+			<a class="btn btn-success my-2 my-sm-0" href="upload.html">
+				<i class="fas fa-sync-alt"></i> Upload</a>
 			<a class="btn btn-success my-2 my-sm-0" href="nest/nest.html">
 				<i class="fas fa-sync-alt"></i> Next</a>
 		</div>
