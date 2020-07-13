@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+<title>Jam Formula</title>
+<link rel="icon" href="favicon.ico" />
+<style type="text/css">
+	:root {--nest-size: 25px;}
+	:root {--nest-size2: 18px;}
+</style>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet"
+	href="../neumorphism.css">
+
+<link rel="stylesheet" href="https://rawgit.com/bevacqua/dragula/master/dist/dragula.css">
+
+<style>
+.container {
+	align:left;
+	width: 400px;
+	margin: 0 auto;
+}
+.nested {
+	display: inline-flex;
+	padding: 1px 0;
+	min-width: 20px;
+	border: 2px dotted blue;}
+.item {
+	display: inline-flex;
+	padding: 2px;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="nested">
+    <div class="item">
+      Item1
+      <div class="nested">
+        <div class="item">
+          Item4
+          <div class="nested">
+            <div class="item">
+              Item7
+              <div class="nested"></div>
+            </div>
+            <div class="item">
+              Item8
+              <div class="nested"></div>
+            </div>
+            <div class="item">
+              Item9
+              <div class="nested"></div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          Item5
+          <div class="nested"></div>
+        </div>
+        <div class="item">
+          Item6
+          <div class="nested"></div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      Item2
+      <div class="nested"></div>
+    </div>
+    <div class="item">
+      Item3
+      <div class="nested"></div>
+    </div>
+  </div>
+</div>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://rawgit.com/bevacqua/dragula/master/dist/dragula.js"></script>
+
+<script>
+(function() {
+	  dragula([].slice.apply(document.querySelectorAll('.nested')));
+	})();
+</script>
+
+</body>
+</html>
