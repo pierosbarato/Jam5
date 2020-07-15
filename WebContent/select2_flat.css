@@ -1,4 +1,3 @@
-/********************
 Select2 Override style
 *********************/
 /* Assign min-width to container */
@@ -137,14 +136,14 @@ Link : http://techhysahil.com
 .select2-container--flat .select2-selection--single {
   background: #48c9b0;
   border: 0px;
-  height: 34px;
+  height: 25px;
 }
 .select2-container--flat .select2-selection--single .select2-selection__rendered {
   color: #fff;
-  line-height: 34px;
+  line-height: 25px;
 }
 .select2-container--flat .select2-selection--single .select2-selection__arrow {
-  height: 26px;
+  height: 20px;
   position: absolute;
   top: 1px;
   right: 1px;
