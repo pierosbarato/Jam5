@@ -2,6 +2,8 @@ package com.JPane;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -256,9 +258,10 @@ public class JPane5 {
 	
 	// =========================================================================
 	static String JPaneLoadPane(String paneId, String req, JPane frame
-			,JPaneMaster master, String sysId, JPaneDoc requ) {
-		String data = "";
-		String cmd = "$$" + paneId + ";";
+			,JPaneMaster master, String sysId, JPaneDoc requ, tmpJSON tmpJson) {
+		String data		= "";
+		String cmd		= "$$" + paneId + ";";
+
 		master = frame.execBase(requ, cmd, 0, requ, master);
 		JPaneDoc jpTmp = master.get(paneId, "");
 		if(paneId.contains("_"))
@@ -336,11 +339,20 @@ public class JPane5 {
 
 			if(view.length()> 0) {
 				data += "";
-				data += JPaneLoadPane(view.substring(2), "", frame, master, sysId, requ);
+				data += JPaneLoadPane(view.substring(2), "", frame, master, sysId, requ, tmpJson);
 				data += "";
 				continue;
 			}
-			
+
+			if(ix.length() > 0
+			&&!ix.contains("IMP_RATA2".toLowerCase())
+			&&!ix.contains("DATA_SCAD2".toLowerCase())
+			&&!ix.contains("ImportoPagamento")
+			&&!ix.contains("DataScadenzaPagamento")
+			) {
+				String tmp = paneId + "_" + ix;
+				tmpJson.add("\"" + tmp.replace(".", "_") + "\":\"" + val + "\",");
+			}
 			data += "{";
 			data += "\"id\":\"" + sysId + "." + ix + "\",";
 //			data += "\"id\":" + iCmp + "";
@@ -378,6 +390,16 @@ public class JPane5 {
 		System.out.println("--- Data " + data);
 
 		return data;
+	}
+
+	public class tmpJSON {
+		String JSON = "";
+		tmpJSON(String tmp) {
+			JSON += tmp;
+		}
+		void add (String tmp) {
+			JSON += tmp;
+		}
 	}
 
 	// =========================================================================
@@ -455,22 +477,30 @@ public class JPane5 {
 
 //		String paneId = "TD01_PDT";
 		data += "[";
-		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ);
+
+		JPane5 jp5 = new JPane5();
+		tmpJSON tmpJson = jp5.new tmpJSON("{\"" + paneId + "\":{");
+
+		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 		if(req.contains("/find")) {
 			paneId = "TD01_LINEE";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);
+			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 			paneId = "TD01_IVA";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ);			
+			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 			
 			paneId = "boot";
-			data += ", " + JPaneLoadPane(paneId, "", frame, master, sysId, requ);			
+			data += ", " + JPaneLoadPane(paneId, "", frame, master, sysId, requ, tmpJson);
 		}
 
+		tmpJson.add("\"end\":null}}\n");
 		data += "]";
 
-		System.out.println("--- Data " + data);
+		JPane.writeTemp("data.json", tmpJson.JSON, "");
+		
+		System.out.println("--- Data: " + data);
+		System.out.println("--- JSON: " + tmpJson.JSON);
 		return data;
 	}
 
