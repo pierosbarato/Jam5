@@ -264,8 +264,7 @@ public class JPane5 {
 
 		master = frame.execBase(requ, cmd, 0, requ, master);
 		JPaneDoc jpTmp = master.get(paneId, "");
-		if(paneId.contains("_"))
-			paneId = paneId.substring(paneId.indexOf('_')+1);
+		if(paneId.contains("_")) paneId = paneId.substring(paneId.indexOf('_')+1);
 		paneId = paneId.toLowerCase();
 		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
@@ -280,6 +279,10 @@ public class JPane5 {
 //		System.out.println("--- ??????????? " + tmp1);
 //		System.out.println("--- ??????????? " + paneXmlPath);
 //		System.out.println("--- ??????????? " + paneHtml);
+
+		if(tmpJson.JSON.length() > 3) tmpJson.add(",");
+		tmpJson.add("\"" + paneId + "\":{");
+		tmpJson.add("\"_pane\":{\"id\":\"" + paneId + "\"}");
 
 		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
@@ -351,7 +354,8 @@ public class JPane5 {
 			&&!ix.contains("DataScadenzaPagamento")
 			) {
 				String tmp = paneId + "_" + ix;
-				tmpJson.add("\"" + tmp.replace(".", "_") + "\":\"" + val + "\",");
+				if(nCmp > 0) tmpJson.add(",");
+				tmpJson.add("\"" + ix.replace(".", "_") + "\":\"" + val + "\"");
 			}
 			data += "{";
 			data += "\"id\":\"" + sysId + "." + ix + "\",";
@@ -386,12 +390,16 @@ public class JPane5 {
 
 			data += "]}";
 		}
+
+		tmpJson.add("}");
+
 		data += "]}";
 		System.out.println("--- Data " + data);
 
 		return data;
 	}
 
+	// =========================================================================
 	public class tmpJSON {
 		String JSON = "";
 		tmpJSON(String tmp) {
@@ -399,6 +407,9 @@ public class JPane5 {
 		}
 		void add (String tmp) {
 			JSON += tmp;
+		}
+		String get() {
+			return JSON;
 		}
 	}
 
@@ -479,9 +490,13 @@ public class JPane5 {
 		data += "[";
 
 		JPane5 jp5 = new JPane5();
-		tmpJSON tmpJson = jp5.new tmpJSON("{\"" + paneId + "\":{");
+		tmpJSON tmpJson = jp5.new tmpJSON("{");
 
 		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
+
+		tmpJson.add("}\n");
+		JPane.writeTemp("data.json", tmpJson.get(), "");
+		jp5 = null;
 
 		if(req.contains("/find")) {
 			paneId = "TD01_LINEE";
@@ -494,14 +509,18 @@ public class JPane5 {
 			data += ", " + JPaneLoadPane(paneId, "", frame, master, sysId, requ, tmpJson);
 		}
 
-		tmpJson.add("\"end\":null}}\n");
 		data += "]";
-
-		JPane.writeTemp("data.json", tmpJson.JSON, "");
 		
 		System.out.println("--- Data: " + data);
 		System.out.println("--- JSON: " + tmpJson.JSON);
 		return data;
+	}
+
+	// =========================================================================
+	//
+	// =========================================================================
+	static void JPaneReadFattura(int num) {
+		
 	}
 
 	// =========================================================================
