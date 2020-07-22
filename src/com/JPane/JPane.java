@@ -110,7 +110,7 @@ public class JPane {
 	static String tempWin	= "c:/Jamfive/";
 //	static String tempIn	= "inBronx/";
 //	static String tempIn	= "inMauro/";
-	static String tempIn	= "Fatture/in/";
+	static String tempIn	= "FattNew/in/";
 	static String currPath	= "";
 	SQL sql					= null;
 	String sid				= null;
@@ -167,14 +167,14 @@ public class JPane {
 			flagLog = 0;
 			temp = tempWin;
 			temp = currPath.substring(0, 1) + temp.substring(1);
-			tempIn = "Fatture/in/";
+			tempIn = "FattNew/in/";
 		} else {
 			temp.replaceFirst("^~", System.getProperty("user.home"));
 		}
 
-		new File(temp + "Fatture/out").mkdirs();
-		new File(temp + "Fatture/outNew").mkdirs();
-		new File(temp + "Fatture/log").mkdirs();
+		new File(temp + "FattNew/out").mkdirs();
+		new File(temp + "FattNew/outNew").mkdirs();
+		new File(temp + "FattNew/log").mkdirs();
 
 //		log("w5", 
 		log("i5", ""  + 
@@ -825,7 +825,7 @@ public class JPane {
 					pos = cmd.substring(pos+1).indexOf("$")+pos;
 					String dir = temp
 							+ tempIn;
-//							+ "Fatture/in";
+//							+ "FattNew/in";
 					String type = "file";
 					String filter = "";
 					int jLine = 0;
@@ -2381,7 +2381,7 @@ public class JPane {
 		try {
 			br = new BufferedReader(new FileReader(temp
 					+ tempIn
-//					+ "Fatture/in/"
+//					+ "FattNew/in/"
 					+ nome));
 			while ((line = br.readLine()) != null) {
 				str += line;
@@ -2398,14 +2398,14 @@ public class JPane {
 		{
 			String tmp = xml2html(str, "Fatturapa_v1.101.xsl");
 			nome = nome.replace(".xml", "");
-//			writeTemp(nome + ".htm", tmp, "Fatture/in");
-			writeTemp(nome + ".htm", tmp, "Fatture/inOK");
+//			writeTemp(nome + ".htm", tmp, "FattNew/in");
+			writeTemp(nome + ".htm", tmp, "FattNew/inOK");
 		}
 		if(!isWindows()) 
 		{
 			String tmp3= xml2html(str, "Fatturapa_v1.2.xsl");
 			nome = nome.replace(".xml", "");
-			writeTemp(nome + ".html", tmp3, "Fatture/inOK");
+			writeTemp(nome + ".html", tmp3, "FattNew/inOK");
 		}
 //		JSONObject jsondata = JSONML.toJSONObject(str);
 //		String Xml = JSONML.toString(jsondata);
@@ -2425,7 +2425,7 @@ public class JPane {
 				log("i5", "Allegato:" + allName);
 				String allType = jsonQuery(jsondata, tagAll + "FormatoAttachment");
 				String allTxt = jsonQuery(jsondata, tagAll + "Attachment");
-				xml2pdf(allTxt, "Fatture/inOK/" + allName);
+				xml2pdf(allTxt, "FattNew/inOK/" + allName);
 			} */
 		} catch (org.json.JSONException e) {e.printStackTrace();return null;}
 		return jsondata.toString(4);
@@ -3226,12 +3226,12 @@ public class JPane {
 
 		TransformerFactory factory = TransformerFactory.newInstance();
 		if (fattura.length() < 65) {
-			fattura = temp + "Fatture/in/" + fattura;
+			fattura = temp + "FattNew/in/" + fattura;
 			text = new StreamSource(new File(fattura));
 		} else text = new StreamSource(new StringReader(fattura));
 
 		if (xsltName.length() < 65) {
-//			xsltName = temp + "Fatture/out/" + xsltName;
+//			xsltName = temp + "FattNew/out/" + xsltName;
 			xsltName = getResource(xsltName);
 //			System.out.println(xsltName);
 			xslt = new StreamSource(new StringReader(xsltName));
@@ -3386,12 +3386,12 @@ public class JPane {
 //		System.out.println("--- Numero:" + numFattura);
 //		if(numFattura == 0) numFattura = 1;
 
-		new File(temp + "Fatture/in").mkdirs();
-		new File(temp + "Fatture/inOK").mkdirs();
-		new File(temp + "Fatture/inZip").mkdirs();
+		new File(temp + "FattNew/in").mkdirs();
+		new File(temp + "FattNew/inOK").mkdirs();
+		new File(temp + "FattNew/inZip").mkdirs();
 
-		int numFatturaFine = 9999;
-		
+		int numFatturaFine = 10;
+
 		if(numFattura == 0) {
 			numFattura = 1;
 		} else {
@@ -3401,7 +3401,7 @@ public class JPane {
 
 			if(partitaIva.length() > 0) {
 				String tmpFile = "IT" + partitaIva + "_" + nomeFile(esercizio1, codGioCur, i) + ".xml";
-				if(Files.isRegularFile(Paths.get(temp + "Fatture/out/" + tmpFile))) {
+				if(Files.isRegularFile(Paths.get(temp + "FattNew/out/" + tmpFile))) {
 					log("i9", "Exist:" + tmpFile);
 					continue;
 				}
@@ -3423,14 +3423,14 @@ public class JPane {
 
 		for(int i=numFattura; i<=numFatturaFine; i++, numFattura++) {
 
-			if(partitaIva.length() > 0) {
+/*			if(partitaIva.length() > 0) {
 				String tmpFile = "IT" + partitaIva + "_" + nomeFile(esercizio1, codGioCur, i) + ".xml";
-				if(Files.isRegularFile(Paths.get(temp + "Fatture/out/" + tmpFile))) {
+				if(Files.isRegularFile(Paths.get(temp + "FattNew/out/" + tmpFile))) {
 					log("i9", "Exist:" + tmpFile);
 					continue;
 				}
-			}
-			
+			} */
+
 			frame = new JPane(term, null);
 			requ = frame.new JPaneDoc("req", "");
 			master = frame.new JPaneMaster(term);
@@ -3440,14 +3440,14 @@ public class JPane {
 			if(ret == -1) break;
 		}
 
-		new File(temp + "Fatture/zip").mkdirs();
+		new File(temp + "FattNew/zip").mkdirs();
 
-		try {pack(temp + "Fatture/out/"
-				,temp + "Fatture/zip/out_" + JPane.getDate() + ".zip", ".xml");
+		try {pack(temp + "FattNew/out/"
+				,temp + "FattNew/zip/out_" + JPane.getDate() + ".zip", ".xml");
 		} catch (IOException e) {e.printStackTrace();}
 
 //		System.err.println(mainLog);
-		try(FileWriter fw = new FileWriter(temp + "Fatture/log/jamfive.log", true);
+		try(FileWriter fw = new FileWriter(temp + "FattNew/log/jamfive.log", true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter out = new PrintWriter(bw)) {
 				out.println(mainLog);
@@ -3456,7 +3456,7 @@ public class JPane {
 		}
 
 //		if(!isWindows())
-		try(FileWriter fw = new FileWriter(temp + "Fatture/log/jamfive.sql", false);
+		try(FileWriter fw = new FileWriter(temp + "FattNew/log/jamfive.sql", false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter out = new PrintWriter(bw)) {
 				out.println(sqlLog);
@@ -3474,13 +3474,13 @@ public class JPane {
 			sqlLog += "COMMIT;\n";
 			sqlLog += "EXIT\n";
 
-			try(FileWriter fw = new FileWriter(temp + "Fatture/log/lettura.sql", false);
+			try(FileWriter fw = new FileWriter(temp + "FattNew/log/lettura.sql", false);
 					BufferedWriter bw = new BufferedWriter(fw);
 					PrintWriter out = new PrintWriter(bw)) {
 						   out.println(sqlLog);
 						   out.close();
 				} catch (IOException e) {}
-			try(FileWriter fw = new FileWriter(temp + "Fatture/log/lettura.csv", false);
+			try(FileWriter fw = new FileWriter(temp + "FattNew/log/lettura.csv", false);
 					BufferedWriter bw = new BufferedWriter(fw);
 					PrintWriter out = new PrintWriter(bw)) {
 						   out.println(csvLog);
@@ -3488,7 +3488,7 @@ public class JPane {
 				} catch (IOException e) {}
 		}
 
-		log("i5", "Fine Programma ...");
+		log("i5", "Fine Programma FattureNew ...");
 		System.exit(0);
 
 /*		byte[] b = new byte[1024];
@@ -3989,23 +3989,23 @@ public class JPane {
 
 //		ritorno = formatXml(ritorno);
 
-		if(!Files.isRegularFile(Paths.get(temp + "Fatture/out/" + nomeFile + ".xml")))
-			writeTemp(nomeFile + ".xml", ritorno, "Fatture/outNew");
+		if(!Files.isRegularFile(Paths.get(temp + "FattNew/out/" + nomeFile + ".xml")))
+			writeTemp(nomeFile + ".xml", ritorno, "FattNew/outNew");
 
 		writeTemp(nomeFile + ".xml", ritorno, "Fatture/out");
 
 		String tmp = xml2html(ritorno, "Fatturapa_v1.101.xsl");
-		writeTemp(nomeFile + ".htm", tmp, "Fatture/out");
-		writeTemp(nomeFile + ".htm", tmp, "Fatture/outNew");
+		writeTemp(nomeFile + ".htm", tmp, "FattNew/out");
+		writeTemp(nomeFile + ".htm", tmp, "FattNew/outNew");
 
 		if(!isWindows())
 		{
 			String tmp2 = xml2html(ritorno, "FatturaPA_v1.2.xsl");
-			writeTemp(nomeFile + ".html", tmp2, "Fatture/out");
-			writeTemp(nomeFile + ".html", tmp2, "Fatture/outNew");
+			writeTemp(nomeFile + ".html", tmp2, "FattNew/out");
+			writeTemp(nomeFile + ".html", tmp2, "FattNew/outNew");
 
 //			String tmpXsl = getResource("fatturaPA_v1.2.xsl");
-//			writeTemp("fatturapa_v1.2.xsl", tmpXsl, "Fatture/out");
+//			writeTemp("fatturapa_v1.2.xsl", tmpXsl, "FattNew/out");
 		}
 
 //		JPaneDoc jpF = master.get("CUST", "");
