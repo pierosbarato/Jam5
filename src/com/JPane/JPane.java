@@ -10,6 +10,7 @@ import org.xml.sax.SAXException;
 
 import com.JPane.JPane.JPaneDoc;
 import com.JPane.JPane.JPaneMaster.Item;
+import com.JPane.JPane5.tmpJSON;
 
 // import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 
@@ -401,7 +402,7 @@ public class JPane {
 	}
 	
 	// =========================================================================
-	static void writeTemp(String fileName, String data, String dir) {
+	static void writeTemp(String fileName, String data, String dir, boolean append) {
 		fileName = fileName.replace(":", "_");
 		fileName = fileName.replace("^", "_");
 		fileName = fileName.replace("/", "_");
@@ -412,7 +413,7 @@ public class JPane {
 
 			File temp = new File(baseDir, fileName);
 
-			BufferedWriter out = new BufferedWriter(new FileWriter(temp));    
+			BufferedWriter out = new BufferedWriter(new FileWriter(temp, append));    
 			out.write(data);
 			out.close();
 		} catch (IOException e) { 
@@ -1689,7 +1690,7 @@ public class JPane {
 					tmpJson += jp.jO.toString() + "\n";
 				}
 			}
-			writeTemp("jam_" + getDate() + ".json", tmpJson, "jam");
+			writeTemp("jam_" + getDate() + ".json", tmpJson, "jam", false);
 			return tmpJson;
 		}
 		String listSort(int tab) {
@@ -1714,7 +1715,7 @@ public class JPane {
 			}
 			tmpJson += "}";
 			tmpJson = tmpJson.replaceAll("/99/", "");
-			writeTemp("jam_" + getDate() + ".json", tmpJson, "jam");
+			writeTemp("jam_" + getDate() + ".json", tmpJson, "jam", false);
 			return tmpJson;
 		}
 	}
@@ -2399,13 +2400,13 @@ public class JPane {
 			String tmp = xml2html(str, "Fatturapa_v1.101.xsl");
 			nome = nome.replace(".xml", "");
 //			writeTemp(nome + ".htm", tmp, "FattNew/in");
-			writeTemp(nome + ".htm", tmp, "FattNew/inOK");
+			writeTemp(nome + ".htm", tmp, "FattNew/inOK", false);
 		}
 		if(!isWindows()) 
 		{
 			String tmp3= xml2html(str, "Fatturapa_v1.2.xsl");
 			nome = nome.replace(".xml", "");
-			writeTemp(nome + ".html", tmp3, "FattNew/inOK");
+			writeTemp(nome + ".html", tmp3, "FattNew/inOK", false);
 		}
 //		JSONObject jsondata = JSONML.toJSONObject(str);
 //		String Xml = JSONML.toString(jsondata);
@@ -3232,9 +3233,9 @@ public class JPane {
 
 		if (xsltName.length() < 65) {
 //			xsltName = temp + "FattNew/out/" + xsltName;
-			xsltName = getResource(xsltName);
+//			xsltName = getResource(xsltName);
 //			System.out.println(xsltName);
-			xslt = new StreamSource(new StringReader(xsltName));
+//			xslt = new StreamSource(new StringReader(xsltName));
 //			xslt = new StreamSource(new File(xsltName));
 		} else {
 			// Patch xslt
@@ -3435,8 +3436,21 @@ public class JPane {
 			requ = frame.new JPaneDoc("req", "");
 			master = frame.new JPaneMaster(term);
 			FatturePara(term, "$$" + para, frame, requ, master);
-			
+
 			int ret = FattureOut(term, "$$" + para, numFattura, frame, requ, master);
+
+			JPane5 jp5 = new JPane5();
+			tmpJSON tmpJson = jp5.new tmpJSON("{");
+
+			String paneId = "TD01_FAT";
+			String sysId = "main";
+			String req = "";
+			jp5.JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
+
+			tmpJson.add("}\n");
+			JPane.writeTemp("data.json", tmpJson.get(), "", true);
+			jp5 = null;
+
 			if(ret == -1) break;
 		}
 
@@ -3623,13 +3637,15 @@ public class JPane {
 		String cmd = "";
 		master = JPaneBase.paneBASE(frame, requ, master, term, 1);
 		cmd	= "$def:CUST"
-			+ "::x001:PETRA83::-ix:utente::-nkey:1::-nseg:100"
-			+ "::x002:Petra::-ix:nome"
-			+ "::x003:PETRABG::-ix:usr"
-			+ "::x004:manager::-ix:pwd"
-			+ "::x005:" + JPane.vEnc("93.146.156.215_1521_ORCL") + "::-ix:svr"
-			+ "::x006:1::-ix:vendite"
+			+ "::x001:JAM50::-ix:utente::-nkey:1::-nseg:100"
+			+ "::x002:Formoto::-ix:nome"
+			+ "::x003:GLOBE::-ix:usr"
+			+ "::x004:MANAGER::-ix:pwd"
+			+ "::x005:" + JPane.vEnc("93.148.232.79_1522_XE") + "::-ix:svr"
+			+ "::x006:2::-ix:vendite"
 			;
+
+//		"CUST::x001:JAM50::x002:Formoto::x003:GLOBE::x004:MANAGER::x005:93.148.232.79_1522_XE::x006:2"
 
 		master = frame.execBase(requ,  cmd, 0, requ, master);
 		master = frame.execBase(requ,  cust, 0, requ, master);
@@ -3990,19 +4006,20 @@ public class JPane {
 //		ritorno = formatXml(ritorno);
 
 		if(!Files.isRegularFile(Paths.get(temp + "FattNew/out/" + nomeFile + ".xml")))
-			writeTemp(nomeFile + ".xml", ritorno, "FattNew/outNew");
+			writeTemp(nomeFile + ".xml", ritorno, "FattNew/outNew", false);
 
-		writeTemp(nomeFile + ".xml", ritorno, "Fatture/out");
+		writeTemp(nomeFile + ".xml", ritorno, "FattNew/out", false);
 
-		String tmp = xml2html(ritorno, "Fatturapa_v1.101.xsl");
-		writeTemp(nomeFile + ".htm", tmp, "FattNew/out");
-		writeTemp(nomeFile + ".htm", tmp, "FattNew/outNew");
+//		String tmp = xml2html(ritorno, "Fatturapa_v1.101.xsl");
+//		writeTemp(nomeFile + ".htm", tmp, "FattNew/out");
+//		writeTemp(nomeFile + ".htm", tmp, "FattNew/outNew");
 
-		if(!isWindows())
+//		if(!isWindows())
+		if(false)
 		{
 			String tmp2 = xml2html(ritorno, "FatturaPA_v1.2.xsl");
-			writeTemp(nomeFile + ".html", tmp2, "FattNew/out");
-			writeTemp(nomeFile + ".html", tmp2, "FattNew/outNew");
+			writeTemp(nomeFile + ".html", tmp2, "FattNew/out", false);
+			writeTemp(nomeFile + ".html", tmp2, "FattNew/outNew", false);
 
 //			String tmpXsl = getResource("fatturaPA_v1.2.xsl");
 //			writeTemp("fatturapa_v1.2.xsl", tmpXsl, "FattNew/out");

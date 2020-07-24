@@ -281,8 +281,11 @@ public class JPane5 {
 //		System.out.println("--- ??????????? " + paneHtml);
 
 		if(tmpJson.JSON.length() > 3) tmpJson.add(",");
-		tmpJson.add("\"" + paneId + "\":{");
-		tmpJson.add("\"_pane\":{\"id\":\"" + paneId + "\"}");
+		String beginArray = "";
+		if(paneId.equalsIgnoreCase("linee")
+		 ||paneId.equalsIgnoreCase("iva")) beginArray = "[";
+		tmpJson.add("\"" + paneId + "\":" + beginArray + "{");
+		tmpJson.add("\"_pane\":" + "{\"id\":\"" + paneId + "\"}");
 
 		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
@@ -332,6 +335,9 @@ public class JPane5 {
 			String xml	= jl.get("xmlPath"	,"");
 			String edit	= jl.get("edit"		,"");
 			String view	= JPane.vDec(jl.get("view"	,""));
+			String exec	= JPane.vDec(jl.get("exec"	,""));
+
+			if(exec.length() > 0) view = exec;
 
 			System.out.println("--- id:" +id + " ix:" + ix + " view:" + view);
 
@@ -392,6 +398,9 @@ public class JPane5 {
 		}
 
 		tmpJson.add("}");
+		if(paneId.equalsIgnoreCase("linee")
+		 ||paneId.equalsIgnoreCase("iva"))
+			tmpJson.add("]");
 
 		data += "]}";
 		System.out.println("--- Data " + data);
@@ -495,7 +504,7 @@ public class JPane5 {
 		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 		tmpJson.add("}\n");
-		JPane.writeTemp("data.json", tmpJson.get(), "");
+		JPane.writeTemp("data.json", tmpJson.get(), "", true);
 		jp5 = null;
 
 		if(req.contains("/find")) {

@@ -264,7 +264,7 @@ public class JPaneBase {
 			+ tmpBronx
 			+ "::x001d:0::-ix:Sconto1::-type:Integer::-inp:n"
 				+ "::-is:MAGMVR.SCONTO_1"
-			+ "::x001e:0::-ix:Sconto1::-type:Integer::-inp:n"
+			+ "::x001e:0::-ix:Sconto2::-type:Integer::-inp:n"
 				+ "::-is:MAGMVR.SCONTO_2"
 			+ "::x001i:0::-ix:Sconto5::-type:Integer::-inp:n"
 				+ "::-is:MAGMVR.SCO_05"

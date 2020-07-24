@@ -204,7 +204,7 @@ public class JPaneMail {
 //    				contenuto = contenuto.replace("","");
     			}
 */
-    			JPane.writeTemp(nameOut, contenuto, "Fatture/in/");
+    			JPane.writeTemp(nameOut, contenuto, "Fatture/in/", false);
 
 /*
 				try {
