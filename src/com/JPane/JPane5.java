@@ -273,19 +273,13 @@ public class JPane5 {
 		String paneEdit		= jpTmp.getItem("id", "state", "edit", "", 1);
 		String paneBoot		= jpTmp.getItem("id", "state", "boot", "", 1);
 		String paneBootLine	= jpTmp.getItem("id", "state", "bootLine", "", 1);
+		int rigMax			= jpTmp.getItem("id", "state", "linemax"	, 1, 1);
 
 //		String tmp1 = jpTmp.jO.toString();
 //		String tmp2 = jpTmp.getItem("id", "header", "title", "", 1);
 //		System.out.println("--- ??????????? " + tmp1);
 //		System.out.println("--- ??????????? " + paneXmlPath);
 //		System.out.println("--- ??????????? " + paneHtml);
-
-		if(tmpJson.JSON.length() > 3) tmpJson.add(",");
-		String beginArray = "";
-		if(paneId.equalsIgnoreCase("linee")
-		 ||paneId.equalsIgnoreCase("iva")) beginArray = "[";
-		tmpJson.add("\"" + paneId + "\":" + beginArray + "{");
-		tmpJson.add("\"_pane\":" + "{\"id\":\"" + paneId + "\"}");
 
 		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
@@ -319,8 +313,20 @@ public class JPane5 {
 
 		String sortMode	= "sort-name";
 		JPaneLoop jl = frame.new JPaneLoop(jpTmp, null, sortMode);
-		jl.reset(1);
 
+		String beginArray = "";
+		if(paneId.equalsIgnoreCase("linee")
+		 ||paneId.equalsIgnoreCase("iva")) beginArray = "[";
+		else
+			if(tmpJson.JSON.length() > 3) tmpJson.add(",");
+
+		tmpJson.add("\"" + paneId + "\":" + beginArray + "{");
+		tmpJson.add("\"_pane\":" + "{\"id\":\"" + paneId + "\"}");
+
+		for(int i=1; i<=rigMax; i++) {
+			if(i> 1) tmpJson.add("{");
+			
+		jl.reset(i);
 		int iCmp = 0;
 		int nCmp = 0;
 		while((iCmp = jl.loop()) > 0) {
@@ -360,7 +366,7 @@ public class JPane5 {
 			&&!ix.contains("DataScadenzaPagamento")
 			) {
 				String tmp = paneId + "_" + ix;
-				if(nCmp > 0) tmpJson.add(",");
+//				if(nCmp > 0) tmpJson.add(",");
 				tmpJson.add("\"" + ix.replace(".", "_") + "\":\"" + val + "\"");
 			}
 			data += "{";
@@ -398,11 +404,15 @@ public class JPane5 {
 		}
 
 		tmpJson.add("}");
+
+		}
+
 		if(paneId.equalsIgnoreCase("linee")
 		 ||paneId.equalsIgnoreCase("iva"))
 			tmpJson.add("]");
 
 		data += "]}";
+
 		System.out.println("--- Data " + data);
 
 		return data;
@@ -415,7 +425,21 @@ public class JPane5 {
 			JSON += tmp;
 		}
 		void add (String tmp) {
-			JSON += tmp;
+			if(tmp.startsWith(",") && JSON.endsWith("{"))
+				JSON += tmp.substring(1);
+			else if(tmp.startsWith(",") && JSON.endsWith(","))
+				JSON += tmp.substring(1);
+			else if(tmp.startsWith(":") && JSON.endsWith(","))
+				JSON += tmp.substring(1);
+			else if(tmp.startsWith("{") && JSON.endsWith("}"))
+				JSON += "," + tmp;
+			else if(tmp.startsWith("\"") && JSON.endsWith("}"))
+				JSON += "," + tmp;
+			else if(tmp.startsWith("\"") && JSON.endsWith("]"))
+				JSON += "," + tmp;
+			else if(tmp.startsWith("\"") && JSON.endsWith("\""))
+				JSON += "," + tmp;
+			else JSON += tmp;
 		}
 		String get() {
 			return JSON;
