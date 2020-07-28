@@ -257,9 +257,8 @@ public class JPane5 {
 			+ "]";
 	
 	// =========================================================================
-	static String JPaneLoadPane(String paneId, String req, JPane frame
+	static void JPaneLoadPane(String paneId, String req, JPane frame
 			,JPaneMaster master, String sysId, JPaneDoc requ, tmpJSON tmpJson) {
-		String data		= "";
 		String cmd		= "$$" + paneId + ";";
 
 		master = frame.execBase(requ, cmd, 0, requ, master);
@@ -282,45 +281,26 @@ public class JPane5 {
 //		System.out.println("--- ??????????? " + paneXmlPath);
 //		System.out.println("--- ??????????? " + paneHtml);
 
-		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
-				+ "," + "\"tt\":\"pane\","
-				+ "";
-		
 		tmpJson.addList("{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
 				+ "");
 
 		if(req.contains("/find")) {
-			data += "\"classes\": [\"dd-collapsed\"],";
 			tmpJson.addList("\"classes\": [\"dd-collapsed\"],");
 		}
 
-		data += "\"iconClass\":\"fa-address-card\",";
-		data +=  "\"children\":[";
 		tmpJson.addList("\"iconClass\":\"fa-address-card\"," + "\"children\":[");
 
 		if(paneXmlPath.length() > 0) {
-			data += "{\"tt\":\"att:xml\","
-					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"xml\":\"" + paneXmlPath +"\"},";
 			tmpJson.addListAtt("xml", paneXmlPath);
 		}
 		if(paneEdit.length() > 0) {
-			data += "{\"tt\":\"att:edit\","
-					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"edit\":\"" + paneEdit + "\"},";	
 			tmpJson.addListAtt("edit", paneEdit);
 		}
 		if(paneBoot.length() > 0) {
-			data += "{\"tt\":\"att:boot\","
-					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"boot\":\"" + paneBoot +"\"},";	
 			tmpJson.addListAtt("boot", paneBoot);
 		}
 		if(paneBootLine.length() > 0) {
-			data += "{\"tt\":\"att:bootLine\","
-					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"bootLine\":\"" + paneBootLine +"\"},";	
 			tmpJson.addListAtt("bootLine", paneBootLine);
 		}
 		String sortMode	= "sort-name";
@@ -366,13 +346,10 @@ public class JPane5 {
 
 			if(id.equalsIgnoreCase("x000")) continue;
 
-			if(nCmp > 0) data += ",";
 			nCmp++;
 
 			if(view.length()> 0) {
-				data += "";
-				data += JPaneLoadPane(view.substring(2), "", frame, master, sysId, requ, tmpJson);
-				data += "";
+				JPaneLoadPane(view.substring(2), "", frame, master, sysId, requ, tmpJson);
 				continue;
 			}
 
@@ -386,11 +363,6 @@ public class JPane5 {
 //				if(nCmp > 0) tmpJson.add(",");
 				tmpJson.add("\"" + ix.replace(".", "_") + "\":\"" + val + "\"");
 			}
-			data += "{";
-			data += "\"id\":\"" + sysId + "." + ix + "\",";
-//			data += "\"id\":" + iCmp + "";
-			data += "\"ix\":\"" + ix + "\",";
-			data += "\"val\":\"" + val + "\",";
 
 			tmpJson.addList("{");
 			tmpJson.addList("\"id\":\"" + sysId + "." + ix + "\",");
@@ -398,10 +370,6 @@ public class JPane5 {
 			tmpJson.addList("\"val\":\"" + val + "\",");
 
 			tmpJson.addList("\"tt\":\"item\"");
-			data += "\"tt\":\"item\","
-				+ "\"classes\": [\"dd-collapsed\"],"
-				+ "\"iconClass\":\"fa-equals\","
-				+ "\"children\":[";
 			
 			tmpJson.addList("\"classes\": [\"dd-collapsed\"],");
 			tmpJson.addList("\"iconClass\":\"fa-equals\",");
@@ -410,11 +378,6 @@ public class JPane5 {
 //			data += "{\"tt\":\"att\",\"ix\":\"" + "id:" + ix +"\"}";
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
-			data += "{\"tt\":\"att:type\","
-					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"id\":\"" + sysId + "." + ix + "\","
-					+ "\"type\":\"" + type + "\","
-					+ "\"tit\":\"" + tit +"\"}";
 			tmpJson.addList("{\"tt\":\"att:type\","
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"id\":\"" + sysId + "." + ix + "\","
@@ -422,19 +385,18 @@ public class JPane5 {
 					+ "\"tit\":\"" + tit +"\"}");
 
 			if(is.length()>0)
-				data += ",{\"tt\":\"att:sql\","
+				tmpJson.addList(",{\"tt\":\"att:sql\","
 						+ "\"iconClass\":\"fa-list-alt\","
-						+ "\"sql\":\"" + is +"\"}";
+						+ "\"sql\":\"" + is +"\"}");
 			if(xml.length()>0 && !xml.equalsIgnoreCase("null"))
-				data += ",{\"tt\":\"att:xml\","
+				tmpJson.addList(",{\"tt\":\"att:xml\","
 						+ "\"iconClass\":\"fa-list-alt\","
-						+ "\"xml\":\"" + xml +"\"}";
+						+ "\"xml\":\"" + xml +"\"}");
 			if(edit.length()>0 && !edit.equalsIgnoreCase("null"))
-				data += ",{\"tt\":\"att:edit\","
+				tmpJson.addList(",{\"tt\":\"att:edit\","
 						+ "\"iconClass\":\"fa-list-alt\","
-						+ "\"edit\":\"" + edit +"\"}";
+						+ "\"edit\":\"" + edit +"\"}");
 
-			data += "]}";
 			tmpJson.addList("]}");
 		}
 
@@ -448,10 +410,7 @@ public class JPane5 {
 		if(paneMode.contentEquals("Detail"))
 			tmpJson.add("]");
 
-		data += "]}";
 		tmpJson.addList("]}");
-
-		return data;
 	}
 
 	// =========================================================================
@@ -577,7 +536,7 @@ public class JPane5 {
 
 		JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
-		tmpJson.add("}\n");
+		tmpJson.add("}");
 
 		JPane.writeTemp("data.json", tmpJson.get(), "", true);
 
