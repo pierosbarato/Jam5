@@ -497,22 +497,23 @@ public class JPane5 {
 	// =========================================================================
 	static String JPaneLoad(String req) {
 		System.out.println("--- JPaneLoad ...");
-		String data = "";
 		String paneId = "TD01_FAT";
 		if(req.contains("load:formula")) {
+			JPane5 jp5 = new JPane5();
+			tmpJSON tmpJson = jp5.new  tmpJSON("");
 			paneId = "FORMULA";
-			data += "[";
+			tmpJson.addList("[");
 
-			data += "{\"id\":\"" + paneId + "\""
-					+ "," + "\"tt\":\"pane\"}";
+			tmpJson.addList("{\"id\":\"" + paneId + "\""
+					+ "," + "\"tt\":\"pane\"}");
 
 //			{
 //				data += "\"classes\": [\"dd-collapsed\"],";
 //				data +=  "\"children\":[";
 //			}
-			data += "]";
+			tmpJson.addList("]");
 
-			return data;
+			return tmpJson.getList();
 		}
 
 		String sysId = "main";
@@ -572,10 +573,9 @@ public class JPane5 {
 		JPane5 jp5 = new JPane5();
 		tmpJSON tmpJson = jp5.new tmpJSON("{\"sid\":\"" + frame.sid + "\",");
 
-		data += "[";
 		tmpJson.addList("[");
 
-		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
+		JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 		tmpJson.add("}\n");
 
@@ -585,24 +585,21 @@ public class JPane5 {
 
 		if(req.contains("/find")) {
 			paneId = "TD01_LINEE";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
+			JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 			paneId = "TD01_IVA";
-			data += ", " + JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
+			JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 			
 			paneId = "boot";
-			data += ", " + JPaneLoadPane(paneId, "", frame, master, sysId, requ, tmpJson);
+			JPaneLoadPane(paneId, "", frame, master, sysId, requ, tmpJson);
 		}
 
-		data += "]";
 		tmpJson.addList("]");
 
-		System.out.println("--- Data: " + data);
 		System.out.println("--- JSON: " + tmpJson.get());
 		System.out.println("--- List: " + tmpJson.getList());
 
 		return tmpJson.getList();		
-//		return data;
 	}
 
 	// =========================================================================
