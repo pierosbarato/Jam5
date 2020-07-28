@@ -269,11 +269,12 @@ public class JPane5 {
 		sysId += "." + paneId;
 //		putPane("test", "TD01_FAT", "null", data);
 		
+		String paneMode		= jpTmp.getItem("id", "state", "mode", "Master", 1);
 		String paneXmlPath	= jpTmp.getItem("id", "state", "xmlPath", "", 1);
 		String paneEdit		= jpTmp.getItem("id", "state", "edit", "", 1);
 		String paneBoot		= jpTmp.getItem("id", "state", "boot", "", 1);
 		String paneBootLine	= jpTmp.getItem("id", "state", "bootLine", "", 1);
-		int rigMax			= jpTmp.getItem("id", "state", "linemax"	, 1, 1);
+		int rigMax			= jpTmp.getItem("id", "state", "linemax" , 1, 1);
 
 //		String tmp1 = jpTmp.jO.toString();
 //		String tmp2 = jpTmp.getItem("id", "header", "title", "", 1);
@@ -284,44 +285,60 @@ public class JPane5 {
 		data += "{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
 				+ "," + "\"tt\":\"pane\","
 				+ "";
+		
+		tmpJson.addList("{\"id\":\"" + sysId + "\"," + "\"tit\":\"" + paneId + "\""
+				+ "," + "\"tt\":\"pane\","
+				+ "");
 
-		if(req.contains("/find"))
+		if(req.contains("/find")) {
 			data += "\"classes\": [\"dd-collapsed\"],";
+			tmpJson.addList("\"classes\": [\"dd-collapsed\"],");
+		}
 
 		data += "\"iconClass\":\"fa-address-card\",";
 		data +=  "\"children\":[";
+		tmpJson.addList("\"iconClass\":\"fa-address-card\"," + "\"children\":[");
 
-		if(paneXmlPath.length() > 0)
+		if(paneXmlPath.length() > 0) {
 			data += "{\"tt\":\"att:xml\","
 					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"xml\":\"" + paneXmlPath +"\"},";	
-
-		if(paneEdit.length() > 0)
+					+ "\"xml\":\"" + paneXmlPath +"\"},";
+			tmpJson.addListAtt("xml", paneXmlPath);
+		}
+		if(paneEdit.length() > 0) {
 			data += "{\"tt\":\"att:edit\","
 					+ "\"iconClass\":\"fa-list-alt\","
-					+ "\"edit\":\"" + paneEdit +"\"},";	
-
-		if(paneBoot.length() > 0)
+					+ "\"edit\":\"" + paneEdit + "\"},";	
+			tmpJson.addListAtt("edit", paneEdit);
+		}
+		if(paneBoot.length() > 0) {
 			data += "{\"tt\":\"att:boot\","
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"boot\":\"" + paneBoot +"\"},";	
-
-		if(paneBootLine.length() > 0)
+			tmpJson.addListAtt("boot", paneBoot);
+		}
+		if(paneBootLine.length() > 0) {
 			data += "{\"tt\":\"att:bootLine\","
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"bootLine\":\"" + paneBootLine +"\"},";	
-
+			tmpJson.addListAtt("bootLine", paneBootLine);
+		}
 		String sortMode	= "sort-name";
 		JPaneLoop jl = frame.new JPaneLoop(jpTmp, null, sortMode);
 
 		String beginArray = "";
-		if(paneId.equalsIgnoreCase("linee")
-		 ||paneId.equalsIgnoreCase("iva")) beginArray = "[";
+//		if(paneId.equalsIgnoreCase("linee")
+//		 ||paneId.equalsIgnoreCase("iva"))
+
+		if(paneMode.contentEquals("Detail"))
+			beginArray = "[";
 		else
 			if(tmpJson.JSON.length() > 3) tmpJson.add(",");
 
 		tmpJson.add("\"" + paneId + "\":" + beginArray + "{");
 		tmpJson.add("\"_pane\":" + "{\"id\":\"" + paneId + "\"}");
+
+		if(!paneMode.contentEquals("Detail")) rigMax = 1;
 
 		for(int i=1; i<=rigMax; i++) {
 			if(i> 1) tmpJson.add("{");
@@ -337,7 +354,7 @@ public class JPane5 {
 			String ix	= jl.get("ix"		,is);
 			String tit	= jl.get("tit"		,ix);
 			String type	= jl.get("type"		,"text");
-			String val	= JPane.vDec(jl.get("val"		,""));
+			String val	= JPane.vDec(jl.get("val"	,""));
 			String xml	= jl.get("xmlPath"	,"");
 			String edit	= jl.get("edit"		,"");
 			String view	= JPane.vDec(jl.get("view"	,""));
@@ -375,18 +392,35 @@ public class JPane5 {
 			data += "\"ix\":\"" + ix + "\",";
 			data += "\"val\":\"" + val + "\",";
 
+			tmpJson.addList("{");
+			tmpJson.addList("\"id\":\"" + sysId + "." + ix + "\",");
+			tmpJson.addList("\"ix\":\"" + ix + "\",");
+			tmpJson.addList("\"val\":\"" + val + "\",");
+
+			tmpJson.addList("\"tt\":\"item\"");
 			data += "\"tt\":\"item\","
 				+ "\"classes\": [\"dd-collapsed\"],"
 				+ "\"iconClass\":\"fa-equals\","
 				+ "\"children\":[";
 			
+			tmpJson.addList("\"classes\": [\"dd-collapsed\"],");
+			tmpJson.addList("\"iconClass\":\"fa-equals\",");
+			tmpJson.addList("\"children\":[");
+
 //			data += "{\"tt\":\"att\",\"ix\":\"" + "id:" + ix +"\"}";
 //			if(view.length()>0)
 //			data += ",{\"tt\":\"att\",\"ix\":\"" + "view:" + view +"\"}";
 			data += "{\"tt\":\"att:type\","
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"id\":\"" + sysId + "." + ix + "\","
-					+ "\"type\":\"" + type + "\",\"tit\":\"" + tit +"\"}";
+					+ "\"type\":\"" + type + "\","
+					+ "\"tit\":\"" + tit +"\"}";
+			tmpJson.addList("{\"tt\":\"att:type\","
+					+ "\"iconClass\":\"fa-list-alt\","
+					+ "\"id\":\"" + sysId + "." + ix + "\","
+					+ "\"type\":\"" + type + "\","
+					+ "\"tit\":\"" + tit +"\"}");
+
 			if(is.length()>0)
 				data += ",{\"tt\":\"att:sql\","
 						+ "\"iconClass\":\"fa-list-alt\","
@@ -401,19 +435,21 @@ public class JPane5 {
 						+ "\"edit\":\"" + edit +"\"}";
 
 			data += "]}";
+			tmpJson.addList("]}");
 		}
 
 		tmpJson.add("}");
-
+	
 		}
 
-		if(paneId.equalsIgnoreCase("linee")
-		 ||paneId.equalsIgnoreCase("iva"))
+//		if(paneId.equalsIgnoreCase("linee")
+//		 ||paneId.equalsIgnoreCase("iva"))
+
+		if(paneMode.contentEquals("Detail"))
 			tmpJson.add("]");
 
 		data += "]}";
-
-		System.out.println("--- Data " + data);
+		tmpJson.addList("]}");
 
 		return data;
 	}
@@ -421,10 +457,18 @@ public class JPane5 {
 	// =========================================================================
 	public class tmpJSON {
 		String JSON = "";
-		tmpJSON(String tmp) {
-			JSON += tmp;
+		String List	= "";
+		String Sql	= "";
+		tmpJSON(String tmp) {JSON += tmp;}
+		void add(String tmp) {JSON = addJSON(tmp,JSON);}
+		void addList(String tmp) {List = addJSON(tmp,List);}
+		void addListAtt(String att, String val) {
+			addList("{\"tt\":\"att:" + att + "\","
+					+ "\"iconClass\":\"fa-list-alt\","
+					+ "\"" + att + "\":\"" + val +"\"},");
 		}
-		void add (String tmp) {
+		void addSql(String tmp) {Sql = addSQL(tmp,Sql);}
+		String addJSON (String tmp, String JSON) {
 			if(tmp.startsWith(",") && JSON.endsWith("{"))
 				JSON += tmp.substring(1);
 			else if(tmp.startsWith(",") && JSON.endsWith(","))
@@ -440,10 +484,14 @@ public class JPane5 {
 			else if(tmp.startsWith("\"") && JSON.endsWith("\""))
 				JSON += "," + tmp;
 			else JSON += tmp;
-		}
-		String get() {
 			return JSON;
 		}
+		String addSQL (String tmp, String SQL) {
+			return SQL;
+		}
+		String get() {return JSON;}
+		String getList() {return List;}
+		String getSql() {return Sql;}
 	}
 
 	// =========================================================================
@@ -520,15 +568,19 @@ public class JPane5 {
 //		master.listSort(0);
 
 //		String paneId = "TD01_PDT";
-		data += "[";
 
 		JPane5 jp5 = new JPane5();
-		tmpJSON tmpJson = jp5.new tmpJSON("{");
+		tmpJSON tmpJson = jp5.new tmpJSON("{\"sid\":\"" + frame.sid + "\",");
+
+		data += "[";
+		tmpJson.addList("[");
 
 		data += JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 		tmpJson.add("}\n");
+
 		JPane.writeTemp("data.json", tmpJson.get(), "", true);
+
 		jp5 = null;
 
 		if(req.contains("/find")) {
@@ -543,10 +595,14 @@ public class JPane5 {
 		}
 
 		data += "]";
-		
+		tmpJson.addList("]");
+
 		System.out.println("--- Data: " + data);
-		System.out.println("--- JSON: " + tmpJson.JSON);
-		return data;
+		System.out.println("--- JSON: " + tmpJson.get());
+		System.out.println("--- List: " + tmpJson.getList());
+
+		return tmpJson.getList();		
+//		return data;
 	}
 
 	// =========================================================================

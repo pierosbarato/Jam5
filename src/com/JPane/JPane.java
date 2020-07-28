@@ -3391,7 +3391,7 @@ public class JPane {
 		new File(temp + "FattNew/inOK").mkdirs();
 		new File(temp + "FattNew/inZip").mkdirs();
 
-		int numFatturaFine = 10;
+		int numFatturaFine = 100;
 
 		if(numFattura == 0) {
 			numFattura = 1;
@@ -3422,6 +3422,12 @@ public class JPane {
 		esercizio	= "20";
 		esercizio1= esercizio.substring(1);
 
+		String tmpOra
+		= "CREATE TABLE jam\n"
+		+ "  (ids	VARCHAR2 (100) NOT NULL PRIMARY KEY,\n"
+		+ "   dati	CLOB NOT NULL);\n";
+//		+ "   CONSTRAINT ensure_json CHECK (dati IS JSON));\n";
+
 		for(int i=numFattura; i<=numFatturaFine; i++, numFattura++) {
 
 /*			if(partitaIva.length() > 0) {
@@ -3440,19 +3446,28 @@ public class JPane {
 			int ret = FattureOut(term, "$$" + para, numFattura, frame, requ, master);
 
 			JPane5 jp5 = new JPane5();
-			tmpJSON tmpJson = jp5.new tmpJSON("{");
+			tmpJSON tmpJson = jp5.new tmpJSON("{\"sid\":\"" + frame.sid + "\",");
 
 			String paneId = "TD01_FAT";
 			String sysId = "main";
 			String req = "";
 			jp5.JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
-			tmpJson.add("}\n");
-			JPane.writeTemp("data.json", tmpJson.get(), "", true);
+			tmpJson.add("}");
+
+			JPane.writeTemp("data.json", tmpJson.get() + "\n", "", true);
+			tmpOra
+			+= "INSERT INTO jam  VALUES ('" + frame.sid + "',\n"
+			+ "'" + tmpJson.get() + "');\n";
+
 			jp5 = null;
 
 			if(ret == -1) break;
 		}
+
+		tmpOra = tmpOra.replace("&amp;", " e ");
+		JPane.writeTemp("orajson.sql", tmpOra, "", false);
+//		System.out.println("--- Oracle " + tmpOra);
 
 		new File(temp + "FattNew/zip").mkdirs();
 
