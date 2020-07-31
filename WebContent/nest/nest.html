@@ -264,7 +264,7 @@ label, input, button, select, textarea {
 		<button type="button" class="btn btn-primary" id="themeToggler">🎨</button>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search or Command" aria-label="Search">
+          <input class="form-control mr-sm-2" id="find2" type="text" placeholder="Search or Command" aria-label="Search2">
 <!-- 
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Query</button>
  -->
@@ -339,7 +339,7 @@ label, input, button, select, textarea {
     float:left;background:white;
 }
 .frame {
-    background:#e0e0de;
+/*    background:#e0e0de; */
     height:450px;
     overflow:hidden;
     padding:0;
@@ -390,18 +390,6 @@ input:focus {
 
 				<div class="frame">
 					<ul id="chat"></ul>
-					<div>
-						<div class="msj-rta macro">
-							<div class="text text-r"
-								style="background: whitesmoke !important">
-								<input class="mytext" placeholder="Type a command" />
-							</div>
-
-						</div>
-						<div style="padding: 10px;">
-							<span class="glyphicon glyphicon-share-alt"></span>
-						</div>
-					</div>
 				</div>
 <script>
 var me = {};
@@ -462,7 +450,7 @@ function resetChat(){
     $("#chat").empty();
 }
 
-$(".mytext").on("keydown", function(e){
+$("#find2").on("keydown", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
@@ -751,11 +739,11 @@ insertChat("you", "LOL", 12000);
 	<script>
 		$(document).ready(function() {
 			$(".select2").on("select2:open",function() {
-				alert('test');
+//				alert('test');
 				$(".select2-results").css("visibility","hidden");
 			});
 			$(".select2").on('select2:opening',function() {
-				alert('test');
+//				alert('test');
 				setTimeout(function() {
 					$(".select2-results").css("visibility", "visible");}, 400); });
 	
@@ -1051,7 +1039,7 @@ insertChat("you", "LOL", 12000);
 
       $('form').on('submit', function (e) {
         e.preventDefault();
-        alert($('.summernote').summernote('code'));
+//        alert($('.summernote').summernote('code'));
       });
     });
 	});    
