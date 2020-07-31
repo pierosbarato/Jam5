@@ -442,8 +442,8 @@ function insertChat(who, text, time){
     }
     setTimeout(
         function(){                        
-            $("#chat").append(control).scrollTop($("ul").prop('scrollHeight'));
-        }, time);    
+            $("#chat").append(control).scrollTop($("#chat").prop('scrollHeight'));
+        }, time);
 }
 
 function resetChat(){
@@ -468,15 +468,8 @@ $('body > div > div > div:nth-child(2) > span').click(function(){
 resetChat();
 
 //-- Print Messages
-insertChat("you", "--- JAM Editor Ok. Ready to Go ...", 1500);
-/*
-insertChat("me", "Hello Tom...", 0);  
-insertChat("you", "Hi, Pablo", 1500);
-insertChat("me", "What would you like to talk about today?", 3500);
-insertChat("you", "Tell me a joke",7000);
-insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", 9500);
-insertChat("you", "LOL", 12000);
-*/
+insertChat("you", "--- JAM Editor Ok. Ready to Go ...", 0);
+insertChat("me", "$init", 1000);  
 </script>
 <!-- cmd line End -->
 
