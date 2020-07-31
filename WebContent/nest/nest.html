@@ -264,7 +264,7 @@ label, input, button, select, textarea {
 		<button type="button" class="btn btn-primary" id="themeToggler">🎨</button>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search or Command" aria-label="Search">
 <!-- 
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Query</button>
  -->
@@ -309,7 +309,11 @@ label, input, button, select, textarea {
     width:100%;margin-top:0;line-height: 13px;font-size: 12px;
 }
 .text > p:last-of-type {
-    width:100%;text-align:right;color:silver;margin-top:auto;
+    width:100%;
+/*    text-align:right; */
+    color:red;
+    margin-top:auto;
+    margin-bottom: 0px;
 }
 .text-l {
     float:left;padding-right:10px;
@@ -432,7 +436,7 @@ function insertChat(who, text, time){
 //                        <img class="img-circle" style="width:100%;" src="'+ me.avatar +'" /></div>' +
                             '<div class="text text-l">' +
                                 '<p>'+ text +'</p>' +
-                                '<p><small>'+date+'</small></p>' +
+//                                '<p><small>'+date+'</small></p>' +
                             '</div>' +
                         '</div>' +
                     '</li>';                    
@@ -441,11 +445,11 @@ function insertChat(who, text, time){
                         '<div class="msj-rta macro">' +
                             '<div class="text text-r">' +
                                 '<p>'+text+'</p>' +
-                                '<p><small>'+date+'</small></p>' +
+//                                '<p><small>'+date+'</small></p>' +
                             '</div>' +
-                        '<div class="avatar" style="padding:0px 0px 0px 10px !important">' +
+ //                       '<div class="avatar" style="padding:0px 0px 0px 10px !important">' +
 //                            <img class="img-circle" style="width:100%;" src="'+you.avatar+'" />
-						'</div>' +
+//						'</div>' +
                   '</li>';
     }
     setTimeout(
@@ -476,6 +480,7 @@ $('body > div > div > div:nth-child(2) > span').click(function(){
 resetChat();
 
 //-- Print Messages
+insertChat("you", "--- JAM Editor Ok. Ready to Go ...", 1500);
 /*
 insertChat("me", "Hello Tom...", 0);  
 insertChat("you", "Hi, Pablo", 1500);
