@@ -1,0 +1,13 @@
+{
+	"name": "JAM Editor",
+	"short_name": "JAM Editor",
+	"start_url": "nest/nest.html",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "favicon.ico",
+			"sizes": "192x192",
+			"type": "image/ico"
+		}
+	]
+} 

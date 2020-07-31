@@ -286,10 +286,11 @@ public class JPane5 {
 				+ "");
 
 		if(req.contains("/find")) {
-			tmpJson.addList("\"classes\": [\"dd-collapsed\"],");
+			tmpJson.addList("\"classes\":[\"dd-collapsed\"],");
 		}
 
-		tmpJson.addList("\"iconClass\":\"fa-address-card\"," + "\"children\":[");
+		tmpJson.addList("\"iconClass\":\"fa-address-card\","
+									+ "\"children\":[");
 
 		if(paneXmlPath.length() > 0) {
 			tmpJson.addListAtt("xml", paneXmlPath);
@@ -422,7 +423,8 @@ public class JPane5 {
 		void add(String tmp) {JSON = addJSON(tmp,JSON);}
 		void addList(String tmp) {List = addJSON(tmp,List);}
 		void addListAtt(String att, String val) {
-			addList("{\"tt\":\"att:" + att + "\","
+			if(val.length() > 0)
+				addList("{\"tt\":\"att:" + att + "\","
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"" + att + "\":\"" + val +"\"},");
 		}
