@@ -270,6 +270,7 @@ label, input, button, select, textarea {
  -->
 		<button type="button" id="find" class="btn btn-outline-success my-2 my-sm-0">
 			<i class="fas fa-search"></i>&nbsp;
+			</button>
         </form>
         
        </menu>
@@ -303,7 +304,8 @@ label, input, button, select, textarea {
     background:whitesmoke;
 }
 .text {
-    width:75%;display:flex;flex-direction:column;
+/*    width:75%; */
+    display:flex;flex-direction:column;line-height: 13px;
 }
 .text > p:first-of-type {
     width:100%;margin-top:0;line-height: 13px;font-size: 12px;
@@ -321,9 +323,9 @@ label, input, button, select, textarea {
 .text-r {
     float:right;padding-left:10px;
 }
-.avatar {
+.avatar2 {
     display:flex;
-    justify-content:center;
+ /*   justify-content:center; */
     align-items:center;
     width:5%;
     float:left;
@@ -454,7 +456,7 @@ $("#find2").on("keydown", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-            insertChat("me", text);              
+            insertChat("you", text);              
             $(this).val('');
         }
     }
@@ -468,8 +470,8 @@ $('body > div > div > div:nth-child(2) > span').click(function(){
 resetChat();
 
 //-- Print Messages
-insertChat("you", "--- JAM Editor Ok. Ready to Go ...", 0);
-insertChat("me", "$init", 1000);  
+insertChat("me", "--- JAM Editor Ok. Ready to Go ...", 0);
+insertChat("you", "$init", 1000);  
 </script>
 <!-- cmd line End -->
 
