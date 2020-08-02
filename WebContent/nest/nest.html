@@ -278,37 +278,35 @@ label, input, button, select, textarea {
 			<select class="form-control mr-sm-2" name="find2" id="find2"
 				multiple="multiple"
 				aria-label="Search2">
-				<option>piero</option>
-				<option>pippo</option>
 			</select>
 <script>
-var data = {"results":[
-    {id: "2", text: "2 - Gastos", children: [
-        {id: "2.1", text: "2.1 - DESPESA OPERACIONAL FIXA", children: [
-            {id: "2.1.1", text: "2.1.1 - PESSOAL", children: [
-                {id: "2.1.1", text: "2.1.1 - PESSOAL"}, 
-                {id: "2.1.1.1", text: "2.1.1.1 - GERENCIA/ADMINSTRATIVO", children: [
-                    {id: "2.1.1.1.1", text: "2.1.1.1.1 - SALÁRIOS"},
-                    {id: "2.1.1.1.2", name: "2.1.1.1.2 - DIVIDENDOS / COMISSÕES /BONUS"},
-                    {id: "2.1.1.1.3", name: "2.1.1.1.3 - INSS"},
-                    {id: "2.1.1.1.4", name: "2.1.1.1.4 - FGTS"}
+var data = [
+    {id: "2", text: "2 - Comandi", children: [
+        {id: "2.1", text: "2.1 - Funzioni", children: [
+            {id: "2.1.1", text: "2.1.1 - Funzione", children: [
+                {id: "211", text: "2.1.1 - Funzione"}, 
+                {id: "2.1.1.1", text: "2.1.1.1 - Nome", children: [
+                    {id: "2_1_1_1_1", text: "2.1.1.1.1 - SALARIO"},
+                    {id: "2.1.1.1.2", text: "2.1.1.1.2 - DIVIDENDOS"},
+                    {id: "2.1.1.1.3", text: "2.1.1.1.3 - INSS"},
+                    {id: "2.1.1.1.4", text: "2.1.1.1.4 - FGTS"}
                 ]}
             ]}
         ]}
     ]}
-    ]};
+    ];
 
 $('#find2').select2({
 	placeholder:"Search or Command",
 //	theme: "classic",
-//	allowClear: true,
+	allowClear: false,
 //	width: 'resolve',
-//	dropdownAutoWidth: true,
-	width: '300px',
+	dropdownAutoWidth: true,
+	width: '350px',
 	data: data,
-//	data: {results: data, text: data.name},
-//	formatSelection: function(item) { return item.name },
-//	formatResult: function(item) {return item.name}
+//	data: {results: data, text: data.text},
+	formatSelection: function(item) { return item.text },
+	formatResult: function(item) {return item.id}
 });
 </script>
 		<button type="button" id="find"

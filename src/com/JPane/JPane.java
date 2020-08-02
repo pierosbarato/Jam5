@@ -100,10 +100,10 @@ import javax.xml.validation.Validator;
 
 import java.io.FileOutputStream;
 // =============================================================================
-// JPane ver 5.17.4.17 Genoa Italy 26/may/2020. JSON Jam5 (test)
+// JPane ver 5.17.4.17 Genoa Italy 2/aug/2020. JSON Jam5 (test)
 // =============================================================================
 public class JPane {
-	static String VERSION	= "5.17.4.17 26/may/2020 JPane JSON Jam5 (test)";
+	static String VERSION	= "5.17.4.17 2/aug/2020 JPane JSON Jam5 (test)";
 	String terminal			= "77";
 	static String awsS3		= "https://s3.eu-central-1.amazonaws.com/jpane/pane/";
 	static String temp		= "/Volumes/Macintosh HD/Users/pierosbarato/Downloads/";
