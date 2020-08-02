@@ -210,6 +210,17 @@ label, input, button, select, textarea {
 }
 </style>
 
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.js"></script>
+
 </head>
 <body>
 
@@ -264,15 +275,48 @@ label, input, button, select, textarea {
 		<button type="button" class="btn btn-primary" id="themeToggler">🎨</button>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" id="find2" type="text" placeholder="Search or Command" aria-label="Search2">
-<!-- 
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Query</button>
- -->
-		<button type="button" id="find" class="btn btn-outline-success my-2 my-sm-0">
+			<select class="form-control mr-sm-2" name="find2" id="find2"
+				multiple="multiple"
+				aria-label="Search2">
+				<option>piero</option>
+				<option>pippo</option>
+			</select>
+<script>
+var data = {"results":[
+    {id: "2", text: "2 - Gastos", children: [
+        {id: "2.1", text: "2.1 - DESPESA OPERACIONAL FIXA", children: [
+            {id: "2.1.1", text: "2.1.1 - PESSOAL", children: [
+                {id: "2.1.1", text: "2.1.1 - PESSOAL"}, 
+                {id: "2.1.1.1", text: "2.1.1.1 - GERENCIA/ADMINSTRATIVO", children: [
+                    {id: "2.1.1.1.1", text: "2.1.1.1.1 - SALÁRIOS"},
+                    {id: "2.1.1.1.2", name: "2.1.1.1.2 - DIVIDENDOS / COMISSÕES /BONUS"},
+                    {id: "2.1.1.1.3", name: "2.1.1.1.3 - INSS"},
+                    {id: "2.1.1.1.4", name: "2.1.1.1.4 - FGTS"}
+                ]}
+            ]}
+        ]}
+    ]}
+    ]};
+
+$('#find2').select2({
+	placeholder:"Search or Command",
+//	theme: "classic",
+//	allowClear: true,
+//	width: 'resolve',
+//	dropdownAutoWidth: true,
+	width: '300px',
+	data: data,
+//	data: {results: data, text: data.name},
+//	formatSelection: function(item) { return item.name },
+//	formatResult: function(item) {return item.name}
+});
+</script>
+		<button type="button" id="find"
+				class="btn btn-outline-success my-2 my-sm-0">
 			<i class="fas fa-search"></i>&nbsp;
 			</button>
         </form>
-        
+
        </menu>
 
         
@@ -387,9 +431,6 @@ input:focus {
 }        
 </style>
 
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 				<div class="frame">
 					<ul id="chat"></ul>
 				</div>
@@ -485,15 +526,6 @@ insertChat("you", "$init", 1000);
 
 	<textarea id="nestable-output-load"></textarea>
 	<textarea id="nestable-output-find"></textarea>
-
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <!-- 
 <script type="text/javascript"
 	src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
