@@ -79,8 +79,10 @@
 		max-height: calc(70vh - 131px);
 	}
 }
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+background-color: lawngreen;
+}
 </style>
-
 <link rel="stylesheet" href="nest.css">
 <link rel="stylesheet" href="main.css">
 
@@ -276,26 +278,22 @@ label, input, button, select, textarea {
         </ul>
         <form class="form-inline my-2 my-lg-0">
 			<select class="form-control mr-sm-2" name="find2" id="find2"
-				multiple="multiple"
+				multiple = "multiple"
 				aria-label="Search2">
 			</select>
 <script>
-var data = [
-	{id: "1", text: "1 - Funzioni"}, 
-    {id: "2", text: "2 - Comandi", children: [
-        {id: "2.1", text: "2.1 - Funzioni", children: [
-            {id: "2.1.1", text: "2.1.1 - Funzione", children: [
-                {id: "211", text: "2.1.1 - Funzione"}, 
-                {id: "2.1.1.1", text: "2.1.1.1 - Nome", children: [
-                    {id: "2_1_1_1_1", text: "2.1.1.1.1 - SALARIO"},
-                    {id: "2.1.1.1.2", text: "2.1.1.1.2 - DIVIDENDOS"},
-                    {id: "2.1.1.1.3", text: "2.1.1.1.3 - INSS"},
-                    {id: "2.1.1.1.4", text: "2.1.1.1.4 - FGTS"}
-                ]}
-            ]}
-        ]}
-    ]}
-    ];
+var data99 = [
+	{id: 0, text: 'invalid'},	
+	{id: 1, text: 'enhancement', children: [
+    	{id: 2, text: "2.1.1 - Funzione"},
+    	{id: 3, text: 'enhancement child1'},
+    	{id: 4, text: 'enhancement child2'}
+    	]},
+	{id: 5, text: 'bug'},
+	{id: 6, text: 'duplicate'},
+	{id: 7, text: 'test'},
+	{id: 8, text: 'wontfix'}
+];
 
 $('#find2').select2({
 	placeholder:"Search or Command",
@@ -306,10 +304,21 @@ $('#find2').select2({
 	width: '350px',
 	tags: "true",
 //	data: function(){return {results: data}},
-	data: data,
+	data: data99,
 //	data: {results: data, text: data.text},
 	formatSelection: function(item) { return item.text },
 	formatResult: function(item) {return item.id}
+});
+$('#find2').on("select2:select", function(e) { 
+//	var selectedoptions = $(this).find('option:selected');
+	var selectedoptions = $('#find2').select2('data')[0].text;
+	insertChat("you", '$' + selectedoptions )
+	if(selectedoptions != undefined) {
+		selectedoptions.forEach(
+//			insertChat("you", '$' + $(this).val() )
+//			insertChat("you", '$' + selectedoptions )
+		);
+	};
 });
 </script>
 <script>
@@ -355,7 +364,6 @@ $('#find2').select2({
             callback(preselections);
         }
     }).select2('val', [2,4,5]); // 2,4,5 are the pre-selected IDs
-    
     
     $('#myselect-2').select2({
         placeholder: 'Select Resources',
@@ -656,7 +664,17 @@ insertChat("you", "$init", 1000);
 				$('#nestable-output-' + modo.substring(0, 4)).val(JSON.stringify(data));
 //				alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
 				var json2 = eval(data);
-//				alert("Data: " + JSON.stringify(json));
+//				$('#find2').val(null);
+/*				$('#find2').select2({
+					placeholder:"Search or Command",
+					allowClear: false,
+					dropdownAutoWidth: true,
+					width: '350px',
+					tags: "true",
+					formatSelection: function(item) { return item.id },
+					formatResult: function(item) {return item.id},
+				    data: json2
+				}); */
 
 				var buttonEdit = `<div class="btn-group float-right jamButton">
 					<div class="dropdown">
