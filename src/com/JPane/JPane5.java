@@ -285,6 +285,8 @@ public class JPane5 {
 				+ "," + "\"tt\":\"pane\","
 				+ "");
 
+		tmpJson.addList("\"text\":\"" + sysId + "\",");
+
 		if(req.contains("/find")) {
 			tmpJson.addList("\"classes\":[\"dd-collapsed\"],");
 		}
@@ -355,10 +357,10 @@ public class JPane5 {
 			}
 
 			if(ix.length() > 0
-			&&!ix.contains("IMP_RATA2".toLowerCase())
-			&&!ix.contains("DATA_SCAD2".toLowerCase())
-			&&!ix.contains("ImportoPagamento")
-			&&!ix.contains("DataScadenzaPagamento")
+			&&!is.contains("IMP_RATA2")
+			&&!is.contains("DATA_SCAD2")
+//			&&!ix.contains("ImportoPagamento")
+//			&&!ix.contains("DataScadenzaPagamento")
 			) {
 				String tmp = paneId + "_" + ix;
 //				if(nCmp > 0) tmpJson.add(",");
@@ -367,6 +369,7 @@ public class JPane5 {
 
 			tmpJson.addList("{");
 			tmpJson.addList("\"id\":\"" + sysId + "." + ix + "\",");
+			tmpJson.addList("\"text\":\"" + sysId + "." + ix + "\",");
 			tmpJson.addList("\"ix\":\"" + ix + "\",");
 			tmpJson.addList("\"val\":\"" + val + "\",");
 
@@ -382,8 +385,13 @@ public class JPane5 {
 			tmpJson.addList("{\"tt\":\"att:type\","
 					+ "\"iconClass\":\"fa-list-alt\","
 					+ "\"id\":\"" + sysId + "." + ix + "\","
+					+ "\"text\":\"" + sysId + "." + ix + "\","
 					+ "\"type\":\"" + type + "\","
 					+ "\"tit\":\"" + tit +"\"}");
+
+			tmpJson.addList(",{"
+					+ "\"id\":\"" + ix + "\","
+					+ "\"text\":\"" + ix + "\"}");
 
 			if(is.length()>0)
 				tmpJson.addList(",{\"tt\":\"att:sql\","
@@ -536,6 +544,12 @@ public class JPane5 {
 
 		tmpJson.addList("[");
 
+		if(req.contains("/find")) {
+			paneId = "CUST";
+			JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
+		}
+
+		paneId = "TD01_FAT";
 		JPaneLoadPane(paneId, req, frame, master, sysId, requ, tmpJson);
 
 		tmpJson.add("}");

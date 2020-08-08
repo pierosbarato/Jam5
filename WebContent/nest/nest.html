@@ -79,8 +79,10 @@
 		max-height: calc(70vh - 131px);
 	}
 }
-.select2-container--default .select2-selection--multiple .select2-selection__choice {
-background-color: lawngreen;
+.select2-container--default
+.select2-selection--multiple
+.select2-selection__choice {
+	background-color: lawngreen;
 }
 </style>
 <link rel="stylesheet" href="nest.css">
@@ -277,19 +279,19 @@ label, input, button, select, textarea {
 		<button type="button" class="btn btn-primary" id="themeToggler">🎨</button>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-			<select class="form-control mr-sm-2" name="find2" id="find2"
+			<select class="form-control mr-sm-2" name="find3" id="find3"
 				multiple = "multiple"
 				aria-label="Search2">
 			</select>
 <script>
 var data99 = [
-	{id: 0, text: 'invalid'},	
+	{id: "pippo.piero.pluto", text: 'invalid'},	
 	{id: 1, text: 'enhancement', children: [
     	{id: 2, text: "2.1.1 - Funzione"},
     	{id: 3, text: 'enhancement child1'},
     	{id: 4, text: 'enhancement child2'}
     	]},
-	{id: 5, text: 'bug'},
+	{id: "test.uno.due", text: 'bug'},
 	{id: 6, text: 'duplicate'},
 	{id: 7, text: 'test'},
 	{id: 8, text: 'wontfix'}
@@ -664,9 +666,9 @@ insertChat("you", "$init", 1000);
 				$('#nestable-output-' + modo.substring(0, 4)).val(JSON.stringify(data));
 //				alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
 				var json2 = eval(data);
-//				$('#find2').val(null);
-/*				$('#find2').select2({
-					placeholder:"Search or Command",
+				$('#find3').val(null);
+				$('#find3').select2({
+					placeholder:"List Item",
 					allowClear: false,
 					dropdownAutoWidth: true,
 					width: '350px',
@@ -674,7 +676,7 @@ insertChat("you", "$init", 1000);
 					formatSelection: function(item) { return item.id },
 					formatResult: function(item) {return item.id},
 				    data: json2
-				}); */
+				});
 
 				var buttonEdit = `<div class="btn-group float-right jamButton">
 					<div class="dropdown">
