@@ -3391,7 +3391,7 @@ public class JPane {
 		new File(temp + "FattNew/inOK").mkdirs();
 		new File(temp + "FattNew/inZip").mkdirs();
 
-		int numFatturaFine = 100;
+		int numFatturaFine = 10000;
 
 		if(numFattura == 0) {
 			numFattura = 1;
@@ -3633,10 +3633,13 @@ public class JPane {
 				+ "::x005:null::-ix:dbserver::-is:CUST.DBSERVER"
 				;
 		master = frame.execBase(requ, cmd, 0, requ, master);
-		cmd	= "$$CUST::x001:PIERO::x002:piero_sbarato::x003:GLOBE::x004:MANAGER"
+		cmd	= "$$CUST"
+//				+   "::x001:PIERO::x002:piero_sbarato::x003:GLOBE::x004:MANAGER"
+//				+	"::x005:" + JPane.vEnc("217.133.32.75:1521:XE")
+//				+	"::x001:MAURO::x002:mauro_marino::x003:GLOBE::x004:MANAGER"
+//				+	"::x005:" + JPane.vEnc("93.43.22.2:1522:XE")
+				+	"::x001:JAM70::x002:Sunrise::x003:SUNRISE::x004:MANAGER"
 				+	"::x005:" + JPane.vEnc("217.133.32.75:1521:XE")
-				+	"::x001:MAURO::x002:mauro_marino::x003:GLOBE::x004:MANAGER"
-				+	"::x005:" + JPane.vEnc("93.43.22.2:1522:XE")
 				;
 
 		master = frame.execBase(requ, cmd, 0, requ, master);
@@ -3652,11 +3655,14 @@ public class JPane {
 		String cmd = "";
 		master = JPaneBase.paneBASE(frame, requ, master, term, 1);
 		cmd	= "$def:CUST"
-			+ "::x001:JAM50::-ix:utente::-nkey:1::-nseg:100"
+			+ "::x001:JAM70::-ix:utente::-nkey:1::-nseg:100"
 			+ "::x002:Formoto::-ix:nome"
-			+ "::x003:GLOBE::-ix:usr"
-			+ "::x004:MANAGER::-ix:pwd"
+			+ "::x003:GLOBE::-ix:usr" + "::x004:MANAGER::-ix:pwd"
 			+ "::x005:" + JPane.vEnc("93.148.232.79_1522_XE") + "::-ix:svr"
+
+			+ "::x002:Jamfive::-ix:nome"
+			+ "::x003:SUNRISE::-ix:usr" + "::x004:MANAGER::-ix:pwd"
+			+ "::x005:" + JPane.vEnc("217.133.32.75:1521:XE") + "::-ix:svr"
 			+ "::x006:2::-ix:vendite"
 			;
 

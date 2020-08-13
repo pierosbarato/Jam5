@@ -195,8 +195,10 @@ public class JPane5 {
 	}
 
 	static String term = "99";
-	static String para = "CUST::x001:JAM50::x002:Formoto::x003:GLOBE"
-				+ "::x004:MANAGER::x005:93.148.232.79_1522_XE::x006:2";
+//	static String para = "CUST::x001:JAM50::x002:Formoto::x003:GLOBE"
+//				+ "::x004:MANAGER::x005:93.148.232.79_1522_XE::x006:2";
+	static String para = "CUST::x001:JAM70::x002:Sunrise::x003:SUNRISE"
+				+ "::x004:MANAGER::x005:217.133.32.75:1521:XE::x006:2";
 	// =========================================================================
 	public static void main(String[] args) {
 		String data =
@@ -313,7 +315,7 @@ public class JPane5 {
 //		if(paneId.equalsIgnoreCase("linee")
 //		 ||paneId.equalsIgnoreCase("iva"))
 
-		if(paneMode.contentEquals("Detail"))
+		if(paneMode.equalsIgnoreCase("Detail"))
 			beginArray = "[";
 		else
 			if(tmpJson.JSON.length() > 3) tmpJson.add(",");
@@ -321,7 +323,7 @@ public class JPane5 {
 		tmpJson.add("\"" + paneId + "\":" + beginArray + "{");
 		tmpJson.add("\"_pane\":" + "{\"id\":\"" + paneId + "\"}");
 
-		if(!paneMode.contentEquals("Detail")) rigMax = 1;
+		if(!paneMode.equalsIgnoreCase("Detail")) rigMax = 1;
 
 		for(int i=1; i<=rigMax; i++) {
 			if(i> 1) tmpJson.add("{");
@@ -342,6 +344,8 @@ public class JPane5 {
 			String edit	= jl.get("edit"		,"");
 			String view	= JPane.vDec(jl.get("view"	,""));
 			String exec	= JPane.vDec(jl.get("exec"	,""));
+			
+			val = val.replace("\"", " ");
 
 			if(exec.length() > 0) view = exec;
 
@@ -416,7 +420,7 @@ public class JPane5 {
 //		if(paneId.equalsIgnoreCase("linee")
 //		 ||paneId.equalsIgnoreCase("iva"))
 
-		if(paneMode.contentEquals("Detail"))
+		if(paneMode.equalsIgnoreCase("Detail"))
 			tmpJson.add("]");
 
 		tmpJson.addList("]}");
@@ -511,6 +515,9 @@ public class JPane5 {
 				;
 		master = frame.execBase(requ, cmd, 0, requ, master);
 
+		cmd = "$def:boot_Css::state-mode:master";
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
 		cmd = "$def:boot_Js::state-mode:master::-tit:Js_File"
 //				+ "::-edit:Dat2Html"
 				+ "::-boot:boot"
@@ -526,6 +533,9 @@ public class JPane5 {
 					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"
 					+ "|http://cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js")
 				;
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
+		cmd = "$def:boot_Js::state-mode:master";
 		master = frame.execBase(requ, cmd, 0, requ, master);
 
 		cmd = "$def:boot::state-mode:master" // ::tit:JsFile"
