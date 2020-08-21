@@ -346,6 +346,7 @@ public class JPane5 {
 			String exec	= JPane.vDec(jl.get("exec"	,""));
 			
 			val = val.replace("\"", " ");
+			if(type.toUpperCase().startsWith("DATE")) val = "20" + val;
 
 			if(exec.length() > 0) view = exec;
 
@@ -498,6 +499,23 @@ public class JPane5 {
 //		String jsonEncodedString = JSONObject.quote(data);
 
 		String cmd = "";
+		
+		cmd = "$def:TD01_TDO::state-mode:master"
+				+ "::x002:TD01::-ix:TipoDocumento::-nkey=1"
+				+ "::-val:"+JSONObject.quote("TD01|TD02|TD05")
+				+ "::x008:null::-ix:Somma"
+				+ "::-val:"+JSONObject.quote("+|+|+")
+				+ "::x009:null::-ix:Scarica"
+				+ "::-val:"+JSONObject.quote("+|+|+");
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
+		cmd = "$def:TD01_TDO::state-mode:master";
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
+		cmd = "$def:TD01_BDG::state-mode:master"
+				+ "::x010:null::-view:" + JPane.vEnc("$$TD01_TDO");
+		master = frame.execBase(requ, cmd, 0, requ, master);
+
 		cmd = "$def:boot_Css::state-mode:master::-tit:Css_File"
 //				+ "::-edit:DatHtml"
 				+ "::-boot:boot"

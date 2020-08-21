@@ -506,7 +506,7 @@ public class JPane {
 	// =========================================================================
 	static String vDec(String para) {
 		String ritorno = "";
-		para = para.replace("+", " ");
+//		para = para.replace("+", " ");
 		if(!para.contains("%")) ritorno = para;
 		else try {
 				ritorno = java.net.URLDecoder.decode(para,"UTF-8");
