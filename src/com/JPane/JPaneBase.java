@@ -234,7 +234,8 @@ public class JPaneBase {
 
 		cmd = "$def:TD01_BSE::state-mode:master::-xmlPath:DatiBeniServizi"
 			+ "::x001:null::-exec:" + JPane.vEnc("$$TD01_LINEE")
-			+ "::x002:null::-exec:" + JPane.vEnc("$$TD01_IVA")
+			+ "::x002:null::-exec:" + JPane.vEnc("$$TD01_LINEE")
+			+ "::x003:null::-exec:" + JPane.vEnc("$$TD01_IVA")
 			;
 		master = frame.execBase(jp, cmd, 0, jp, master);
 
